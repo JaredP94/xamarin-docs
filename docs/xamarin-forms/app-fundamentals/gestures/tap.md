@@ -1,5 +1,5 @@
 ---
-title: "Adding a tap gesture recognizer"
+title: "Add a tap gesture recognizer"
 description: "This article explains how to use the tap gesture for tap detection in a Xamarin.Forms application. Tap detection is implemented with the TapGestureRecognizer class."
 ms.prod: xamarin
 ms.assetid: 1D150BAF-4157-49BC-90A0-153323B8EBCF
@@ -7,9 +7,10 @@ ms.technology: xamarin-forms
 author: davidbritch
 ms.author: dabritch
 ms.date: 01/21/2016
+no-loc: [Xamarin.Forms, Xamarin.Essentials]
 ---
 
-# Adding a tap gesture recognizer
+# Add a tap gesture recognizer
 
 [![Download Sample](~/media/shared/download.png) Download the sample](https://docs.microsoft.com/samples/xamarin/xamarin-forms-samples/workingwithgestures-tapgesture)
 
@@ -32,8 +33,6 @@ tapGestureRecognizer.NumberOfTapsRequired = 2; // double-tap
 ```
 
 When [`NumberOfTapsRequired`](xref:Xamarin.Forms.TapGestureRecognizer.NumberOfTapsRequired) is set above one, the event handler will only be executed if the taps occur within a set period of time (this period is not configurable). If the second (or subsequent) taps do not occur within that period they are effectively ignored and the 'tap count' restarts.
-
-<a name="Using_Xaml" />
 
 ## Using Xaml
 
@@ -108,7 +107,6 @@ public class TapViewModel : INotifyPropertyChanged
     //region INotifyPropertyChanged code omitted
 }
 ```
-
 
 ## Related Links
 

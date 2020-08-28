@@ -7,6 +7,7 @@ ms.assetid: 400AE23A-6A0B-4FA8-BD6B-DE4146B04732
 author: davidbritch
 ms.author: dabritch
 ms.date: 08/23/2018
+no-loc: [Xamarin.Forms, Xamarin.Essentials]
 ---
 
 # The SkiaSharp circular gradients
@@ -144,8 +145,8 @@ You can use more than two colors in a radial gradient. The **Rainbow Arc Gradien
 ```csharp
 public class RainbowArcGradientPage : ContentPage
 {
-	public RainbowArcGradientPage ()
-	{
+    public RainbowArcGradientPage ()
+    {
         Title = "Rainbow Arc Gradient";
 
         SKCanvasView canvasView = new SKCanvasView();
@@ -222,7 +223,7 @@ public class RadialGradientMaskPage : ContentPage
     static readonly float RADIUS = 120;
 
     public RadialGradientMaskPage ()
-	{
+    {
         Title = "Radial Gradient Mask";
 
         SKCanvasView canvasView = new SKCanvasView();

@@ -7,6 +7,7 @@ ms.technology: xamarin-forms
 author: davidbritch
 ms.author: dabritch
 ms.date: 10/24/2018
+no-loc: [Xamarin.Forms, Xamarin.Essentials]
 ---
 
 # NavigationPage Bar Separator on iOS
@@ -42,7 +43,7 @@ The `NavigationPage.On<iOS>` method specifies that this platform-specific will o
 
 The result is that the navigation bar separator on a [`NavigationPage`](xref:Xamarin.Forms.NavigationPage) can be hidden:
 
-![](navigation-bar-separator-images/navigationpage-hideseparatorbar.png "NavigationPage navigation bar hidden")
+![NavigationPage navigation bar hidden](navigation-bar-separator-images/navigationpage-hideseparatorbar.png)
 
 ## Related links
 

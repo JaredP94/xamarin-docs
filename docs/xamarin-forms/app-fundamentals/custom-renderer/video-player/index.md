@@ -7,6 +7,7 @@ ms.technology: xamarin-forms
 author: davidbritch
 ms.author: dabritch
 ms.date: 02/12/2018
+no-loc: [Xamarin.Forms, Xamarin.Essentials]
 ---
 
 # Implementing a video player
@@ -60,10 +61,6 @@ Although the video players on each platform provide their own transport controls
 ## [Custom video positioning](custom-positioning.md)
 
 Each of the platform video players has a position bar that shows the progress of the video and allows you to skip ahead or back to a particular position. This article demonstrates how you can replace that position bar with a custom control.
-
-
-
-
 
 ## Related Links
 

@@ -7,6 +7,7 @@ ms.technology: xamarin-forms
 author: davidbritch
 ms.author: dabritch
 ms.date: 02/12/2018
+no-loc: [Xamarin.Forms, Xamarin.Essentials]
 ---
 
 # Accessing the device's video library
@@ -68,7 +69,7 @@ namespace FormsVideoLibrary.iOS
             // Present UIImagePickerController;
             UIWindow window = UIApplication.SharedApplication.KeyWindow;
             var viewController = window.RootViewController;
-            viewController.PresentModalViewController(imagePicker, true);
+            viewController.PresentViewController(imagePicker, true, null);
 
             // Return Task object
             taskCompletionSource = new TaskCompletionSource<string>();
@@ -380,8 +381,6 @@ namespace FormsVideoLibrary.UWP
 ```
 
 For each platform, the video begins playing almost immediately after the video source is set because the file is on the device and doesn't need to be downloaded.
-
-
 
 ## Related Links
 

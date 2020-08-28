@@ -7,6 +7,7 @@ ms.assetid: 79BD3266-D457-4E50-BDDF-33450035FA0F
 author: davidbritch
 ms.author: dabritch
 ms.date: 07/17/2018
+no-loc: [Xamarin.Forms, Xamarin.Essentials]
 ---
 
 # Creating and drawing on SkiaSharp bitmaps
@@ -19,7 +20,7 @@ You've seen how an application can load bitmaps from the Web, from application r
 SKBitmap bitmap = new SKBitmap(width, height);
 ```
 
-The `width` and `height` parameters are integers and specify the pixel dimensions of the bitmap. This constructor creates a full-color bitmap with four bytes per pixel: one byte each for the red, green, blue, and alpha (opacity) components. 
+The `width` and `height` parameters are integers and specify the pixel dimensions of the bitmap. This constructor creates a full-color bitmap with four bytes per pixel: one byte each for the red, green, blue, and alpha (opacity) components.
 
 After you've created a new bitmap, you need to get something on the surface of the bitmap. You generally do this in one of two ways:
 
@@ -51,7 +52,7 @@ using (SKCanvas canvas = new SKCanvas(bitmap))
 
 The bitmap can then be displayed. At a later time, the program can create a new `SKCanvas` object based on that same bitmap, and draw on it some more.
 
-The **Hello Bitmap** page in the **[SkiaSharpFormsDemos](https://docs.microsoft.com/samples/xamarin/xamarin-forms-samples/skiasharpforms-demos)** application writes the text "Hello, Bitmap!" on a bitmap and then displays that bitmap multiple times.  
+The **Hello Bitmap** page in the **[SkiaSharpFormsDemos](https://docs.microsoft.com/samples/xamarin/xamarin-forms-samples/skiasharpforms-demos)** application writes the text "Hello, Bitmap!" on a bitmap and then displays that bitmap multiple times.
 
 The constructor of the `HelloBitmapPage` begins by creating an `SKPaint` object for displaying text. It determines the dimensions of a text string and creates a bitmap with those dimensions. It then creates an `SKCanvas` object based on that bitmap, calls `Clear`, and then calls `DrawText`. It's always a good idea to call `Clear` with a new bitmap because a newly created bitmap might contain random data.
 
@@ -83,7 +84,7 @@ public partial class HelloBitmapPage : ContentPage
             }
         }
 
-        // Create SKCanvasView to view result 
+        // Create SKCanvasView to view result
         SKCanvasView canvasView = new SKCanvasView();
         canvasView.PaintSurface += OnCanvasViewPaintSurface;
         Content = canvasView;
@@ -118,7 +119,7 @@ The display of the **Hello Bitmap** page demonstrates that the bitmap the progra
 
 The documentation of the `Clear` methods of `SKCanvas` describes them with the statement: "Replaces all the pixels in the canvas' current clip." The use of the word "replaces" reveals an important characteristic of these methods: All the drawing methods of `SKCanvas` add something to the existing display surface. The `Clear` methods _replace_ what's already there.
 
-`Clear` exists in two different versions: 
+`Clear` exists in two different versions:
 
 - The [`Clear`](xref:SkiaSharp.SKCanvas.Clear(SkiaSharp.SKColor)) method with an `SKColor` parameter replaces the pixels of the display surface with pixels of that color.
 
@@ -162,7 +163,7 @@ The `SKColorType` enumeration has 9 members. Each of these members describes a p
 - `Gray8` &mdash; each pixel is 8 bits representing a gray shade from black to white
 - `RgbaF16` &mdash; each pixel is 64 bits, with red, green, blue, and alpha in a 16-bit floating-point format
 
-The two formats where each pixel is 32 pixels (4 bytes) are often called _full-color_ formats. Many of the other formats date from a time when video displays themselves were not capable of full color. Bitmaps of limited color were adequate for these displays and allowed bitmaps to occupy less space in memory. 
+The two formats where each pixel is 32 pixels (4 bytes) are often called _full-color_ formats. Many of the other formats date from a time when video displays themselves were not capable of full color. Bitmaps of limited color were adequate for these displays and allowed bitmaps to occupy less space in memory.
 
 These days, programmers almost always use full-color bitmaps and don't bother with other formats. The exception is the `RgbaF16` format, which allows greater color resolution than even the full-color formats. However, this format is used for specialized purposes, such as medical imaging, and doesn't make much sense when used with standard full-color displays.
 
@@ -192,7 +193,7 @@ This performance improvement is why `SkiaSharp` bitmaps by default are created w
 
 ## Drawing on existing bitmaps
 
-It is not necessary to create a new bitmap to draw on it. You can also draw on an existing bitmap. 
+It is not necessary to create a new bitmap to draw on it. You can also draw on an existing bitmap.
 
 The **Monkey Moustache** page uses its constructor to load the **MonkeyFace.png** image. It then creates an `SKCanvas` object based on that bitmap, and uses `SKPaint` and `SKPath` objects to draw a moustache on it:
 
@@ -231,7 +232,7 @@ public partial class MonkeyMoustachePage : ContentPage
             }
         }
 
-        // Create SKCanvasView to view result 
+        // Create SKCanvasView to view result
         SKCanvasView canvasView = new SKCanvasView();
         canvasView.PaintSurface += OnCanvasViewPaintSurface;
         Content = canvasView;
@@ -263,7 +264,7 @@ The following bitmap included with the **[SkiaSharpFormsDemos](https://docs.micr
 
 ![Mountain Climbers](drawing-images/MountainClimbers.jpg "Mountain Climbers")
 
-Suppose you haven't received permission from the monkey on the left to publish this photograph. One solution is to obscure the monkey's face using a technique called _pixelization_. The pixels of the face are replaced with blocks of color so you can't make out the features. The blocks of color are usually derived from the original image by averaging the colors of the pixels corresponding to these blocks. But you don't need to perform this averaging yourself. It happens automatically when you copy a bitmap into a smaller pixel dimension. 
+Suppose you haven't received permission from the monkey on the left to publish this photograph. One solution is to obscure the monkey's face using a technique called _pixelization_. The pixels of the face are replaced with blocks of color so you can't make out the features. The blocks of color are usually derived from the original image by averaging the colors of the pixels corresponding to these blocks. But you don't need to perform this averaging yourself. It happens automatically when you copy a bitmap into a smaller pixel dimension.
 
 The left monkey's face occupies approximately a 72-pixel square area with an upper-left corner at the point (112, 238). Let's replace that 72-pixel square area with a 9-by-9 array of colored blocks, each of which is 8-by-8 pixels square.
 
@@ -276,8 +277,8 @@ public class PixelizedImagePage : ContentPage
 {
     SKBitmap pixelizedBitmap;
 
-	public PixelizedImagePage ()
-	{
+    public PixelizedImagePage ()
+    {
         Title = "Pixelize Image";
 
         SKBitmap originalBitmap = BitmapExtensions.LoadBitmapResource(GetType(),
@@ -307,7 +308,7 @@ public class PixelizedImagePage : ContentPage
             canvas.DrawBitmap(originalBitmap, new SKPoint());
 
             // Draw tiny bitmap to cover face
-            canvas.DrawBitmap(faceBitmap, 
+            canvas.DrawBitmap(faceBitmap,
                               new SKRect(112, 238, 184, 310));  // destination
         }
 
@@ -332,8 +333,6 @@ public class PixelizedImagePage : ContentPage
 The constructor concludes by creating an `SKCanvasView` to display the result:
 
 [![Pixelize Image](drawing-images/PixelizeImage.png "Pixelize Image")](drawing-images/PixelizeImage-Large.png#lightbox)
-
-<a name="rotating-bitmaps" />
 
 ## Rotating bitmaps
 
@@ -364,7 +363,7 @@ using (SKCanvas canvas = new SKCanvas(rotatedBitmap))
     canvas.RotateDegrees(90);
     canvas.DrawBitmap(bitmap, new SKPoint());
 }
-```                        
+```
 
 And here's a similar function for rotating 90 degrees counter-clockwise:
 
@@ -380,7 +379,7 @@ using (SKCanvas canvas = new SKCanvas(rotatedBitmap))
 }
 ```
 
-These two methods are used in the **Photo Puzzle** pages described in the article [**Cropping SkiaSharp Bitmaps**](cropping.md#tile-division).
+These two methods are used in the **Photo Puzzle** pages described in the article [**Cropping SkiaSharp Bitmaps**](cropping.md#cropping-skiasharp-bitmaps).
 
 A program that allows the user to rotate a bitmap in 90-degree increments needs only implement one function for rotating by 90 degrees. The user can then rotate in any increment of 90 degrees by repeated execution of this one function.
 
@@ -397,7 +396,7 @@ using (SKCanvas canvas = new SKCanvas(rotatedBitmap))
 }
 ```
 
-However, in the general case, this logic will crop off the corners of the rotated bitmap. A better approach is to calculate the size of the rotated bitmap using trigonometry to include those corners. 
+However, in the general case, this logic will crop off the corners of the rotated bitmap. A better approach is to calculate the size of the rotated bitmap using trigonometry to include those corners.
 
 This trigonometry is shown in the **Bitmap Rotator** page. The XAML file instantiates an `SKCanvasView` and a `Slider` that can range from 0 through 360 degrees with a `Label` showing the current value:
 
@@ -431,16 +430,16 @@ The code-behind file loads a bitmap resource and saves it as a static read-only 
 ```csharp
 public partial class BitmapRotatorPage : ContentPage
 {
-    static readonly SKBitmap originalBitmap = 
+    static readonly SKBitmap originalBitmap =
         BitmapExtensions.LoadBitmapResource(typeof(BitmapRotatorPage),
             "SkiaSharpFormsDemos.Media.Banana.jpg");
 
     SKBitmap rotatedBitmap = originalBitmap;
 
-	public BitmapRotatorPage ()
-	{
-		InitializeComponent ();
-	}
+    public BitmapRotatorPage ()
+    {
+        InitializeComponent ();
+    }
 
     void OnCanvasViewPaintSurface(object sender, SKPaintSurfaceEventArgs args)
     {
@@ -509,7 +508,7 @@ The **Bitmap Flipper** page in the **[SkiaSharpFormsDemos](https://docs.microsof
             <ColumnDefinition Width="*" />
             <ColumnDefinition Width="*" />
         </Grid.ColumnDefinitions>
-        
+
         <skia:SKCanvasView x:Name="canvasView"
                            Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2"
                            PaintSurface="OnCanvasViewPaintSurface" />
@@ -527,7 +526,7 @@ The **Bitmap Flipper** page in the **[SkiaSharpFormsDemos](https://docs.microsof
 </ContentPage>
 ```
 
-The code-behind file implements these two operations in the `Clicked` handlers for the buttons: 
+The code-behind file implements these two operations in the `Clicked` handlers for the buttons:
 
 ```csharp
 public partial class BitmapFlipperPage : ContentPage
@@ -583,7 +582,7 @@ public partial class BitmapFlipperPage : ContentPage
 }
 ```
 
-The vertical flip is accomplished by a scaling transform with a horizontal scaling factor of &ndash;1. The scaling center is the vertical center of the bitmap. The horizontal flip is a scaling transform with a vertical scaling factor of &ndash;1. 
+The vertical flip is accomplished by a scaling transform with a horizontal scaling factor of &ndash;1. The scaling center is the vertical center of the bitmap. The horizontal flip is a scaling transform with a vertical scaling factor of &ndash;1.
 
 As you can see from the reversed lettering on the monkey's shirt, flipping is not the same as rotation. But as the UWP screenshot on the right demonstrates, flipping both horizontally and vertically is the same as rotating 180 degrees:
 

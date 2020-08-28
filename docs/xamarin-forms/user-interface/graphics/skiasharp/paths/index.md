@@ -7,6 +7,7 @@ ms.technology: xamarin-skiasharp
 author: davidbritch
 ms.author: dabritch
 ms.date: 03/10/2017
+no-loc: [Xamarin.Forms, Xamarin.Essentials]
 ---
 
 # SkiaSharp Lines and Paths
@@ -44,7 +45,6 @@ Master the intricacies of drawing dotted and dashed lines in SkiaSharp.
 ## [Finger Painting](finger-paint.md)
 
 Use your fingers to paint on the canvas.
-
 
 ## Related Links
 

@@ -7,6 +7,7 @@ ms.technology: xamarin-forms
 author: davidbritch
 ms.author: dabritch
 ms.date: 10/25/2017
+no-loc: [Xamarin.Forms, Xamarin.Essentials]
 ---
 
 # Part 2. Essential XAML Syntax
@@ -77,10 +78,9 @@ These two ways to specify the `TextColor` property are functionally equivalent, 
 
 With this new syntax, some handy terminology can be introduced:
 
--  `Label` is an  *object element*. It is a Xamarin.Forms object expressed as an XML element.
--  `Text`,  `VerticalOptions`, `FontAttributes` and  `FontSize` are  *property attributes*. They are Xamarin.Forms properties expressed as XML attributes.
--  In that final snippet, `TextColor` has become a  *property element*. It is a Xamarin.Forms property but it is now an XML element.
-
+- `Label` is an  *object element*. It is a Xamarin.Forms object expressed as an XML element.
+- `Text`,  `VerticalOptions`, `FontAttributes` and  `FontSize` are  *property attributes*. They are Xamarin.Forms properties expressed as XML attributes.
+- In that final snippet, `TextColor` has become a  *property element*. It is a Xamarin.Forms property but it is now an XML element.
 
 The definition of property elements might at first seem to be a violation of XML syntax, but it’s not. The period has no special meaning in XML. To an XML decoder, `Label.TextColor` is simply a normal child element.
 
@@ -171,13 +171,13 @@ You've just seen that the `Grid` requires property elements for the `RowDefiniti
 
 Within the tag for each child of the `Grid` you specify the row and column of that child using the following attributes:
 
--  `Grid.Row`
--  `Grid.Column`
+- `Grid.Row`
+- `Grid.Column`
 
 The default values of these attributes are 0. You can also indicate if a child spans more than one row or column with these attributes:
 
--  `Grid.RowSpan`
--  `Grid.ColumnSpan`
+- `Grid.RowSpan`
+- `Grid.ColumnSpan`
 
 These two attributes have default values of 1.
 
@@ -250,7 +250,7 @@ The `Grid.Row` and `Grid.Column` settings of 0 are not required but are generall
 
 Here’s what it looks like:
 
-[![](essential-xaml-syntax-images/griddemo.png "Grid Layout")](essential-xaml-syntax-images/griddemo-large.png#lightbox "Grid Layout")
+[![Grid Layout](essential-xaml-syntax-images/griddemo.png)](essential-xaml-syntax-images/griddemo-large.png#lightbox)
 
 Judging solely from the syntax, these `Grid.Row`, `Grid.Column`, `Grid.RowSpan`, and `Grid.ColumnSpan` attributes appear to be static fields or properties of `Grid`, but interestingly enough, `Grid` does not define anything named `Row`, `Column`, `RowSpan`, or `ColumnSpan`.
 
@@ -307,7 +307,7 @@ The `AbsoluteLayout` class defines two attached properties named `LayoutBounds` 
 
 And here it is:
 
-[![](essential-xaml-syntax-images/absolutedemo-large.png "Absolute Layout")](essential-xaml-syntax-images/absolutedemo-large.png#lightbox "Absolute Layout")
+[![Absolute Layout](essential-xaml-syntax-images/absolutedemo-large.png)](essential-xaml-syntax-images/absolutedemo-large.png#lightbox)
 
 For something like this, you might question the wisdom of using XAML. Certainly, the repetition and regularity of the `LayoutBounds` rectangle suggests that it might be better realized in code.
 
@@ -519,7 +519,7 @@ This is the standard way to set a platform-dependent `Padding` property in XAML.
 ```
 
 > [!NOTE]
-> The `OnPlatform` markup extension can also be used in XAML to customize UI appearance on a per-platform basis. It provides the same functionality as the `OnPlatform` and `On` classes, but with a more concise representation. For more information, see [OnPlatform Markup Extension](~/xamarin-forms/xaml/markup-extensions/consuming.md#onplatform).
+> The `OnPlatform` markup extension can also be used in XAML to customize UI appearance on a per-platform basis. It provides the same functionality as the `OnPlatform` and `On` classes, but with a more concise representation. For more information, see [OnPlatform Markup Extension](~/xamarin-forms/xaml/markup-extensions/consuming.md#onplatform-markup-extension).
 
 ## Summary
 

@@ -7,6 +7,7 @@ ms.technology: xamarin-forms
 author: davidbritch
 ms.author: dabritch
 ms.date: 07/10/2018
+no-loc: [Xamarin.Forms, Xamarin.Essentials]
 ---
 
 # VisualElement Legacy Color Mode on Android
@@ -45,7 +46,7 @@ The `VisualElement.On<Android>` method specifies that this platform-specific wil
 
 The result is that the legacy color mode can be disabled, so that colors set on a view by the user remain even when the view is disabled:
 
-![](legacy-color-mode-images/legacy-color-mode-disabled.png "Legacy color mode disabled")
+![Legacy color mode disabled](legacy-color-mode-images/legacy-color-mode-disabled.png)
 
 > [!NOTE]
 > When setting a [`VisualStateGroup`](xref:Xamarin.Forms.VisualStateGroup) on a view, the legacy color mode is completely ignored. For more information about visual states, see [The Xamarin.Forms Visual State Manager](~/xamarin-forms/user-interface/visual-state-manager.md).

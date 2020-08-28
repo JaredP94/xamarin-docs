@@ -7,6 +7,7 @@ ms.assetid: E3A4E373-F65D-45C8-8E77-577A804AC3F8
 author: davidbritch
 ms.author: dabritch
 ms.date: 03/10/2017
+no-loc: [Xamarin.Forms, Xamarin.Essentials]
 ---
 
 # Drawing a Simple Circle in SkiaSharp
@@ -19,9 +20,9 @@ This article introduces the concepts of drawing graphics in Xamarin.Forms using 
 
 The [**SkiaSharpFormsDemos**](https://docs.microsoft.com/samples/xamarin/xamarin-forms-samples/skiasharpforms-demos) program contains all the sample code for this series of SkiaSharp articles. The first page is entitled **Simple Circle** and invokes the page class [`SimpleCirclePage`](https://github.com/xamarin/xamarin-forms-samples/blob/master/SkiaSharpForms/Demos/Demos/SkiaSharpFormsDemos/Basics/SimpleCirclePage.cs). This code shows how to draw a circle in the center of the page with a radius of 100 pixels. The outline of the circle is red, and the interior of the circle is blue.
 
-![](circle-images/circleexample.png "A blue circle outlined in red")
+![A blue circle outlined in red](circle-images/circleexample.png)
 
-The [`SimpleCirle`](https://github.com/xamarin/xamarin-forms-samples/blob/master/SkiaSharpForms/Demos/Demos/SkiaSharpFormsDemos/Basics/SimpleCirclePage.cs) page class derives from `ContentPage` and contains two `using` directives for the SkiaSharp namespaces:
+The [`SimpleCircle`](https://github.com/xamarin/xamarin-forms-samples/blob/master/SkiaSharpForms/Demos/Demos/SkiaSharpFormsDemos/Basics/SimpleCirclePage.cs) page class derives from `ContentPage` and contains two `using` directives for the SkiaSharp namespaces:
 
 ```csharp
 using SkiaSharp;
@@ -133,11 +134,12 @@ void OnCanvasViewPaintSurface(object sender, SKPaintSurfaceEventArgs args)
     canvas.DrawCircle(args.Info.Width / 2, args.Info.Height / 2, 100, paint);
 }
 ```
+
 This time, the `DrawCircle` call fills the circle using the new properties of the `SKPaint` object.
 
-Here's the program running on iOS, Android, and the Universal Windows Platform:
+Here's the program running on iOS and Android:
 
-[![](circle-images/simplecircle-small.png "Triple screenshot of the Simple Circle page")](circle-images/simplecircle-large.png#lightbox "Triple screenshot of the Simple Circle page")
+[![Triple screenshot of the Simple Circle page](circle-images/simplecircle-small.png)](circle-images/simplecircle-large.png#lightbox "Triple screenshot of the Simple Circle page")
 
 When running the program yourself, you can turn the phone or simulator sideways to see how the graphic is redrawn. Each time the graphic needs to be redrawn, the `PaintSurface` event handler is called again.
 
@@ -151,7 +153,6 @@ An `SKPaint` object is little more than a collection of graphics drawing propert
 Although the width of the circle's outline is specified as 25 pixels &mdash; or one-quarter of the radius of the circle &mdash; it appears to be thinner, and there's a good reason for that: Half the width of the line is obscured by the blue circle. The arguments to the `DrawCircle` method define the abstract geometric coordinates of a circle. The blue interior is sized to that dimension to the nearest pixel, but the 25-pixel-wide outline straddles the geometric circle &mdash; half on the inside and half on the outside.
 
 The next sample in the [Integrating with Xamarin.Forms](~/xamarin-forms/user-interface/graphics/skiasharp/basics/integration.md) article demonstrates this visually.
-
 
 ## Related Links
 

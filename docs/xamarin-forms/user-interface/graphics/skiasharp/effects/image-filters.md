@@ -7,6 +7,7 @@ ms.assetid: 173E7B22-AEC8-4F12-B657-1C0CEE01AD63
 author: davidbritch
 ms.author: dabritch
 ms.date: 08/27/2018
+no-loc: [Xamarin.Forms, Xamarin.Essentials]
 ---
 
 # SkiaSharp image filters
@@ -72,7 +73,6 @@ The **Image Blur Experiment** page in the [**SkiaSharpFormsDemos**](https://docs
 
 The code-behind file uses the two `Slider` values to call `SKImageFilter.CreateBlur` for the `SKPaint` object used to display both text and a bitmap:
 
-
 ```csharp
 public partial class ImageBlurExperimentPage : ContentPage
 {
@@ -83,8 +83,8 @@ public partial class ImageBlurExperimentPage : ContentPage
                             "SkiaSharpFormsDemos.Media.SeatedMonkey.jpg");
 
     public ImageBlurExperimentPage ()
-	{
-		InitializeComponent ();
+    {
+        InitializeComponent ();
     }
 
     void OnSliderValueChanged(object sender, ValueChangedEventArgs args)
@@ -227,10 +227,10 @@ public partial class DropShadowExperimentPage : ContentPage
 {
     const string TEXT = "Drop Shadow";
 
-	public DropShadowExperimentPage ()
-	{
-		InitializeComponent ();
-	}
+    public DropShadowExperimentPage ()
+    {
+        InitializeComponent ();
+    }
 
     void OnSliderValueChanged(object sender, ValueChangedEventArgs args)
     {

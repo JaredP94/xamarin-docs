@@ -6,7 +6,8 @@ ms.assetid: 07D13195-3A0D-4C95-ACF0-143A9084973C
 ms.technology: xamarin-forms
 author: profexorgeek
 ms.author: jusjohns
-ms.date: 05/23/2019
+ms.date: 11/27/2019
+no-loc: [Xamarin.Forms, Xamarin.Essentials, Firebase]
 ---
 
 # Send and receive push notifications with Azure Notification Hubs and Xamarin.Forms
@@ -25,12 +26,15 @@ Integrate Azure Notification Hubs into mobile apps by following these steps:
 1. [Test notifications using the Azure Notification Hub](#test-notifications-in-the-azure-portal).
 1. [Create a backend application to send notifications](#create-a-notification-dispatcher).
 
+> [!NOTE]
+> If you don't have an [Azure subscription](/azure/guides/developer/azure-developer-guide#understanding-accounts-subscriptions-and-billing), create a [free account](https://aka.ms/azfree-docs-mobileapps) before you begin.
+
 ## Set up Push Notification Services and Azure Notification Hub
 
-Integrating Azure Notification Hubs with a Xamarin.Forms mobile app is similar to integrating Azure Notification Hubs with a Xamarin native application. Set up an **FCM application** by following the Firebase Console steps in [Push notifications to Xamarin.Android using Azure Notification Hubs](/azure/notification-hubs/xamarin-notification-hubs-push-notifications-android-gcm#create-a-firebase-project-and-enable-firebase-cloud-messaging). Complete the following steps using the Xamarin.Android tutorial:
+Integrating Azure Notification Hubs with a Xamarin.Forms mobile app is similar to integrating Azure Notification Hubs with a Xamarin native application. Set up a Firebase Cloud Messaging (FCM) application by following the Firebase console steps in [Push notifications to Xamarin.Android using Azure Notification Hubs](/azure/notification-hubs/xamarin-notification-hubs-push-notifications-android-gcm#create-a-firebase-project-and-enable-firebase-cloud-messaging). Complete the following steps using the Xamarin.Android tutorial:
 
 1. Define an Android package name such as `com.xamarin.notifysample`, which is used in the sample.
-1. Download **google-services.json** from the Firebase console. You'll add this file to your Android application in a future step.
+1. Download `google-services.json` from the Firebase console. You'll add this file to your Android application in a future step.
 1. Create an Azure Notification Hub instance and give it a name. This article and sample use `xdocsnotificationhub` as the hub name.
 1. Copy the FCM **Server Key** and save it as the **API Key** under **Google (GCM/FCM)** in your Azure Notification Hub.
 
@@ -38,7 +42,7 @@ The following screenshot shows the Google platform configuration in the Azure No
 
 ![Screenshot of the Azure Notification Hub Google configuration](azure-notification-hub-images/fcm-notification-hub-config.png "Azure Notification Hub Google configuration")
 
-You will need a macOS machine to complete the setup for iOS devices. Set up APNS by following the initial steps in [Push notifications to Xamarin.iOS using Azure Notification Hubs](/azure/notification-hubs/xamarin-notification-hubs-ios-push-notification-apns-get-started#generate-the-certificate-signing-request-file). Complete the following steps using the Xamarin.iOS tutorial:
+You will need a macOS machine to complete the setup for iOS devices. Set up Apple Push Notification Services (APNS) by following the initial steps in [Push notifications to Xamarin.iOS using Azure Notification Hubs](/azure/notification-hubs/xamarin-notification-hubs-ios-push-notification-apns-get-started#generate-the-certificate-signing-request-file). Complete the following steps using the Xamarin.iOS tutorial:
 
 1. Define an iOS bundle identifier. This article and sample use `com.xamarin.notifysample` as the bundle identifier.
 1. Create a Certificate Signing Request (CSR) file and use it to generate a push notification certificate.
@@ -92,7 +96,7 @@ public void AddMessage(string message)
 }
 ```
 
-The sample application contains an **AppConstants.cs** file, which defines properties used by the platform projects. This file needs to be customized with values from your Azure Notification Hub. The following code shows the **AppConstants.cs** file:
+The sample application contains a `AppConstants.cs` file, which defines properties used by the platform projects. This file needs to be customized with values from your Azure Notification Hub. The following code shows the `AppConstants.cs` file:
 
 ```csharp
 public static class AppConstants
@@ -122,21 +126,20 @@ Complete the following steps to configure the Android application to receive and
 
 1. Configure the Android **Package name** to match the package name in the Firebase console.
 1. Install the following NuGet packages to interact with Google Play, Firebase and Azure Notification Hubs:
-    1. Xamarin.GooglePlayServices.Base.
-    1. Xamarin.Firebase.Messaging.
-    1. Xamarin.Azure.NotificationHubs.Android.
+    1. `Xamarin.GooglePlayServices.Base`
+    1. `Xamarin.Firebase.Messaging`
+    1. `Xamarin.Azure.NotificationHubs.Android`
 1. Copy the `google-services.json` file that you downloaded during FCM setup to the project and set the Build Action to `GoogleServicesJson`.
-1. [Configure AndroidManifest.xml to communicate with Firebase](#configure-android-manifest).
-1. [Register the application with Firebase and Azure Notification Hub using a `FirebaseInstanceIdService`](#register-using-a-custom-firebaseinstanceidservice).
-1. [Process messages with a `FirebaseMessagingService`](#process-messages-with-a-firebasemessagingservice).
-1. [Add incoming notifications to Xamarin.Forms UI](#add-incoming-notifications-to-the-xamarinforms-ui).
+1. [Configure](#configure-android-manifest) `AndroidManifest.xml` to communicate with Firebase.
+1. [Override](#override-firebasemessagingservice-to-handle-messages) `FirebaseMessagingService` to handle messages.
+1. [Add](#add-incoming-notifications-to-the-xamarinforms-ui) incoming notifications to Xamarin.Forms UI.
 
 > [!NOTE]
-> The **GoogleServicesJson** build action is part of the **Xamarin.GooglePlayServices.Base** NuGet package. Visual Studio 2019 sets the available Build Actions during startup. If you do not see **GoogleServicesJson** as a Build Action, restart Visual Studio 2019 after installing the NuGet packages.
+> The `GoogleServicesJson` build action is part of the `Xamarin.GooglePlayServices.Base` NuGet package. Visual Studio 2019 sets the available Build Actions during startup. If you do not see `GoogleServicesJson` as a Build Action, restart Visual Studio 2019 after installing the NuGet packages.
 
 ### Configure Android manifest
 
-The `receiver` elements within the `application` element allow the app to communicate with Firebase. The `uses-permission` elements allow the app to handle messages and register with Azure Notification Hub. The complete **AndroidManifest.xml** should look similar to the example below:
+The `receiver` elements within the `application` element allow the app to communicate with Firebase. The `uses-permission` elements allow the app to handle messages and register with Azure Notification Hub. The complete `AndroidManifest.xml` should look similar to the example below:
 
 ```xml
 <manifest xmlns:android="http://schemas.android.com/apk/res/android" android:versionCode="1" android:versionName="1.0" package="YOUR_PACKAGE_NAME" android:installLocation="auto">
@@ -158,116 +161,108 @@ The `receiver` elements within the `application` element allow the app to commun
 </manifest>
 ```
 
-### Register using a custom FirebaseInstanceIdService
+### Override `FirebaseMessagingService` to handle messages
 
-Firebase issues tokens that uniquely identify a device on the PNS. Tokens have a long lifespan but are occasionally refreshed. When a token is issued or refreshed, the application needs to register its new token with the Azure Notification Hub. Registration is handled by an instance of a class that derives from `FirebaseInstanceIdService`.
-
-In the sample application, `FirebaseRegistrationService` class inherits from `FirebaseInstanceIdService`. This class has an `IntentFilter` that includes `com.google.firebase.INSTANCE_ID_EVENT`, allowing the Android OS to automatically call `OnTokenRefresh` when a token is issued by Firebase.
-
-The following code shows the custom `FirebaseInstanceIdService` from the sample application:
-
-```csharp
-[Service]
-[IntentFilter(new [] { "com.google.firebase.INSTANCE_ID_EVENT"})]
-public class FirebaseRegistrationService : FirebaseInstanceIdService
-{
-    public override void OnTokenRefresh()
-    {
-        string token = FirebaseInstanceId.Instance.Token;
-
-        // NOTE: logging the token is not recommended in production but during
-        // development it is useful to test messages directly from Firebase
-        Log.Info(AppConstants.DebugTag, $"Token received: {token}");
-
-        SendRegistrationToServer(token);
-    }
-
-    void SendRegistrationToServer(string token)
-    {
-        try
-        {
-            NotificationHub hub = new NotificationHub(AppConstants.NotificationHubName, AppConstants.ListenConnectionString, this);
-
-            // register device with Azure Notification Hub using the token from FCM
-            Registration reg = hub.Register(token, AppConstants.SubscriptionTags);
-
-            // subscribe to the SubscriptionTags list with a simple template.
-            string pnsHandle = reg.PNSHandle;
-            var cats = string.Join(", ", reg.Tags);
-            var temp = hub.RegisterTemplate(pnsHandle, "defaultTemplate", AppConstants.FCMTemplateBody, AppConstants.SubscriptionTags);
-        }
-        catch (Exception e)
-        {
-            Log.Error(AppConstants.DebugTag, $"Error registering device: {e.Message}");
-        }
-    }
-}
-```
-
-The `SendRegistrationToServer` method in the `FirebaseRegistrationClass` registers the device with the Azure Notification Hub and subscribes to tags with a template. The sample application defines a single tag called `default` and a template with a single parameter called `messageParam` in the **AppConstants.cs** file. For more information about registration, tags, and templates, see [Register templates and tags with the Azure Notification Hub](#register-templates-and-tags-with-the-azure-notification-hub)
-
-### Process messages with a FirebaseMessagingService
-
-Incoming messages are routed to a `FirebaseMessagingService` instance, where they can be converted to a local notification. The Android project in the sample application contains a class called `FirebaseService` that inherits from `FirebaseMessagingService`. This class has an `IntentFilter` that includes `com.google.firebase.MESSAGING_EVENT`, allowing the Android OS to automatically call `OnMessageReceived` when a push notification message is received.
-
-The following example shows the `FirebaseService` from the sample application:
+To register with Firebase and handle messages, subclass the `FirebaseMessagingService` class. The sample application defines a `FirebaseService` class that subclasses the `FirebaseMessagingService`. This class is tagged with an `IntentFilter` attribute, which includes the `com.google.firebase.MESSAGING_EVENT` filter. This filter allows Android to pass incoming messages to this class for handling:
 
 ```csharp
 [Service]
 [IntentFilter(new[] { "com.google.firebase.MESSAGING_EVENT" })]
 public class FirebaseService : FirebaseMessagingService
 {
-    public override void OnMessageReceived(RemoteMessage message)
+    // ...
+}
+
+```
+
+When the application is started, the Firebase SDK will automatically request a unique token identifier from the Firebase server. Upon successful request, the `OnNewToken` method will be called on the `FirebaseService` class. The sample project overrides this method and registers the token with Azure Notification Hubs:
+
+```csharp
+public override void OnNewToken(string token)
+{
+    // NOTE: save token instance locally, or log if desired
+
+    SendRegistrationToServer(token);
+}
+
+void SendRegistrationToServer(string token)
+{
+    try
     {
-        base.OnMessageReceived(message);
-        string messageBody = string.Empty;
+        NotificationHub hub = new NotificationHub(AppConstants.NotificationHubName, AppConstants.ListenConnectionString, this);
 
-        if (message.GetNotification() != null)
-        {
-            messageBody = message.GetNotification().Body;
-        }
+        // register device with Azure Notification Hub using the token from FCM
+        Registration registration = hub.Register(token, AppConstants.SubscriptionTags);
 
-        // NOTE: test messages sent via the Azure portal will be received here
-        else
-        {
-            messageBody = message.Data.Values.First();
-        }
+        // subscribe to the SubscriptionTags list with a simple template.
+        string pnsHandle = registration.PNSHandle;
+        TemplateRegistration templateReg = hub.RegisterTemplate(pnsHandle, "defaultTemplate", AppConstants.FCMTemplateBody, AppConstants.SubscriptionTags);
+    }
+    catch (Exception e)
+    {
+        Log.Error(AppConstants.DebugTag, $"Error registering device: {e.Message}");
+    }
+}
+```
 
-        // convert the incoming message to a local notification
-        SendLocalNotification(messageBody);
+The `SendRegistrationToServer` method registers the device with the Azure Notification Hub and subscribes to tags with a template. The sample application defines a single tag called `default` and a template with a single parameter called `messageParam` in the `AppConstants.cs` file. For more information about registration, tags, and templates, see [Register templates and tags with the Azure Notification Hub](#register-templates-and-tags-with-the-azure-notification-hub).
 
-        // send the incoming message directly to the MainPage
-        SendMessageToMainPage(messageBody);
+When a message is received, the `OnMessageReceived` method will be called on the `FirebaseService` class:
+
+```csharp
+public override void OnMessageReceived(RemoteMessage message)
+{
+    base.OnMessageReceived(message);
+    string messageBody = string.Empty;
+
+    if (message.GetNotification() != null)
+    {
+        messageBody = message.GetNotification().Body;
     }
 
-    void SendLocalNotification(string body)
+    // NOTE: test messages sent via the Azure portal will be received here
+    else
     {
-        var intent = new Intent(this, typeof(MainActivity));
-        intent.AddFlags(ActivityFlags.ClearTop);
-        intent.PutExtra("message", body);
-        var pendingIntent = PendingIntent.GetActivity(this, 0, intent, PendingIntentFlags.OneShot);
-
-        var notificationBuilder = new NotificationCompat.Builder(this)
-            .SetContentTitle("XamarinNotify Message")
-            .SetSmallIcon(Resource.Drawable.ic_launcher)
-            .SetContentText(body)
-            .SetAutoCancel(true)
-            .SetShowWhen(false)
-            .SetContentIntent(pendingIntent);
-
-        if (Build.VERSION.SdkInt >= BuildVersionCodes.O)
-        {
-            notificationBuilder.SetChannelId(AppConstants.NotificationChannelName);
-        }
-
-        var notificationManager = NotificationManager.FromContext(this);
-        notificationManager.Notify(0, notificationBuilder.Build());
+        messageBody = message.Data.Values.First();
     }
 
-    void SendMessageToMainPage(string body)
+    // convert the incoming message to a local notification
+    SendLocalNotification(messageBody);
+
+    // send the incoming message directly to the MainPage
+    SendMessageToMainPage(messageBody);
+}
+
+void SendLocalNotification(string body)
+{
+    var intent = new Intent(this, typeof(MainActivity));
+    intent.AddFlags(ActivityFlags.ClearTop);
+    intent.PutExtra("message", body);
+
+    //Unique request code to avoid PendingIntent collision.
+    var requestCode = new Random().Next();
+    var pendingIntent = PendingIntent.GetActivity(this, requestCode, intent, PendingIntentFlags.OneShot);
+
+    var notificationBuilder = new NotificationCompat.Builder(this, AppConstants.NotificationChannelName)
+        .SetContentTitle("XamarinNotify Message")
+        .SetSmallIcon(Resource.Drawable.ic_launcher)
+        .SetContentText(body)
+        .SetAutoCancel(true)
+        .SetShowWhen(false)
+        .SetContentIntent(pendingIntent);
+
+    if (Build.VERSION.SdkInt >= BuildVersionCodes.O)
     {
-        (App.Current.MainPage as MainPage)?.AddMessage(body);
+        notificationBuilder.SetChannelId(AppConstants.NotificationChannelName);
     }
+
+    var notificationManager = NotificationManager.FromContext(this);
+    notificationManager.Notify(0, notificationBuilder.Build());
+}
+
+void SendMessageToMainPage(string body)
+{
+    (App.Current.MainPage as MainPage)?.AddMessage(body);
 }
 ```
 
@@ -296,7 +291,7 @@ public class MainActivity : global::Xamarin.Forms.Platform.Android.FormsAppCompa
         global::Xamarin.Forms.Forms.Init(this, savedInstanceState);
         LoadApplication(new App());
 
-        if (IsPlayServiceAvailable() == false)
+        if (!IsPlayServiceAvailable())
         {
             throw new Exception("This device does not have Google Play Services and cannot receive push notifications.");
         }
@@ -359,20 +354,20 @@ The `OnCreate` method uses a helper method called `IsPlayServiceAvailable` to en
 
 The process for configuring the iOS application to receive notifications is:
 
-1. Configure the **Bundle Identifier** in the **Info.plist** file to match the value used in the provisioning profile.
-1. Add the **Enable Push Notifications** option to the **Entitlements.plist** file.
-1. Add the **Xamarin.Azure.NotificationHubs.iOS** NuGet package to your project.
-1. [Register for notifications with APNS](#register-for-notifications-with-apns).
-1. [Register the application with Azure Notification Hub and subscribe to tags](#register-with-azure-notification-hub-and-subscribe-to-tags).
-1. [Add APNS notifications to Xamarin.Forms UI](#add-apns-notifications-to-xamarinforms-ui).
+1. Configure the **Bundle Identifier** in the `Info.plist` file to match the value used in the provisioning profile.
+1. Add the **Enable Push Notifications** option to the `Entitlements.plist` file.
+1. Add the `Xamarin.Azure.NotificationHubs.iOS` NuGet package to your project.
+1. [Register](#register-for-notifications-with-apns) for notifications with APNS.
+1. [Register](#register-with-azure-notification-hub-and-subscribe-to-tags) the application with Azure Notification Hub and subscribe to tags.
+1. [Add](#add-apns-notifications-to-xamarinforms-ui) APNS notifications to Xamarin.Forms UI.
 
-The following screenshot shows the **Enable Push Notifications** option selected in the **Entitlements.plist** file within Visual Studio:
+The following screenshot shows the **Enable Push Notifications** option selected in the `Entitlements.plist` file within Visual Studio:
 
 ![Screenshot of the Push Notifications entitlement](azure-notification-hub-images/push-notification-entitlement.png "Push notifications entitlement")
 
 ### Register for notifications with APNS
 
-The `FinishedLaunching` method in the **AppDelegate.cs** file must be overridden to register for remote notifications. Registration differs depending on the iOS version being used on the device. The iOS project in the sample application overrides the `FinishedLaunching` method to call `RegisterForRemoteNotifications` as shown in the following example:
+The `FinishedLaunching` method in the `AppDelegate.cs` file must be overridden to register for remote notifications. Registration differs depending on the iOS version being used on the device. The iOS project in the sample application overrides the `FinishedLaunching` method to call `RegisterForRemoteNotifications` as shown in the following example:
 
 ```csharp
 public override bool FinishedLaunching(UIApplication app, NSDictionary options)
@@ -435,7 +430,7 @@ public override void RegisteredForRemoteNotifications(UIApplication application,
     Hub = new SBNotificationHub(AppConstants.ListenConnectionString, AppConstants.NotificationHubName);
 
     // update registration with Azure Notification Hub
-    Hub.UnregisterAllAsync(deviceToken, (error) =>
+    Hub.UnregisterAll(deviceToken, (error) =>
     {
         if (error != null)
         {
@@ -444,7 +439,7 @@ public override void RegisteredForRemoteNotifications(UIApplication application,
         }
 
         var tags = new NSSet(AppConstants.SubscriptionTags.ToArray());
-        Hub.RegisterNativeAsync(deviceToken, tags, (errorCallback) =>
+        Hub.RegisterNative(deviceToken, tags, (errorCallback) =>
         {
             if (errorCallback != null)
             {
@@ -453,7 +448,7 @@ public override void RegisteredForRemoteNotifications(UIApplication application,
         });
 
         var templateExpiration = DateTime.Now.AddDays(120).ToString(System.Globalization.CultureInfo.CreateSpecificCulture("en-US"));
-        Hub.RegisterTemplateAsync(deviceToken, "defaultTemplate", AppConstants.APNTemplateBody, templateExpiration, tags, (errorCallback) =>
+        Hub.RegisterTemplate(deviceToken, "defaultTemplate", AppConstants.APNTemplateBody, templateExpiration, tags, (errorCallback) =>
         {
             if (errorCallback != null)
             {
@@ -468,7 +463,7 @@ public override void RegisteredForRemoteNotifications(UIApplication application,
 ```
 
 > [!NOTE]
-> Registering for remote notifications can fail in situations such as no network connection. You can choose to override the `FailedToRegisterForRemoveNotifications` method to handle registration failure.
+> Registering for remote notifications can fail in situations such as no network connection. You can choose to override the `FailedToRegisterForRemoteNotifications` method to handle registration failure.
 
 ### Add APNS notifications to Xamarin.Forms UI
 
@@ -519,10 +514,11 @@ Azure Notification Hubs enable you to check that your application can receive te
 1. When testing that an application can receive push notifications, you must use a physical device. Android and iOS virtual devices may not be configured correctly to receive push notifications.
 1. The sample Android application registers its token and templates once when the Firebase token is issued. During testing you may need to request a new token and re-register with the Azure Notification Hub. The best way to force this is to clean your project, delete the `bin` and `obj` folders and uninstall the application from the device before rebuilding and deploying.
 1. Many parts of the push notification flow are executed asynchronously. This may result in breakpoints not being hit or being hit in an unexpected order. Use device or debug logging to trace execution without interrupting application flow. Filter the Android device log using the `DebugTag` specified in `Constants`.
+1. When debugging is stopped in Visual Studio, the app is force closed. Any message receivers or other services launched as part of the debugging process will be closed and will not respond to message events.
 
 ## Create a notification dispatcher
 
-Azure Notification Hubs enable your backend application to dispatch notifications to devices across platforms. The sample demonstrates notification dispatch with the **NotificationDispatcher** console application. The application includes the **DispatcherConstants.cs** file, which defines the following properties:
+Azure Notification Hubs enable your backend application to dispatch notifications to devices across platforms. The sample demonstrates notification dispatch with a console application. The application includes the `DispatcherConstants.cs` file, which defines the following properties:
 
 ```csharp
 public static class DispatcherConstants
@@ -533,7 +529,7 @@ public static class DispatcherConstants
 }
 ```
 
-You must configure the **DispatcherConstants.cs** to match your Azure Notification Hub configuration. The value of the `SubscriptionTags` property should match the values used in the client apps. The `NotificationHubName` property is the name of your Azure Notification Hub instance. The `FullAccessConnectionString` property is the access key found in your notification hub **Access Policies**. The following screenshot shows the location of the `NotificationHubName` and `FullAccessConnectionString` properties in the Azure portal:
+You must configure the `DispatcherConstants.cs` file to match your Azure Notification Hub configuration. The value of the `SubscriptionTags` property should match the values used in the client apps. The `NotificationHubName` property is the name of your Azure Notification Hub instance. The `FullAccessConnectionString` property is the access key found in your notification hub **Access Policies**. The following screenshot shows the location of the `NotificationHubName` and `FullAccessConnectionString` properties in the Azure portal:
 
 ![Screenshot of the Azure Notification Hub name and FullAccessConnectionString](azure-notification-hub-images/notification-hub-full-access-policy.png "Azure Notification Hub name and FullAccessConnectionString")
 

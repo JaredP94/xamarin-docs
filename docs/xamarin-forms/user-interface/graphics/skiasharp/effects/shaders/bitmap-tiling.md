@@ -7,6 +7,7 @@ ms.assetid: 9ED14E07-4DC8-4B03-8A33-772838BF51EA
 author: davidbritch
 ms.author: dabritch
 ms.date: 08/23/2018
+no-loc: [Xamarin.Forms, Xamarin.Essentials]
 ---
 
 # SkiaSharp bitmap tiling
@@ -458,14 +459,14 @@ public class CenteredTilesPage : ContentPage
                         typeof(CenteredTilesPage),
                         "SkiaSharpFormsDemos.Media.monkey.png");
 
-	public CenteredTilesPage ()
-	{
+    public CenteredTilesPage ()
+    {
         Title = "Centered Tiles";
 
         SKCanvasView canvasView = new SKCanvasView();
         canvasView.PaintSurface += OnCanvasViewPaintSurface;
         Content = canvasView;
-	}
+    }
 
     void OnCanvasViewPaintSurface(object sender, SKPaintSurfaceEventArgs args)
     {

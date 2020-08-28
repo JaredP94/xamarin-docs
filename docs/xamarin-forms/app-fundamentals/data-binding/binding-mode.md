@@ -7,6 +7,7 @@ ms.technology: xamarin-forms
 author: davidbritch
 ms.author: dabritch
 ms.date: 05/01/2018
+no-loc: [Xamarin.Forms, Xamarin.Essentials]
 ---
 
 # Xamarin.Forms Binding Mode
@@ -44,7 +45,7 @@ As you might expect, the `Slider` is initialized to the value 1 from the initial
 
 [![Reverse Binding](binding-mode-images/reversebinding-small.png "Reverse Binding")](binding-mode-images/reversebinding-large.png#lightbox "Reverse Binding")
 
-But you might be surprised that the `Slider` continues to work, as the Android and UWP screenshots demonstrate. This seems to suggest that the data binding works better when the `Slider` is the binding target rather than the `Label` because the initialization works like we might expect.
+But you might be surprised that the `Slider` continues to work, as the Android screenshot demonstrates. This seems to suggest that the data binding works better when the `Slider` is the binding target rather than the `Label` because the initialization works like we might expect.
 
 The difference between the **Reverse Binding** sample and the earlier samples involves the *binding mode*.
 
@@ -258,7 +259,7 @@ When the program is first run, the `BoxView`, `Label`, and three `Slider` elemen
 
 [![Simple Color Selector](binding-mode-images/simplecolorselector-small.png "Simple Color Selector")](binding-mode-images/simplecolorselector-large.png#lightbox "Simple Color Selector")
 
-As you manipulate the sliders, the `BoxView` and `Label` are updated accordingly, as illustrated by the Android and UWP screenshots.
+As you manipulate the sliders, the `BoxView` and `Label` are updated accordingly, as illustrated by the Android screenshot.
 
 Instantiating the ViewModel in the resource dictionary is one common approach. It's also possible to instantiate the ViewModel within property element tags for the `BindingContext` property. In the **Simple Color Selector** XAML file, try removing the `HslColorViewModel` from the resource dictionary and set it to the `BindingContext` property of the `Grid` like this:
 
@@ -391,7 +392,7 @@ public class SampleSettingsViewModel : INotifyPropertyChanged
 
     bool SetProperty<T>(ref T storage, T value, [CallerMemberName] string propertyName = null)
     {
-        if (Object.Equals(storage, value))
+        if (object.Equals(storage, value))
             return false;
 
         storage = value;
@@ -675,7 +676,6 @@ The iOS screenshot at the left shows the program when it's first run. The constr
 The other screenshot shows altered settings. When experimenting with this page, remember to put the program to sleep or to terminate it on the device or emulator that it's running. Terminating the program from the Visual Studio debugger will not cause the `OnSleep` override in the `App` class to be called.
 
 In the next article you'll see how to specify [**String Formatting**](string-formatting.md) of data bindings that are set on the `Text` property of `Label`.
-
 
 ## Related Links
 

@@ -7,6 +7,7 @@ ms.assetid: 66D1A537-A247-484E-B5B9-FBCB7838FBE9
 author: davidbritch
 ms.author: dabritch
 ms.date: 08/23/2018
+no-loc: [Xamarin.Forms, Xamarin.Essentials]
 ---
 
 # The separable blend modes
@@ -59,9 +60,9 @@ public partial class LightenAndDarkenPage : ContentPage
                 "SkiaSharpFormsDemos.Media.Banana.jpg");
 
     public LightenAndDarkenPage ()
-	{
-		InitializeComponent ();
-	}
+    {
+        InitializeComponent ();
+    }
 
     void OnSliderValueChanged(object sender, ValueChangedEventArgs args)
     {
@@ -341,8 +342,8 @@ public class PrimaryColorsPage : ContentPage
 {
     bool isSubtractive;
 
-	public PrimaryColorsPage ()
-	{
+    public PrimaryColorsPage ()
+    {
         Title = "Primary Colors";
 
         SKCanvasView canvasView = new SKCanvasView();

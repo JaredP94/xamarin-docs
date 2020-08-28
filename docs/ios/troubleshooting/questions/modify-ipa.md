@@ -4,8 +4,8 @@ ms.topic: troubleshooting
 ms.prod: xamarin
 ms.assetid: 6C3082FB-C3F1-4661-BE45-64570E56DE7C
 ms.technology: xamarin-ios
-author: lobrien
-ms.author: laobri
+author: davidortinau
+ms.author: daortin
 ms.date: 04/03/2018
 ---
 
@@ -29,7 +29,7 @@ For this example assume that the name of the Xamarin.iOS project is `iPhoneApp1`
 
 5. Type `cd` into the Terminal.app window, and then drag & drop the `generated session id` folder into the `Terminal.app` window:
 
-    ![](modify-ipa-images/session-id-folder.png "Locating the generated session id folder in Finder")
+    ![Locating the generated session id folder in Finder](modify-ipa-images/session-id-folder.png)
 
 6. Type the return key to change directory into the `generated session id` folder.
 
@@ -42,7 +42,7 @@ For this example assume that the name of the Xamarin.iOS project is `iPhoneApp1`
 9. Delete the desired files from the `.ipa`. You can either move them to the Trash using Finder, or delete them on the command line using `Terminal.app`. To view the contents of the `Payload/iPhone` file in Finder, Control-click the file and select **Show Package Contents**.
 
 10. Using the same general approach as in step 3, find the log file under `~/Library/Logs/Xamarin/MonoTouchVS/` that has both the project name and the `generated session id` in the name:
-    ![](modify-ipa-images/build-log.png "Locate the project build log in Finder")
+    ![Locate the project build log in Finder](modify-ipa-images/build-log.png)
 
 11. Open the build log from step 10, for example by double-clicking it.
 

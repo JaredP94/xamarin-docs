@@ -7,6 +7,7 @@ ms.technology: xamarin-forms
 author: davidbritch
 ms.author: dabritch
 ms.date: 12/05/2016
+no-loc: [Xamarin.Forms, Xamarin.Essentials]
 ---
 
 # Search Data with Azure Search and Xamarin.Forms
@@ -31,7 +32,10 @@ The most common request to Azure Search is to execute a query. There are two typ
 
 Search queries and filter queries can be used separately or together. When used together, the filter query is applied first to the entire index, and then the search query is performed on the results of the filter query.
 
-Azure Search also supports retrieving suggestions based on search input. For more information, see [Suggestion Queries](#suggestions).
+Azure Search also supports retrieving suggestions based on search input. For more information, see [Suggestion Queries](#suggestion-queries).
+
+> [!NOTE]
+> If you don't have an [Azure subscription](/azure/guides/developer/azure-developer-guide#understanding-accounts-subscriptions-and-billing), create a [free account](https://aka.ms/azfree-docs-mobileapps) before you begin.
 
 ## Setup
 
@@ -55,7 +59,7 @@ var searchClient =
 The `SearchServiceClient` constructor overload takes a search service name and a `SearchCredentials` object as arguments, with the `SearchCredentials` object wrapping the *admin key* for the Azure Search service. The *admin key* is required to create an index.
 
 > [!NOTE]
->  A single `SearchServiceClient` instance should be used in an application to avoid opening too many connections to Azure Search.
+> A single `SearchServiceClient` instance should be used in an application to avoid opening too many connections to Azure Search.
 
 An index is defined by the `Index` object, as demonstrated in the following code example:
 
@@ -211,11 +215,9 @@ This filter query is applied to the entire index and removes documents from the 
 
 The `SearchAsync` method returns a `DocumentSearchResult` object that contains the query results. This object is enumerated, with each `Document` object being created as a `Monkey` object and added to the `Monkeys` `ObservableCollection` for display. The following screenshots show search query results returned from Azure Search:
 
-![](azure-search-images/search.png "Search Results")
+![Search Results](azure-search-images/search.png)
 
 For more information about searching and filtering, see [Query your Azure Search index using the .NET SDK](/azure/search/search-query-dotnet/).
-
-<a name="suggestions" />
 
 ### Suggestion Queries
 
@@ -263,14 +265,13 @@ The overall effect is that the top 10 results from the index will be returned wi
 
 The `SuggestAsync` method returns a `DocumentSuggestResult` object that contains the query results. This object is enumerated, with each `Document` object being created as a `Monkey` object and added to the `Monkeys` `ObservableCollection` for display. The following screenshots show the suggestion results returned from Azure Search:
 
-![](azure-search-images/suggest.png "Suggestion Results")
+![Suggestion Results](azure-search-images/suggest.png)
 
 Note that in the sample application, the `SuggestAsync` method is only invoked when the user finishes inputting a search term. However, it can also be used to support auto-complete search queries by executing on each keypress.
 
 ## Summary
 
 This article demonstrated how to use the Microsoft Azure Search Library to integrate Azure Search into a Xamarin.Forms application. Azure Search is a cloud service that provides indexing and querying capabilities for uploaded data. This removes the infrastructure requirements and search algorithm complexities traditionally associated with implementing search functionality in an application.
-
 
 ## Related Links
 

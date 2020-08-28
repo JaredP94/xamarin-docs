@@ -7,6 +7,7 @@ ms.assetid: 781937AA-AA1C-469C-AA92-D42D08B58635
 author: davidbritch
 ms.author: dabritch
 ms.date: 05/24/2017
+no-loc: [Xamarin.Forms, Xamarin.Essentials]
 ---
 
 # SkiaSharp Curves and Paths
@@ -46,7 +47,6 @@ Explore the intersection of paths and text
 ## [Path Information and Enumeration](information.md)
 
 Get information about paths and enumerate the contents
-
 
 ## Related Links
 

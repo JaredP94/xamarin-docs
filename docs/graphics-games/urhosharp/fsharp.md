@@ -8,7 +8,7 @@ ms.author: crdun
 ms.date: 03/29/2017
 ---
 
-# Programming UrhoSharp with F#
+# Programming UrhoSharp with F\#
 
 UrhoSharp can be programmed with F# using the same libraries and concepts used by C# programmers. The [Using UrhoSharp](~/graphics-games/urhosharp/using.md) article gives an overview of the UrhoSharp engine and should be read prior to this article.
 
@@ -33,7 +33,7 @@ You are now ready to begin defining your game's classes. At a minimum, you will 
 
 Your project structure should now look like:
 
-![](fsharp-images/solutionpane.png "The project structure should now look like")
+![The project structure should now look like](fsharp-images/solutionpane.png)
 
 Define your newly-created class as a subtype of `Urho.Application` and override its `Start` method:
 

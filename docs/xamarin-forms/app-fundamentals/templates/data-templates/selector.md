@@ -7,6 +7,7 @@ ms.technology: xamarin-forms
 author: davidbritch
 ms.author: dabritch
 ms.date: 03/08/2016
+no-loc: [Xamarin.Forms, Xamarin.Essentials]
 ---
 
 # Creating a Xamarin.Forms DataTemplateSelector
@@ -86,7 +87,7 @@ At runtime, the [`ListView`](xref:Xamarin.Forms.ListView) calls the `PersonDataT
 
 The following screenshots show the result of the [`ListView`](xref:Xamarin.Forms.ListView) applying the `PersonDataTemplateSelector` to each object in the underlying collection:
 
-![](selector-images/data-template-selector.png "ListView with a Data Template Selector")
+![ListView with a Data Template Selector](selector-images/data-template-selector.png)
 
 Any `Person` object that has a `DateOfBirth` property value greater than or equal to 1980 is displayed in green, with the remaining objects being displayed in red.
 
@@ -128,7 +129,6 @@ The `PersonDataTemplateSelector` instance sets its `ValidTemplate` and `InvalidT
 ## Summary
 
 This article has demonstrated how to create and consume a [`DataTemplateSelector`](xref:Xamarin.Forms.DataTemplateSelector). A `DataTemplateSelector` can be used to choose a [`DataTemplate`](xref:Xamarin.Forms.DataTemplate) at runtime based on the value of a data-bound property. This enables multiple `DataTemplate` instances to be applied to the same type of object, to customize the appearance of particular objects.
-
 
 ## Related Links
 

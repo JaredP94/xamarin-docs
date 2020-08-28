@@ -3,8 +3,8 @@ title: "Creating New Platform-Specific Library Projects for NuGet"
 description: "This document describes how to create a single NuGet package that contains platform-specific code for multiple platforms."
 ms.prod: xamarin
 ms.assetid: D8BC4906-805F-4AFB-8D1A-88B7BF87E17F
-author: asb3993
-ms.author: amburns
+author: davidortinau
+ms.author: daortin
 ms.date: 03/23/2017
 ---
 
@@ -26,11 +26,11 @@ Xamarin.iOS and Android projects.
 
 2. Choose **Multiplatform Library** from the **Multiplatform > Library** section:
 
-    [![](platform-specific-images/mulitplatform-library-sml.png "Configure multi-platform library for a single code base")](platform-specific-images/multiplatform-library.png#lightbox)
+    [![Configure multi-platform library for a single code base](platform-specific-images/mulitplatform-library-sml.png)](platform-specific-images/multiplatform-library.png#lightbox)
 
 3. Enter a **Name** and **Description**, and choose **Platform specific**:
 
-    [![](platform-specific-images/specific-configure-sml.png "Configure platform-specific library for iOS and Android")](platform-specific-images/specific-configure.png#lightbox)
+    [![Configure platform-specific library for iOS and Android](platform-specific-images/specific-configure-sml.png)](platform-specific-images/specific-configure.png#lightbox)
 
 4. Complete the wizard. The following projects are added to the solution:
 
@@ -42,12 +42,12 @@ Xamarin.iOS and Android projects.
 5. Right-click on the NuGet project and choose **Options**, then open the **NuGet Package > Metadata** section and enter the [required metadata](~/cross-platform/app-fundamentals/nuget-multiplatform-libraries/metadata.md)
     (as well as any optional metadata):
 
-    [![](platform-specific-images/specific-metadata-sml.png "Enter required metadata")](platform-specific-images/specific-metadata.png#lightbox)
+    [![Enter required metadata](platform-specific-images/specific-metadata-sml.png)](platform-specific-images/specific-metadata.png#lightbox)
 
 6. Also in the **Project Options** window, open the **Reference Assemblies** section and choose
     which PCL profiles the shared library will support via "bait and switch":
 
-    ![](platform-specific-images/specific-reference-assemblies.png "Also in the Project Options window, open the Reference Assemblies section and choose   which PCL profiles the shared library will support via bait and switch")
+    ![Also in the Project Options window, open the Reference Assemblies section and choose   which PCL profiles the shared library will support via bait and switch](platform-specific-images/specific-reference-assemblies.png)
 
     > [!NOTE]
     > "Bait and switch" means that the PCL assemblies will only contain the API exposed by the library
@@ -58,8 +58,7 @@ Xamarin.iOS and Android projects.
 7. Right-click on the project and choose **Create NuGet Package** (or build or deploy the solution) and
   the **.nupkg** NuGet package file will be saved in the **/bin/** folder (either Debug or Release, depending on configuration).
 
-    ![](platform-specific-images/create-nuget-package.png "NuGet package file will be saved in the bin folder either Debug or Release, depending on configuration")
-
+    ![NuGet package file will be saved in the bin folder either Debug or Release, depending on configuration](platform-specific-images/create-nuget-package.png)
 
 ## Verifying the Output
 
@@ -68,8 +67,7 @@ NuGet packages are also ZIP files, so it's possible to inspect the internal stru
 This screenshot shows the contents of a platform-specific NuGet that supports iOS and Android,
 and had two reference assemblies selected:
 
-![](platform-specific-images/nuget-output.png "Files contained in the NuGet package")
-
+![Files contained in the NuGet package](platform-specific-images/nuget-output.png)
 
 ## Related Links
 

@@ -7,6 +7,7 @@ ms.technology: xamarin-forms
 author: davidbritch
 ms.author: dabritch
 ms.date: 01/05/2018
+no-loc: [Xamarin.Forms, Xamarin.Essentials]
 ---
 
 # The Xamarin.Forms Command Interface
@@ -274,7 +275,7 @@ Before examining the constructor of the `PersonCollectionViewModel` class, let's
 
 Here's how it works: The user first presses the **New** button. This enables the entry form but disables the **New** button. The user then enters a name, age, and skills. At any time during the editing, the user can press the **Cancel** button to start over. Only when a name and a valid age have been entered is the **Submit** button enabled. Pressing this **Submit** button transfers the person to the collection displayed by the `ListView`. After either the **Cancel** or **Submit** button is pressed, the entry form is cleared and the **New** button is enabled again.
 
-The iOS screen at the left shows the layout before a valid age is entered. The Android and UWP screens show the **Submit** button enabled after an age has been set:
+The iOS screen at the left shows the layout before a valid age is entered. The Android screen shows the **Submit** button enabled after an age has been set:
 
 [![Person Entry](commanding-images/personentry-small.png "Person Entry")](commanding-images/personentry-large.png#lightbox "Person Entry")
 
@@ -333,7 +334,6 @@ Besides implementing the `ICommand` interface, the `Command` class also defines 
 When the `execute` method of `NewCommand` calls `RefreshCanExecutes`, the `NewCommand` property gets a call to `ChangeCanExecute`, and the `Button` calls the `canExecute` method, which now returns `false` because the `IsEditing` property is now `true`.
 
 The `PropertyChanged` handler for the new `PersonViewModel` object calls the `ChangeCanExecute` method of `SubmitCommand`. Here's how that command property is implemented:
-
 
 ```csharp
 public class PersonCollectionViewModel : INotifyPropertyChanged
@@ -681,10 +681,6 @@ The `execute` method appends the string argument to the `Entry` property. Howeve
 The `canExecute` method returns `false` only if the argument is the decimal point (indicating that the decimal point is being pressed) and `Entry` already contains a decimal point.
 
 All the `execute` methods call `RefreshCanExecutes`, which then calls `ChangeCanExecute` for both `DigitCommand` and `ClearCommand`. This ensures that the decimal point and backspace buttons are enabled or disabled based on the current sequence of entered digits.
-
-## Adding Commands to Existing Views
-
-If you'd like to use the commanding interface with views that don't support it, it's possible to use a Xamarin.Forms behavior that converts an event into a command. This is described in the article [**Reusable EventToCommandBehavior**](~/xamarin-forms/app-fundamentals/behaviors/reusable/event-to-command-behavior.md).
 
 ## Asynchronous Commanding for Navigation Menus
 

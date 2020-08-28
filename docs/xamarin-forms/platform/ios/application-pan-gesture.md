@@ -7,6 +7,7 @@ ms.technology: xamarin-forms
 author: davidbritch
 ms.author: dabritch
 ms.date: 10/24/2018
+no-loc: [Xamarin.Forms, Xamarin.Essentials]
 ---
 
 # Simultaneous Pan Gesture Recognition on iOS
@@ -21,7 +22,7 @@ This iOS platform-specific enables a `PanGestureRecognizer` in a scrolling view 
 <Application ...
              xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core"
              ios:Application.PanGestureRecognizerShouldRecognizeSimultaneously="true">
-	...
+    ...
 </Application>
 ```
 

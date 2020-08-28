@@ -7,6 +7,7 @@ ms.technology: xamarin-forms
 author: davidbritch
 ms.author: dabritch
 ms.date: 01/05/2018
+no-loc: [Xamarin.Forms, Xamarin.Essentials]
 ---
 
 # Xamarin.Forms Binding Value Converters
@@ -458,7 +459,6 @@ The values of the `Red` and `Green` properties are displayed with a `Binding` ma
 Here's the result:
 
 [![RGB Color Selector](converters-images/rgbcolorselector-small.png "RGB Color Selector")](converters-images/rgbcolorselector-large.png#lightbox "RGB Color Selector")
-
 
 ## Related Links
 

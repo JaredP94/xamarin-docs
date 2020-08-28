@@ -7,6 +7,7 @@ ms.technology: xamarin-forms
 author: davidbritch
 ms.author: dabritch
 ms.date: 03/08/2016
+no-loc: [Xamarin.Forms, Xamarin.Essentials]
 ---
 
 # Introduction to Effects
@@ -53,7 +54,6 @@ Each platform-specific `PlatformEffect` class exposes the following methods, whi
 - [`OnDetached`](xref:Xamarin.Forms.Effect.OnDetached) – called when an effect is detached from a Xamarin.Forms control. An overridden version of this method, in each platform-specific effect class, is the place to perform any effect cleanup such as de-registering an event handler.
 
 In addition, the `PlatformEffect` exposes the [`OnElementPropertyChanged`](xref:Xamarin.Forms.PlatformEffect`2.OnElementPropertyChanged(System.ComponentModel.PropertyChangedEventArgs)) method, which can also be overridden. This method is called when a property of the element has changed. An overridden version of this method, in each platform-specific effect class, is the place to respond to bindable property changes on the Xamarin.Forms control. A check for the property that's changed should always be made, as this override can be called many times.
-
 
 ## Related Links
 

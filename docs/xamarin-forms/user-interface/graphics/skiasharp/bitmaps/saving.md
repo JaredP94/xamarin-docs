@@ -7,6 +7,7 @@ ms.assetid: 2D696CB6-B31B-42BC-8D3B-11D63B1E7D9C
 author: davidbritch
 ms.author: dabritch
 ms.date: 07/10/2018
+no-loc: [Xamarin.Forms, Xamarin.Essentials]
 ---
 
 # Saving SkiaSharp bitmaps to files
@@ -372,10 +373,10 @@ public partial class SaveFileFormatsPage : ContentPage
     SKBitmap bitmap = BitmapExtensions.LoadBitmapResource(typeof(SaveFileFormatsPage),
         "SkiaSharpFormsDemos.Media.MonkeyFace.png");
 
-	public SaveFileFormatsPage ()
-	{
-		InitializeComponent ();
-	}
+    public SaveFileFormatsPage ()
+    {
+        InitializeComponent ();
+    }
 
     void OnCanvasViewPaintSurface(object sender, SKPaintSurfaceEventArgs args)
     {

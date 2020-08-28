@@ -6,7 +6,8 @@ ms.assetid: F8F9471D-6771-4D23-96C0-2B79473A06D4
 ms.technology: xamarin-forms
 author: davidbritch
 ms.author: dabritch
-ms.date: 05/24/2019
+ms.date: 07/21/2020
+no-loc: [Xamarin.Forms, Xamarin.Essentials]
 ---
 
 # Xamarin.Forms Shell Search
@@ -176,8 +177,11 @@ For more information about data templates, see [Xamarin.Forms Data Templates](~/
 When a `SearchHandler` is added at the top of a page, by default the search box is visible and fully expanded. However, this behavior can be changed by setting the `SearchHandler.SearchBoxVisibility` property to one of the `SearchBoxVisibility` enumeration members:
 
 - `Hidden` – the search box is not visible or accessible.
-- `Collapsible` – the search box is hidden until the user performs an action to reveal it.
-- `Expanded` – the search box is visible and fully expanded.
+- `Collapsible` – the search box is hidden until the user performs an action to reveal it. On iOS the search box is revealed by vertically bouncing the page content, and on Android the search box is revealed by tapping the question mark icon.
+- `Expanded` – the search box is visible and fully expanded. This is the default value of the `SearchHandler.SearchBoxVisibility` property.
+
+> [!IMPORTANT]
+> On iOS, a collapsible search box requires iOS 11 or greater.
 
 The following example shows to how to hide the search box:
 
@@ -185,7 +189,7 @@ The following example shows to how to hide the search box:
 <ContentPage ...
              xmlns:controls="clr-namespace:Xaminals.Controls">
     <Shell.SearchHandler>
-        <controls:MonkeySearchHandler SearchBoxVisibility="Hidden"
+        <controls:AnimalSearchHandler SearchBoxVisibility="Hidden"
                                       ... />
     </Shell.SearchHandler>
     ...
@@ -206,12 +210,15 @@ The `SearchHandler` class defines the following properties that affect its appea
 
 - `BackgroundColor`, of type `Color`, is the color of the background to the search box text.
 - `CancelButtonColor`, of type `Color`, is the color of the cancel button.
+- `CharacterSpacing`, of type `double`, is the spacing between characters of the `SearchHandler` text.
 - `FontAttributes`, of type `FontAttributes`, indicates if the search box text is italic or bold.
 - `FontFamily`, of type `string`, is the font family used for the search box text.
 - `FontSize`, of type `double`, is the size of the search box text.
 - `HorizontalTextAlignment`, of type `TextAlignment`, is the horizontal alignment of the search box text.
 - `PlaceholderColor`, of type `Color`, is the color of the placeholder search box text.
 - `TextColor`, of type `Color`, is the color of the search box text.
+- `TextTransform`, of type `TextTransform`, determines the casing of the search box text.
+- `VerticalTextAlignment`, of type `TextAlignment`, is the vertical alignment of the search box text.
 
 ## SearchHandler keyboard
 
@@ -307,6 +314,7 @@ The `SearchHandler` class defines the following properties that control its appe
 - `SelectedItem`, of type `object`, the selected item in the search results. This property is read only, and has a default value of `null`.
 - `ShowsResults`, of type `bool`, indicates whether search results should be expected in the suggestion area, on text entry. The default value is `false`.
 - `TextColor`, of type `Color`, is the color of the search box text.
+- `TextTransform`, of type `TextTransform`, determines the casing of the search box text.
 
 All of these properties are backed by [`BindableProperty`](xref:Xamarin.Forms.BindableProperty) objects, which means that the properties can be targets of data bindings.
 

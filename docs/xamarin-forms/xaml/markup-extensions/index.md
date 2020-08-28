@@ -7,6 +7,7 @@ ms.technology: xamarin-forms
 author: davidbritch
 ms.author: dabritch
 ms.date: 01/05/2018
+no-loc: [Xamarin.Forms, Xamarin.Essentials]
 ---
 
 # XAML Markup Extensions
@@ -50,8 +51,6 @@ Use the XAML markup extensions defined in Xamarin.Forms.
 ## [Creating XAML Markup Extensions](creating.md)
 
 Write your own custom XAML markup extensions.
-
-
 
 ## Related Links
 

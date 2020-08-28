@@ -7,6 +7,7 @@ ms.technology: xamarin-forms
 author: davidbritch
 ms.author: dabritch
 ms.date: 02/12/2018
+no-loc: [Xamarin.Forms, Xamarin.Essentials]
 ---
 
 # Playing a Web video
@@ -513,10 +514,6 @@ To reference one of these other movies, you can replace the explicit URL in the 
 ```
 
 Alternatively, you can set the `Source` property from a video file in a `ListView`, as described in the next article, [Binding Video Sources to the Player](source-bindings.md).
-
-
-
-
 
 ## Related Links
 

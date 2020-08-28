@@ -3,8 +3,8 @@ title: "Introduction to Continuous Integration with Xamarin"
 description: "This document describes continuous integration with Xamarin. It discusses version control and various continuous integration environments."
 ms.prod: xamarin
 ms.assetid: C034200E-2947-4309-9DDD-80DAC505C43F
-author: lobrien
-ms.author: laobri
+author: davidortinau
+ms.author: daortin
 ms.date: 07/19/2017
 ---
 
@@ -27,13 +27,13 @@ Again, with continuous integration, the act of committing changes causes the CI 
 
 The following diagram illustrates this process:
 
-[![](intro-to-ci-images/intro01-small.png "This diagram illustrates this process")](intro-to-ci-images/intro01.png#lightbox)
+[![This diagram illustrates this process](intro-to-ci-images/intro01-small.png)](intro-to-ci-images/intro01.png#lightbox)
 
 Mobile apps introduce unique challenges for continuous integration. Apps may require sensors such as the GPS or camera that are only available on physical devices. In addition, simulators or emulators are only an approximation of hardware and may conceal or obscure problems. In the end, it's necessary to test a mobile app on real hardware to be confident that it's truly customer-ready.
 
 The [App Center Test](https://docs.microsoft.com/appcenter/test-cloud) addresses this particular problem by testing apps directly on hundreds of physical devices. Developers write automated acceptance tests, which allow for powerful UI testing. Once these tests are uploaded to App Center, the CI server can run them automatically as part of a CI process as shown in the following diagram:
 
-[![](intro-to-ci-images/intro02-small.png "Once these tests are uploaded to App Center, the CI server can run them automatically as part of a CI process as shown in this diagram")](intro-to-ci-images/intro02.png#lightbox)
+[![Once these tests are uploaded to App Center, the CI server can run them automatically as part of a CI process as shown in this diagram](intro-to-ci-images/intro02-small.png)](intro-to-ci-images/intro02.png#lightbox)
 
 ## Components of Continuous Integration
 
@@ -60,15 +60,15 @@ A complete summary of all Application Lifecycle Management (ALM) features of Vis
 
 #### Git
 
-[Git](http://git-scm.com) is a popular open source version control solution that was originally developed to manage the source code for the Linux kernel. It is a very fast, flexible system that is popular with software projects of all sizes. It easily scales from single developers with poor Internet access to large teams that span the globe. Git also makes branching very easy, which in turn can encourage parallel streams of development with minimal risk.
+[Git](https://git-scm.com) is a popular open source version control solution that was originally developed to manage the source code for the Linux kernel. It is a very fast, flexible system that is popular with software projects of all sizes. It easily scales from single developers with poor Internet access to large teams that span the globe. Git also makes branching very easy, which in turn can encourage parallel streams of development with minimal risk.
 
-Git can operate entirely through web browsers, or [GUI clients](http://git-scm.com/downloads/guis) that run on Linux, Mac OSX, and Windows. It is free for public repositories; private repositories require a [paid plan](https://github.com/pricing).
+Git can operate entirely through web browsers, or [GUI clients](https://git-scm.com/downloads/guis) that run on Linux, Mac OSX, and Windows. It is free for public repositories; private repositories require a [paid plan](https://github.com/pricing).
 
-Current versions of Visual Studio for Windows and Mac provide native support for Git. Microsoft provides a [downloadable extension for Git](http://visualstudiogallery.msdn.microsoft.com/abafc7d6-dcaa-40f4-8a5e-d6724bdb980c) for older versions of Visual Studio. As noted above, Azure DevOps and TFS can use Git for version control instead of TFVC.
+Current versions of Visual Studio for Windows and Mac provide native support for Git. Microsoft provides a [downloadable extension for Git](https://visualstudiogallery.msdn.microsoft.com/abafc7d6-dcaa-40f4-8a5e-d6724bdb980c) for older versions of Visual Studio. As noted above, Azure DevOps and TFS can use Git for version control instead of TFVC.
 
 #### Subversion
 
-[Subversion](http://subversion.apache.org) (SVN) is a popular, open source version control system that has been in use since 2000. SVN runs on all modern versions of OS X, Windows, FreeBSD, Linux, and Unix. Visual Studio for Mac has native support for SVN. There are third party extensions that bring SVN support to Visual Studio.
+[Subversion](https://subversion.apache.org) (SVN) is a popular, open source version control system that has been in use since 2000. SVN runs on all modern versions of OS X, Windows, FreeBSD, Linux, and Unix. Visual Studio for Mac has native support for SVN. There are third party extensions that bring SVN support to Visual Studio.
 
 ### Continuous Integration Environments
 
@@ -92,7 +92,7 @@ With Team Foundation Server, you configure a build machine as follows for specif
 
 The following diagram illustrates this topography:
 
-[![](intro-to-ci-images/intro03-small.png "This diagram illustrates this topography")](intro-to-ci-images/intro03.png#lightbox)
+[![This diagram illustrates this topography](intro-to-ci-images/intro03-small.png)](intro-to-ci-images/intro03.png#lightbox)
 
 It is also possible to link a local TFS server to an Azure DevOps project so that Azure DevOps builds are delegated to the local server. For details, see [Build and release agents](https://docs.microsoft.com/azure/devops/pipelines/agents/agents/).
 
@@ -100,13 +100,13 @@ It is also possible to link a local TFS server to an Azure DevOps project so tha
 
 If you use Jenkins to build your apps, you can store your code in Azure DevOps or Team Foundation Server and continue to use Jenkins for your CI builds. You can trigger a Jenkins build when you push code to your team project's Git repository or when you check code in to TFVC. For details, see [Jenkins with Azure DevOps](https://docs.microsoft.com/azure/devops/service-hooks/services/jenkins).
 
-[![](intro-to-ci-images/intro04-small.png "If you use Jenkins to build your apps, you can store your code in Azure DevOps or Team Foundation Server and continue to use Jenkins for your CI builds")](intro-to-ci-images/intro04.png#lightbox)
+[![If you use Jenkins to build your apps, you can store your code in Azure DevOps or Team Foundation Server and continue to use Jenkins for your CI builds](intro-to-ci-images/intro04-small.png)](intro-to-ci-images/intro04.png#lightbox)
 
 #### Git And Jenkins
 
 Another common CI environment can be entirely OS X based. This scenario involves using Git for source code control and Jenkins for the build server. Both of these are running on a single Mac OS X computer with Visual Studio for Mac installed. This is very similar to the Azure DevOps + Jenkins environment discussed in the previous section:
 
-[![](intro-to-ci-images/intro05-small.png "This is very similar to the Azure DevOps + Jenkins environment discussed in the previous section")](intro-to-ci-images/intro05.png#lightbox)
+[![This is very similar to the Azure DevOps + Jenkins environment discussed in the previous section](intro-to-ci-images/intro05-small.png)](intro-to-ci-images/intro05.png#lightbox)
 
 > [!IMPORTANT]
 > **Jenkins is [not supported by Microsoft](~/cross-platform/troubleshooting/questions/xamarin-jenkins.md).**

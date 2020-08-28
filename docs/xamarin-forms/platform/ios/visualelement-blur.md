@@ -7,6 +7,7 @@ ms.technology: xamarin-forms
 author: davidbritch
 ms.author: dabritch
 ms.date: 10/24/2018
+no-loc: [Xamarin.Forms, Xamarin.Essentials]
 ---
 
 # VisualElement Blur on iOS
@@ -41,7 +42,7 @@ The `BoxView.On<iOS>` method specifies that this platform-specific will only run
 
 The result is that a specified [`BlurEffectStyle`](xref:Xamarin.Forms.PlatformConfiguration.iOSSpecific.BlurEffectStyle) is applied to the [`BoxView`](xref:Xamarin.Forms.BoxView) instance, which blurs the [`Image`](xref:Xamarin.Forms.Image) layered beneath it:
 
-![](applying-blur-images/blur-effect.png "Blur Effect Platform-Specific")
+![Blur Effect Platform-Specific](applying-blur-images/blur-effect.png)
 
 > [!NOTE]
 > When adding a blur effect to a [`VisualElement`](xref:Xamarin.Forms.VisualElement), touch events will still be received by the `VisualElement`.

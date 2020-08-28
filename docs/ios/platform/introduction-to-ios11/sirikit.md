@@ -4,8 +4,8 @@ description: "This document describes how to work with SiriKit in iOS 11. In par
 ms.prod: xamarin
 ms.assetid: 8F75300B-B591-42ED-9D17-001992A5C381
 ms.technology: xamarin-ios
-author: lobrien
-ms.author: laobri
+author: davidortinau
+ms.author: daortin
 ms.date: 09/07/2017
 ---
 
@@ -32,7 +32,7 @@ Other new features include:
 
 Some of these features are explained below. For more details on the others, refer to [Apple's SiriKit documentation](https://developer.apple.com/documentation/sirikit).
 
-<a name="listsnotes" />
+<a name="listsnotes"></a>
 
 ## Lists and Notes
 
@@ -162,6 +162,7 @@ going to handling lists and notes intents, it also implements
 `IINNotebookDomainHandling`.
 
 > [!NOTE]
+>
 > - There is a convention in .NET for interfaces to be prefixed with a
 >   capital `I`, which Xamarin adheres to when binding protocols from the 
 >   iOS SDK.
@@ -229,7 +230,7 @@ The following test phrases should work in the sample app:
 > If testing on real devices, don't forget to configure your App ID and
 > provisioning profiles for SiriKit support.
 
-<a name="alternativenames" />
+<a name="alternativenames"></a>
 
 ## Alternative Names
 
@@ -244,7 +245,6 @@ also work for the sample app (which is actually named **TasksNotes**):
 
 - "Make a grocery list with apples, bananas, and pears in _MonkeyNotes_"
 - "Add task WWDC in _MonkeyTodo_"
-
 
 ## Troubleshooting
 
@@ -261,7 +261,6 @@ _Objective-C exception thrown.  Name: NSInternalInconsistencyException Reason: U
   [![Project options showing Entitlements correctly set](sirikit-images/set-entitlements-sml.png)](sirikit-images/set-entitlements.png#lightbox)
 
 - (for device deployment) App ID has SiriKit enabled and provisioning profile downloaded.
-
 
 ## Related Links
 

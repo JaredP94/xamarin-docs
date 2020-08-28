@@ -4,8 +4,8 @@ description: "This document describes how to index an NSUserActivity, making it 
 ms.prod: xamarin
 ms.assetid: 0B28B284-C7C9-4C0D-A782-D471FBBC4CAE
 ms.technology: xamarin-ios
-author: lobrien
-ms.author: laobri
+author: davidortinau
+ms.author: daortin
 ms.date: 03/20/2017
 ---
 
@@ -23,7 +23,7 @@ searched from Spotlight Search and Safari. By marking a `NSUserActivity` as
 searchable and adding indexable metadata, the activity can be listed in the
 search results  on the iOS device.
 
-[![](nsuseractivity-images/apphistory01.png "The App History overview")](nsuseractivity-images/apphistory01.png#lightbox)
+[![The App History overview](nsuseractivity-images/apphistory01.png)](nsuseractivity-images/apphistory01.png#lightbox)
 
 If the user selects a search result that belongs to an activity from your app,
 the app will be launched and the activity described by the `NSUserActivity` will
@@ -52,7 +52,7 @@ Follow these instructions to implement a searchable `NSUserActivity` in your app
 There are some [additional benefits](#benefits) to using `NSUserActivity`
 to make your content searchable.
 
-<a name="creatingtypeid" />
+<a name="creatingtypeid"></a>
 
 ## Creating Activity Type Identifiers
 
@@ -64,11 +64,11 @@ The Activity Type Identifier is used when creating a `NSUserActivity` instance t
 
 To create the required Activity Type Identifiers to support this behavior, edit the **Info.plist** file and switch to the **Source** view. Add a `NSUserActivityTypes` key and create identifiers in the following format:
 
-[![](nsuseractivity-images/type01.png "The NSUserActivityTypes key and required identifiers in the plist editor")](nsuseractivity-images/type01.png#lightbox)
+[![The NSUserActivityTypes key and required identifiers in the plist editor](nsuseractivity-images/type01.png)](nsuseractivity-images/type01.png#lightbox)
 
 In the above example, we created one new Activity Type Identifier for the search activity (`com.xamarin.platform`). When creating your own apps, replace the contents of the `NSUserActivityTypes` array with the Activity Type Identifiers specific to the activities your app supports.
 
-<a name="createactivity" />
+<a name="createactivity"></a>
 
 ## Creating an Activity
 
@@ -93,11 +93,11 @@ activity.BecomeCurrent();
 
 We could add further details by setting the `ContentAttributeSet` property of our `NSUserActivity` as follows:
 
-[![](nsuseractivity-images/apphistory02.png "Addition Search Details overview")](nsuseractivity-images/apphistory02.png#lightbox)
+[![Addition Search Details overview](nsuseractivity-images/apphistory02.png)](nsuseractivity-images/apphistory02.png#lightbox)
 
 By using a `ContentAttributeSet` you can create rich search results that entice the end user to interact with them.
 
-<a name="respondactivity" />
+<a name="respondactivity"></a>
 
 ## Responding to an Activity
 
@@ -107,22 +107,22 @@ To respond to the user tapping on a search result (`NSUserActivity`) for our app
 public override bool ContinueUserActivity (UIApplication application, NSUserActivity userActivity, UIApplicationRestorationHandler completionHandler)
 {
 
-	// Take action based on the activity type
-	switch (userActivity.ActivityType) {
-	case "com.xamarin.platform":
-		// Restore the state of the app here...
-		break;
-	}
+    // Take action based on the activity type
+    switch (userActivity.ActivityType) {
+    case "com.xamarin.platform":
+        // Restore the state of the app here...
+        break;
+    }
 
-	return true;
+    return true;
 }
 ```
 
 Note that this is the same method override used to respond to Handoff requests. Now if the user clicks on a link from our app in the Spotlight Search results, our app will be brought to the foreground (or started if not already running) and the content, navigation or feature represented by that link will be displayed:
 
-[![](nsuseractivity-images/apphistory03.png "Restore Previous State from Search")](nsuseractivity-images/apphistory03.png#lightbox)
+[![Restore Previous State from Search](nsuseractivity-images/apphistory03.png)](nsuseractivity-images/apphistory03.png#lightbox)
 
-<a name="indexing" />
+<a name="indexing"></a>
 
 ## Public Search Indexing
 
@@ -161,7 +161,7 @@ Just because an activity has been set for public indexing by setting `EligibleFo
 1. It must appear in search results and be selected by many users. The results remain private until an activity engagement threshold has been met.
 2. App provisioning prevents any user-specific data from being indexed and made public.
 
-<a name="benefits" />
+<a name="benefits"></a>
 
 ## Additional Benefits
 
@@ -170,8 +170,6 @@ By adopting App Search via `NSUserActivity` in your app, you also get the follow
 - **Handoff** - Since App Search is exposing content, navigation and/or features using the same mechanism as Handoff (`NSUserActivity`), you can easily allow your app's users to start an activity on one device and continue it on another.
 - **Siri Suggestions** - Along with the standard suggestions that Siri Suggestions normally makes, actives from your app can be automatically suggested.
 - **Siri Smart Reminders** - Users will be able to ask Siri to remind them about activities from your app.
-
-
 
 ## Related Links
 

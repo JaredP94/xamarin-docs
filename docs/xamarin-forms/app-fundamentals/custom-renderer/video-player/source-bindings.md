@@ -7,6 +7,7 @@ ms.technology: xamarin-forms
 author: davidbritch
 ms.author: dabritch
 ms.date: 02/12/2018
+no-loc: [Xamarin.Forms, Xamarin.Essentials]
 ---
 
 # Binding video sources to the player
@@ -133,7 +134,6 @@ The `ListView` in the **BindToVideoPlayer.xaml** file contains an array of these
 The `Source` property of the `VideoPlayer` is bound to the `ListView`. The `Path` of the binding is specified as `SelectedItem.VideoSource`, which is a compound path consisting of two properties: `SelectedItem` is a property of `ListView`. The selected item is of type `VideoInfo`, which has a `VideoSource` property.
 
 As with the first **Select Web Video** page, no item is initially selected from the `ListView`, so you need to select one of the videos before it begins playing.
-
 
 ## Related Links
 

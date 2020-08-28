@@ -29,7 +29,7 @@ A typical game requires constant movement or change to be happening on the scree
 
 The following is a diagram of a simple game loop:
 
-![](images/image1.png "This is a diagram of a simple game loop")
+![This is a diagram of a simple game loop](images/image1.png)
 
 The technologies we discuss below will abstract away the actual while-loop, but despite this abstraction the concept of every-frame updates will be present.
 
@@ -62,7 +62,7 @@ Many games require more advanced mathematics than non-game applications. Of cour
 
 If you’re familiar with the Cartesian plane – that is using X and Y coordinates to position objects – then you know enough to get started with game development. The following shows a Cartesian plane with positive Y pointing upward:
 
-![](images/image2.png "This shows a Cartesian plane with positive Y pointing upward")
+![This shows a Cartesian plane with positive Y pointing upward](images/image2.png)
 
 > [!IMPORTANT]
 > Some engines/APIs use a coordinate system where increasing an object’s Y value will move it down, while other systems use a coordinate system where positive Y is up. Keep this in mind if you are moving between systems.
@@ -116,11 +116,11 @@ Notable examples of games using MonoGame include:
 
 FEZ:
 
-![](images/image7.png "FEZ")
+![FEZ](images/image7.png)
 
 Bastion:
 
-![](images/image8.jpg "Bastion")
+![Bastion](images/image8.jpg)
 
 To start working with MonoGame, head over to our [MonoGame Guides](~/graphics-games/monogame/index.md).
 
@@ -130,7 +130,7 @@ UrhoSharp is a cross-platform high-level 3D and 2D engine that can be used
 to create animated 3D and 2D scenes for your applications using geometries,
 materials, lights and cameras.
 
-![](images/urhosharp.gif "UrhoSharp is a cross-platform high-level 3D and 2D engine that can be used to create animated 3D and 2D scenes")
+![UrhoSharp is a cross-platform high-level 3D and 2D engine that can be used to create animated 3D and 2D scenes](images/urhosharp.gif)
 
 Check out the [UrhoSharp Guides](~/graphics-games/urhosharp/index.md) to get started.
 
@@ -140,7 +140,7 @@ The technologies highlighted above is only a sample of the technologies availabl
 
 - **Sprite Kit** – Xamarin provides support for Apple’s Sprite Kit game framework, which gives you access to all of the functionality of the native API. Since Sprite Kit is technology created by Apple, it provides deep integration with the rest of the iOS ecosystem. Of course, Sprite Kit is not cross-platform so it cannot be used on Android. For more information on using Sprite Kit, see this post:  [https://blog.xamarin.com/make-games-with-xamarin.ios-and-sprite-kit/](https://blog.xamarin.com/make-games-with-xamarin.ios-and-sprite-kit/)
 - **Scene Kit** – Xamarin also provides support for Apple’s Scene Kit framework, which simplifies implementing 3D graphics into iOS apps. Scene Kit is also technology provided by Apple, so it has both the integration and platform-specific considerations mentioned above for Sprite Kit. For more information on Scene Kit, see this post: [https://blog.xamarin.com/3d-in-ios-8-with-scene-kit/](https://blog.xamarin.com/3d-in-ios-8-with-scene-kit/)
-- **OpenTK –** OpenTK (which stands for Open Tool Kit) provides low-level OpenGL access to iOS, Apple, and Mac hardware. For more information on OpenTK, see the main page at:  [http://www.opentk.com/](http://www.opentk.com/)
+- **OpenTK –** OpenTK (which stands for Open Tool Kit) provides low-level OpenGL access to iOS, Apple, and Mac hardware. For more information on OpenTK, see the main page at: [https://opentk.net/](https://opentk.net/)
 
 ## Related Links
 

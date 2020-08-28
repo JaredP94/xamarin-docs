@@ -7,6 +7,7 @@ ms.technology: xamarin-forms
 author: davidbritch
 ms.author: dabritch
 ms.date: 09/11/2017
+no-loc: [Xamarin.Forms, Xamarin.Essentials]
 ---
 
 # Xamarin.Forms Data Templates
@@ -26,7 +27,6 @@ Data templates can be created inline, in a [`ResourceDictionary`](xref:Xamarin.F
 ## [Creating a DataTemplateSelector](selector.md)
 
 A [`DataTemplateSelector`](xref:Xamarin.Forms.DataTemplateSelector) can be used to choose a [`DataTemplate`](xref:Xamarin.Forms.DataTemplate) at runtime based on the value of a data-bound property. This enables multiple `DataTemplate` instances to be applied to the same type of object, to customize the appearance of particular objects. This article demonstrates how to create and consume a `DataTemplateSelector`.
-
 
 ## Related Links
 

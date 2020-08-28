@@ -4,8 +4,8 @@ description: "This document describes how to use the iOS 11 Vision Framework in 
 ms.prod: xamarin
 ms.assetid: 7273ED68-7B7D-4252-B3A0-02DB2E357A8C
 ms.technology: xamarin-ios
-author: lobrien
-ms.author: laobri
+author: davidortinau
+ms.author: daortin
 ms.date: 08/31/2017
 ---
 
@@ -27,7 +27,7 @@ including:
 
 Rectangle Detection and Face Detection are discussed in more detail below.
 
-<a name="rectangles" />
+<a name="rectangles"></a>
 
 ## Rectangle Detection
 
@@ -104,8 +104,7 @@ Rectangle detection is often just the first step in a chain of operations,
 such as with [this CoreMLVision example](~/ios/platform/introduction-to-ios11/coreml.md#coremlvision),
 where the rectangles are passed to a CoreML model to parse handwritten digits.
 
-
-<a name="faces" />
+<a name="faces"></a>
 
 ## Face Detection
 
@@ -185,7 +184,6 @@ facial features, such as the eyes and mouth. Use the
 `VNDetectFaceLandmarksRequest` type, which will return
 `VNFaceObservation` results as in step 3 above, but with additional
 `VNFaceLandmark` data.
-
 
 ## Related Links
 

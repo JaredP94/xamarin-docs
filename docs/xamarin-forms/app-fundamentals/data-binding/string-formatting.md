@@ -7,6 +7,7 @@ ms.technology: xamarin-forms
 author: davidbritch
 ms.author: dabritch
 ms.date: 01/05/2018
+no-loc: [Xamarin.Forms, Xamarin.Essentials]
 ---
 
 # Xamarin.Forms String Formatting
@@ -39,7 +40,7 @@ The **String Formatting** page illustrates several uses of the `StringFormat` pr
 ```xaml
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             xmlns:sys="clr-namespace:System;assembly=mscorlib"
+             xmlns:sys="clr-namespace:System;assembly=netstandard"
              x:Class="DataBindingDemos.StringFormattingPage"
              Title="String Formatting">
 
@@ -178,7 +179,6 @@ You might be wondering how you could display RGB (red, green, blue) values in tr
 Another approach is more general: You can write a *binding value converter* as discussed in the later article, [**Binding Value Converters**](converters.md).
 
 The next article, however, explores the [**Binding Path**](binding-path.md) in more detail, and show how you can use it to reference sub-properties and items in collections.
-
 
 ## Related Links
 

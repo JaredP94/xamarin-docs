@@ -3,8 +3,10 @@ title: "Xamarin.Essentials: Email"
 description: "The Email class in Xamarin.Essentials enables an application to open the default email application with a specified information including subject, body, and recipients (TO, CC, BCC)."
 ms.assetid: 5FBB6FF0-0E7B-4C29-8F06-91642AF12629
 author: jamesmontemagno
+ms.custom: video
 ms.author: jamont
-ms.date: 04/02/2019
+ms.date: 08/20/2019
+no-loc: [Xamarin.Forms, Xamarin.Essentials]
 ---
 
 # Xamarin.Essentials: Email
@@ -57,18 +59,9 @@ public class EmailTest
 }
 ```
 
-
 ## File Attachments
 
-![Preview feature](~/media/shared/preview.png)
-
-Emailing files is available as an experimental preview in Xamarin.Essentials version 1.1.0. This features enables an app to emails files in email clients on the device. To enable this feature set the following property in your app's startup code:
-
-```csharp
-ExperimentalFeatures.Enable(ExperimentalFeatures.EmailAttachments);
-```
-
-After the feature enabled any file can be emailed. Xamarin.Essentials will automatically detect the file type (MIME) and request the file to be added as an attachment. Every email client is different a may only support specific file extensions or none at all.
+This feature enables an app to email files in email clients on the device. Xamarin.Essentials will automatically detect the file type (MIME) and request the file to be added as an attachment. Every email client is different and may only support specific file extensions, or none at all.
 
 Here is a sample of writing text to disk and adding it as an email attachment:
 
@@ -102,11 +95,17 @@ No platform differences.
 
 Only supports `PlainText` as the `BodyFormat` attempting to send `Html` will throw a `FeatureNotSupportedException`.
 
-Not all email clients support sending attachments. See [documentation](https://docs.microsoft.com/windows/uwp/contacts-and-calendar/sending-email) for more inforamtion.
+Not all email clients support sending attachments. See [documentation](https://docs.microsoft.com/windows/uwp/contacts-and-calendar/sending-email) for more information.
 
 -----
 
 ## API
 
-- [Email source code](https://github.com/xamarin/Essentials/tree/master/Xamarin.Essentials/Email)
+- [Email source code](https://github.com/xamarin/Essentials/tree/main/Xamarin.Essentials/Email)
 - [Email API documentation](xref:Xamarin.Essentials.Email)
+
+## Related Video
+
+> [!Video https://channel9.msdn.com/Shows/XamarinShow/Email-XamarinEssentials-API-of-the-Week/player]
+
+[!include[](~/essentials/includes/xamarin-show-essentials.md)]

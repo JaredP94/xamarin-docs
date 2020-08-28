@@ -7,6 +7,7 @@ ms.technology: xamarin-forms
 author: davidbritch
 ms.author: dabritch
 ms.date: 10/24/2018
+no-loc: [Xamarin.Forms, Xamarin.Essentials]
 ---
 
 # Slider Thumb Tap on iOS
@@ -40,7 +41,7 @@ The `Slider.On<iOS>` method specifies that this platform-specific will only run 
 
 The result is that a tap on the [`Slider`](xref:Xamarin.Forms.Slider) bar can move the `Slider` thumb and set the [`Slider.Value`](xref:Xamarin.Forms.Slider.Value) property:
 
-![](slider-thumb-images/slider-updateontap.png "Slider Update on Tap enabled")
+![Slider Update on Tap enabled](slider-thumb-images/slider-updateontap.png)
 
 ## Related links
 

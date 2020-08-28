@@ -7,6 +7,7 @@ ms.technology: xamarin-forms
 author: davidbritch
 ms.author: dabritch
 ms.date: 10/24/2018
+no-loc: [Xamarin.Forms, Xamarin.Essentials]
 ---
 
 # Entry Cursor Color on iOS
@@ -18,9 +19,9 @@ This iOS platform-specific sets the cursor color of an [`Entry`](xref:Xamarin.Fo
 ```xaml
 <ContentPage ...
              xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core">
-	<StackLayout>
-		<Entry ... ios:Entry.CursorColor="LimeGreen" />
-	</StackLayout>
+    <StackLayout>
+        <Entry ... ios:Entry.CursorColor="LimeGreen" />
+    </StackLayout>
 </ContentPage>
 ```
 
@@ -39,7 +40,7 @@ The `Entry.On<iOS>` method specifies that this platform-specific will only run o
 
 The result is that the cursor color in a [`Entry`](xref:Xamarin.Forms.Entry) can be set to a specific [`Color`](xref:Xamarin.Forms.Color):
 
-![](entry-cursor-color-images/entry-cursorcolor.png "Entry Cursor Color")
+![Entry Cursor Color](entry-cursor-color-images/entry-cursorcolor.png)
 
 ## Related links
 

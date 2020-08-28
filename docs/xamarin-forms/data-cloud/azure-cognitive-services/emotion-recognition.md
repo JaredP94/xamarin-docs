@@ -7,6 +7,7 @@ ms.technology: xamarin-forms
 author: davidbritch
 ms.author: dabritch
 ms.date: 05/10/2018
+no-loc: [Xamarin.Forms, Xamarin.Essentials]
 ---
 
 # Perceived Emotion Recognition Using the Face API
@@ -15,11 +16,16 @@ ms.date: 05/10/2018
 
 The Face API can perform emotion detection to detect anger, contempt, disgust, fear, happiness, neutral, sadness, and surprise, in a facial expression based on perceived annotations by human coders. It is important to note, however, that facial expressions alone may not necessarily represent the internal states of people.
 
-In addition to returning an emotion result for a facial expression, the Face API can also returns a bounding box for detected faces. Note that an API key must be obtained to use the Face API. This can be obtained at [Try Cognitive Services](https://azure.microsoft.com/try/cognitive-services/?api=face-api).
+In addition to returning an emotion result for a facial expression, the Face API can also returns a bounding box for detected faces.
 
 Emotion recognition can be performed via a client library, and via a REST API. This article focuses on performing emotion recognition via the REST API. For more information about the REST API, see [Face REST API](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236).
 
 The Face API can also be used to recognize the facial expressions of people in video, and can return a summary of their emotions. For more information, see [How to Analyze Videos in Real-time](/azure/cognitive-services/face/face-api-how-to-topics/howtoanalyzevideo_face/).
+
+> [!NOTE]
+> If you don't have an [Azure subscription](/azure/guides/developer/azure-developer-guide#understanding-accounts-subscriptions-and-billing), create a [free account](https://aka.ms/azfree-docs-mobileapps) before you begin.
+
+An API key must be obtained to use the Face API. This can be obtained at [Try Cognitive Services](https://azure.microsoft.com/try/cognitive-services/?api=face-api).
 
 For more information about the Face API, see [Face API](/azure/cognitive-services/face/overview/).
 
@@ -165,7 +171,7 @@ emotionResultLabel.Text = faces.FirstOrDefault().FaceAttributes.Emotion.ToRanked
 
 The following screenshot shows the result of the emotion recognition process in the sample application:
 
-![](emotion-recognition-images/emotion-recognition.png "Emotion Recognition")
+![Emotion Recognition](emotion-recognition-images/emotion-recognition.png)
 
 ## Related links
 

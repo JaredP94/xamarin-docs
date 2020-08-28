@@ -7,6 +7,7 @@ ms.technology: xamarin-forms
 author: davidbritch
 ms.author: dabritch
 ms.date: 07/10/2018
+no-loc: [Xamarin.Forms, Xamarin.Essentials]
 ---
 
 # VisualElement Elevation on Android
@@ -78,7 +79,7 @@ The `Button.On<Android>` method specifies that this platform-specific will only 
 
 The result is that the elevation of visual elements can be controlled so that visual elements with higher Z values occlude visual elements with lower Z values. Therefore, in this example the second [`Button`](xref:Xamarin.Forms.Button) is rendered above the [`BoxView`](xref:Xamarin.Forms.BoxView) because it has a higher elevation value:
 
-![](visualelement-elevation-images/elevation.png)
+![VisualElement elevation screenshot](visualelement-elevation-images/elevation.png)
 
 ## Related links
 

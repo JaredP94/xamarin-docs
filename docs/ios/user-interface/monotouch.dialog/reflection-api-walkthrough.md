@@ -5,8 +5,8 @@ ms.prod: xamarin
 ms.assetid: C0F923D2-300E-DB9D-F390-9FA71B22DFD6
 ms.technology: xamarin-ios
 ms.date: 11/25/2015
-author: lobrien
-ms.author: laobri
+author: davidortinau
+ms.author: daortin
 ---
 # Creating a Xamarin.iOS application using the Reflection API
 
@@ -29,15 +29,14 @@ code as necessary.
 
 Using the Reflection API is as simple as:
 
-1.  Creating a class decorated with MT.D attributes.
-1.  Creating a  `BindingContext` instance, passing it an instance of the above class. 
-1.  Creating a  `DialogViewController` , passing it the  `BindingContext’s` `RootElement` . 
-
+1. Creating a class decorated with MT.D attributes.
+1. Creating a  `BindingContext` instance, passing it an instance of the above class.
+1. Creating a  `DialogViewController` , passing it the  `BindingContext’s` `RootElement` .
 
 Let’s look at an example to illustrate how to use the Reflection API. In
 this example, we’ll build a simple data entry screen as shown below:
 
- [![](reflection-api-walkthrough-images/01-expense-entry.png "In this example, we'll build a simple data entry screen as shown here")](reflection-api-walkthrough-images/01-expense-entry.png#lightbox)
+ [![In this example, we'll build a simple data entry screen as shown here](reflection-api-walkthrough-images/01-expense-entry.png)](reflection-api-walkthrough-images/01-expense-entry.png#lightbox)
 
 ## Creating a class with MT.D attributes
 
@@ -52,13 +51,13 @@ public class Expense
 
     [Entry("Enter expense name")]
     public string Name;
-        
+
     [Section("Expense Details")]
-  
+
     [Caption("Description")]
     [Entry]
     public string Details;
-        
+
     [Checkbox]
     public bool IsApproved = true;
 }
@@ -100,14 +99,14 @@ UIWindow window;
 public override bool FinishedLaunching (UIApplication app, NSDictionary options)
 {   
     window = new UIWindow (UIScreen.MainScreen.Bounds);
-            
+
     var expense = new Expense ();
     var bctx = new BindingContext (null, expense, "Create a task");
     var dvc = new DialogViewController (bctx.Root);
-            
+
     window.RootViewController = dvc;
     window.MakeKeyAndVisible ();
-            
+
     return true;
 }
 ```
@@ -128,7 +127,7 @@ window.RootViewController = nav;
 Now when we run the application, the title appears in the `UINavigationController’s` navigation bar as the screenshot below
 shows:
 
- [![](reflection-api-walkthrough-images/02-create-task.png "Now when we run the application, the title appears in the UINavigationControllers navigation bar")](reflection-api-walkthrough-images/02-create-task.png#lightbox)
+ [![Now when we run the application, the title appears in the UINavigationControllers navigation bar](reflection-api-walkthrough-images/02-create-task.png)](reflection-api-walkthrough-images/02-create-task.png#lightbox)
 
 By including a `UINavigationController`, we can now take advantage
 of other features of MT.D for which navigation is necessary. For example, we can
@@ -143,7 +142,7 @@ public enum Category
     Lodging,
     Books
 }
-        
+
 public class Expense
 {
     …
@@ -156,15 +155,14 @@ public class Expense
 Running the application now results in a new row in the table for the
 category as shown:
 
- [![](reflection-api-walkthrough-images/03-set-details.png "Running the application now results in a new row in the table for the category as shown")](reflection-api-walkthrough-images/03-set-details.png#lightbox)
+ [![Running the application now results in a new row in the table for the category as shown](reflection-api-walkthrough-images/03-set-details.png)](reflection-api-walkthrough-images/03-set-details.png#lightbox)
 
 Selecting the row results in the application navigating to a new screen with
 rows corresponding to the enumeration, as shown below:
 
- [![](reflection-api-walkthrough-images/04-set-category.png "Selecting the row results in the application navigating to a new screen with rows corresponding to the enumeration")](reflection-api-walkthrough-images/04-set-category.png#lightbox)
+ [![Selecting the row results in the application navigating to a new screen with rows corresponding to the enumeration](reflection-api-walkthrough-images/04-set-category.png)](reflection-api-walkthrough-images/04-set-category.png#lightbox)
 
- <a name="Summary" />
-
+ <a name="Summary"></a>
 
 ## Summary
 
@@ -172,7 +170,6 @@ This article presented a walkthrough of the Reflection API. We showed how to
 add attributes to a class to control what is displayed. We also discussed how to
 use a `BindingContext` to bind data from a class to the element
 hierarchy that is created, as well as how to use MT.D with a `UINavigationController`.
-
 
 ## Related links
 

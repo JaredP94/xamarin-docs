@@ -7,6 +7,7 @@ ms.assetid: 57F172F8-BA03-43EC-A215-ED6B78696BB5
 author: davidbritch
 ms.author: dabritch
 ms.date: 08/23/2018
+no-loc: [Xamarin.Forms, Xamarin.Essentials]
 ---
 
 # Porter-Duff blend modes
@@ -322,10 +323,10 @@ public partial class BrickWallCompositingPage : ContentPage
 
     int step = 0;
 
-	public BrickWallCompositingPage ()
-	{
-		InitializeComponent ();
-	}
+    public BrickWallCompositingPage ()
+    {
+        InitializeComponent ();
+    }
 
     void OnButtonClicked(object sender, EventArgs args)
     {
@@ -665,7 +666,7 @@ public class CompositingMaskPage : ContentPage
     static readonly float RADIUS = 120;
 
     public CompositingMaskPage ()
-	{
+    {
         Title = "Compositing Mask";
 
         SKCanvasView canvasView = new SKCanvasView();
@@ -785,8 +786,8 @@ public partial class GradientTransitionsPage : ContentPage
     };
 
     public GradientTransitionsPage ()
-	{
-		InitializeComponent ();
+    {
+        InitializeComponent ();
 
         foreach (TransitionMode mode in Enum.GetValues(typeof(TransitionMode)))
         {
@@ -794,7 +795,7 @@ public partial class GradientTransitionsPage : ContentPage
         }
 
         transitionPicker.SelectedIndex = 0;
-	}
+    }
 
     void OnSliderValueChanged(object sender, ValueChangedEventArgs args)
     {

@@ -6,7 +6,8 @@ ms.assetid: 318D81DB-E456-4E44-B083-36A27DBD9523
 ms.technology: xamarin-forms
 author: davidbritch
 ms.author: dabritch
-ms.date: 05/23/2019
+ms.date: 11/06/2019
+no-loc: [Xamarin.Forms, Xamarin.Essentials]
 ---
 
 # Xamarin.Forms Shell Tabs
@@ -97,6 +98,10 @@ Tab titles and icons are set on each `Tab` object, and displayed on the bottom t
 
 [![Screenshot of a Shell two page app with bottom tabs, on iOS and Android](tabs-images/two-page-app-bottom-tabs.png "Shell two page app with bottom tabs")](tabs-images/two-page-app-bottom-tabs-large.png#lightbox "Shell two page app with bottom tabs")
 
+When there are more than five tabs, a **More** tab will appear, which can be used to access the additional tabs:
+
+[![Screenshot of a Shell app with a More tab, on iOS and Android](tabs-images/more-tabs.png "Shell app with More tab")](tabs-images/more-tabs-large.png#lightbox "Shellapp with More tabs")
+
 Alternatively, Shell's implicit conversion operators can be used to remove the `ShellContent` and `Tab` objects from the previous example:
 
 ```xaml
@@ -159,6 +164,9 @@ The child of every `Tab` object is a `ShellContent` object, whose `Content` prop
 
 Within each [`ContentPage`](xref:Xamarin.Forms.ContentPage) object, additional `ContentPage` objects can be navigated to. For more information about navigation, see [Xamarin.Forms Shell Navigation](navigation.md).
 
+> [!NOTE]
+> The [`BindingContext`](xref:Xamarin.Forms.BindableObject.BindingContext) of each `ShellContent` object is inherited from the parent `Tab` object.
+
 ### ShellContent class
 
 The `ShellContent` class includes the following properties that control tab content appearance and behavior:
@@ -169,6 +177,7 @@ The `ShellContent` class includes the following properties that control tab cont
 - `Icon`, of type `ImageSource`, defines the icon to display in parts of the chrome which are not the flyout.
 - `IsChecked`, of type `boolean`, defines if the item is currently highlighted in the flyout.
 - `IsEnabled`, of type `boolean`, defines if the item is selectable in the chrome.
+- `IsVisible`, of type `bool`, indicates if the `ShellContent` is hidden from all UI structures. Its default value is `true`.
 - `MenuItems`, of type `MenuItemCollection`, the menu items to display in the flyout when this `ShellContent` is the presented page.
 - `Title`, of type `string`, the title to display in the UI.
 
@@ -253,7 +262,7 @@ In a Shell application, every [`ContentPage`](xref:Xamarin.Forms.ContentPage) ob
 </Shell>
 ```
 
-This XAML creates and displays `CatsPage`, because it's the first item of content declared in the subclassed `Shell` object. `CatsPage` and `MonkeysPage` can be navigated to via bottom tabs, and these pages are only created when the user navigates to them. The advantage of this approach is that the poor startup experience is avoided, as pages are created on demand in response to navigation, rather than at application startup.
+This XAML creates and displays `CatsPage`, because it's the first item of content declared in the subclassed `Shell` object. `DogsPage` and `MonkeysPage` can be navigated to via bottom tabs, and these pages are only created when the user navigates to them. The advantage of this approach is that the poor startup experience is avoided, as pages are created on demand in response to navigation, rather than at application startup.
 
 ## Tab appearance
 

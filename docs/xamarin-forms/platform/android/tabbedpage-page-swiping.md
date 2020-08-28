@@ -7,6 +7,7 @@ ms.technology: xamarin-forms
 author: davidbritch
 ms.author: dabritch
 ms.date: 07/10/2018
+no-loc: [Xamarin.Forms, Xamarin.Essentials]
 ---
 
 # TabbedPage Page Swiping on Android
@@ -39,7 +40,7 @@ The `TabbedPage.On<Android>` method specifies that this platform-specific will o
 
 The result is that swipe paging through the pages displayed by a [`TabbedPage`](xref:Xamarin.Forms.TabbedPage) is enabled:
 
-![](tabbedpage-page-swiping-images/tabbedpage-swipe.png)
+![Swipe paging through a TabbedPage](tabbedpage-page-swiping-images/tabbedpage-swipe.png)
 
 ## Related links
 

@@ -1,17 +1,31 @@
 ---
 title: "Packaging Wear Apps"
+description: "This article explains how to package Android Wear apps."
 ms.prod: xamarin
 ms.assetid: E32DD855-78DD-46F8-B234-4EAC0756BDA2
 ms.technology: xamarin-android
-author: conceptdev
-ms.author: crdun
+author: davidortinau
+ms.author: daortin
 ms.date: 02/02/2018
 ---
 
 # Packaging Wear Apps
 
-Android Wear apps are packaged with a full Android app for 
-distribution on Google Play. 
+> [!WARNING]
+> The following docs and sample projects may no longer be maintained.
+> As of [Xamarin.Android 11.1][xa-11.1], automatically packaging an
+> Android Wear application within an Android handheld application is
+> no longer supported. It is recommended to distribute Android Wear
+> applications as [standalone applications][standalone] instead.
+
+Android Wear 1.0 apps are packaged with a full Android app for 
+distribution on Google Play.
+
+Android Wear 2.0 apps can be submitted to Google Play as [standalone
+applications][standalone].
+
+[xa-11.1]: https://docs.microsoft.com/xamarin/android/release-notes/11/11.1
+[standalone]: https://developer.android.com/training/wearables/apps/standalone-apps
 
 ## Automatic Packaging
 
@@ -61,7 +75,6 @@ the following steps to create this association:
 
 -----
 
-
 Note that you will get an **XA5211** error if the package name of the
 Wear app does not match the package name of the Handheld app. For
 example:
@@ -83,9 +96,9 @@ The assembly that the Wear app project generates is not used as an
 assembly reference in the Handheld (Phone) project. Instead, the build
 process does the following:
 
--   Verifies that the package names match. 
+- Verifies that the package names match. 
 
--   Generates XML and adds it to the Handheld project to 
+- Generates XML and adds it to the Handheld project to 
     associate it with the Wear app. For example: 
 
     ```xml
@@ -97,8 +110,7 @@ process does the following:
     </ProjectReference>
     ```
 
--   Adds the Wear app as a **raw** resource to the Handheld project. 
-
+- Adds the Wear app as a **raw** resource to the Handheld project. 
 
 ## Manual Packaging
 
@@ -106,35 +118,34 @@ You can write Android Wear apps in Xamarin.Android before version 5.0,
 but you must follow these manual packaging instructions to distribute 
 the app: 
 
-1. Ensure that your Wearable project and Handheld (Phone) 	projects
+1. Ensure that your Wearable project and Handheld (Phone) projects
    have the same version number and package name.
 
 2. Manually build the Wearable project as a **Release** build.
 
 3. Manually add the release **.APK** from step (2) into the
-   **Resources/raw** directory 	of the Handheld (Phone) project.
+   **Resources/raw** directory of the Handheld (Phone) project.
 
 4. Manually add a new XML resource
-   **Resources/xml/wearable_app_desc.xml** 	in the Handheld project
+   **Resources/xml/wearable_app_desc.xml** in the Handheld project
    which refers to Wearable **APK** from step (3):
 
-	```xml
-	<wearableApp package="wearable.app.package.name">
-		<versionCode>1</versionCode>
-		<versionName>1.0</versionName>
-		<rawPathResId>NAME_OF_APK_FROM_STEP_3</rawPathResId>
-	</wearableApp>
-	```
+    ```xml
+    <wearableApp package="wearable.app.package.name">
+        <versionCode>1</versionCode>
+        <versionName>1.0</versionName>
+        <rawPathResId>NAME_OF_APK_FROM_STEP_3</rawPathResId>
+    </wearableApp>
+    ```
 
-5. Manually add a `<meta-data />` element to the Handheld 	project's
-   **AndroidManifest.xml** `<application>` element 	that refers to the
+5. Manually add a `<meta-data />` element to the Handheld     project's
+   **AndroidManifest.xml** `<application>` element     that refers to the
    new XML resource:
 
-	```xml
-	<meta-data android:name="com.google.android.wearable.beta.app"
-		android:resource="@xml/wearable_app_desc"/>
-	```
+    ```xml
+    <meta-data android:name="com.google.android.wearable.beta.app"
+        android:resource="@xml/wearable_app_desc"/>
+    ```
 
 See also the Android Developer site's 
 [manual packging instructions](https://developer.android.com/training/wearables/apps/packaging.html#PackageManually).
-

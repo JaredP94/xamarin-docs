@@ -7,6 +7,7 @@ ms.technology: xamarin-forms
 author: davidbritch
 ms.author: dabritch
 ms.date: 06/12/2019
+no-loc: [Xamarin.Forms, Xamarin.Essentials]
 ---
 
 # Xamarin.Forms DependencyService Introduction
@@ -35,7 +36,7 @@ The following example shows an interface for an API that can be used to retrieve
 ```csharp
 public interface IDeviceOrientationService
 {
-		DeviceOrientation GetOrientation();
+    DeviceOrientation GetOrientation();
 }
 ```
 
@@ -113,7 +114,7 @@ The following example shows using the [`DependencyAttribute`](xref:Xamarin.Forms
 ```csharp
 using Xamarin.Forms;
 
-[assembly: Dependency(typeof(DeviceOrientationService))]
+[assembly: Dependency(typeof(DependencyServiceDemos.iOS.DeviceOrientationService))]
 namespace DependencyServiceDemos.iOS
 {
     public class DeviceOrientationService : IDeviceOrientationService

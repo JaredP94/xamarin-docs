@@ -7,6 +7,7 @@ ms.technology: xamarin-forms
 author: davidbritch
 ms.author: dabritch
 ms.date: 02/28/2017
+no-loc: [Xamarin.Forms, Xamarin.Essentials]
 ---
 
 # Xamarin.Forms Web Services Introduction
@@ -26,8 +27,8 @@ In all cases, the tasks are stored in a backend that's accessed through a web se
 
 When the application is launched, a page is displayed that lists any tasks retrieved from the web service, and allows the user to create a new task. Clicking on a task navigates the application to a second page where the task can be edited, saved, deleted, and spoken. The final application is shown below:
 
-![](introduction-images/app-example-1.png "Todo application - first page")
-![](introduction-images/app-example-2.png "Todo application - second page")
+![Todo application - first page](introduction-images/app-example-1.png)
+![Todo application - second page](introduction-images/app-example-2.png)
 
 Each topic in this guide provides a download link to a *different* version of the
 application that demonstrates a specific type of web service backend. Download

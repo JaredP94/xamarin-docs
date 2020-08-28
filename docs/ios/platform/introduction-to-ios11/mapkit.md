@@ -4,8 +4,8 @@ description: "This document describes new MapKit features in iOS 11: grouping ma
 ms.prod: xamarin
 ms.assetid: 304AE5A3-518F-422F-BE24-92D62CE30F34
 ms.technology: xamarin-ios
-author: lobrien
-ms.author: laobri
+author: davidortinau
+ms.author: daortin
 ms.date: 08/30/2017
 ---
 
@@ -20,7 +20,7 @@ iOS 11 adds the following new features to MapKit:
 
 ![Map showing clustered markers and compass button](mapkit-images/cyclemap-heading.png)
 
-<a name="clustering" />
+<a name="clustering"></a>
 
 ## Automatically grouping markers while zooming
 
@@ -194,7 +194,7 @@ in and out of clusters.
 Refer to the [Maps section](~/ios/user-interface/controls/ios-maps/index.md)
 for more information on displaying data with MapKit.
 
-<a name="compass" />
+<a name="compass"></a>
 
 ## Compass Button
 
@@ -215,7 +215,7 @@ MapView.ShowsCompass = false; // so we don't have two compasses!
 
 The `ShowsCompass` property can be used to control visibility of the default compass inside the map view.
 
-<a name="scale" />
+<a name="scale"></a>
 
 ## Scale View
 
@@ -234,7 +234,7 @@ MapView.ShowsScale = false; // so we don't have two scale displays!
 
 The `ShowsScale` property can be used to control visibility of the default compass inside the map view.
 
-<a name="user-tracking" />
+<a name="user-tracking"></a>
 
 ## User Tracking Button
 
@@ -253,7 +253,6 @@ button.Layer.CornerRadius = 5;
 button.TranslatesAutoresizingMaskIntoConstraints = false;
 View.AddSubview(button); // constraints omitted for simplicity
 ```
-
 
 ## Related Links
 

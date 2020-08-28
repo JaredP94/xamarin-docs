@@ -7,6 +7,7 @@ ms.technology: xamarin-forms
 author: davidbritch
 ms.author: dabritch
 ms.date: 10/24/2018
+no-loc: [Xamarin.Forms, Xamarin.Essentials]
 ---
 
 # Main Thread Control Updates on iOS
@@ -19,7 +20,7 @@ This iOS platform-specific enables control layout and rendering updates to be pe
 <Application ...
              xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core"
              ios:Application.HandleControlUpdatesOnMainThread="true">
-	...
+    ...
 </Application>
 ```
 

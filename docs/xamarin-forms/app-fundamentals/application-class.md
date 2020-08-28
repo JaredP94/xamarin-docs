@@ -4,9 +4,11 @@ description: "This article explains features of the default App class, which inc
 ms.prod: xamarin
 ms.assetid: 421F8294-1944-46A4-8459-D2BD5AAABC9D
 ms.technology: xamarin-forms
+ms.custom: video
 author: davidbritch
 ms.author: dabritch
 ms.date: 02/19/2016
+no-loc: [Xamarin.Forms, Xamarin.Essentials]
 ---
 
 # Xamarin.Forms App Class
@@ -14,7 +16,7 @@ ms.date: 02/19/2016
 The `Application` base class offers the following features, which are exposed in your projects default `App` subclass:
 
 * A `MainPage` property, which is where to set the initial page for the app.
-* A persistent [`Properties` dictionary](#Properties_Dictionary) to store simple values across lifecycle state changes.
+* A persistent [`Properties` dictionary](#properties-dictionary) to store simple values across lifecycle state changes.
 * A static `Current` property that contains a reference to the current application object.
 
 It also exposes [Lifecycle methods](~/xamarin-forms/app-fundamentals/app-lifecycle.md) such
@@ -69,8 +71,6 @@ public class App : Xamarin.Forms.Application
     }
 }
 ```
-
-<a name="Properties_Dictionary" />
 
 ## Properties dictionary
 
@@ -238,3 +238,9 @@ public sealed partial class MainPage
 Note that `Forms.Init()` must be called from **App.xaml.cs** in the UWP project.
 
 For more information, see [Setup Windows Projects](~/xamarin-forms/platform/windows/installation/index.md), which includes steps to add a UWP project to an existing Xamarin.Forms solution that doesn't target UWP.
+
+## Related video
+
+> [!Video https://channel9.msdn.com/Series/Xamarin-101/Xamarin-Solution-Architecture-4-of-11/player]
+
+[!include[](~/essentials/includes/xamarin-show-essentials.md)]
