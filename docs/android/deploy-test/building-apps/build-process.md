@@ -5,7 +5,7 @@ ms.assetid: 3BE5EE1E-3FF6-4E95-7C9F-7B443EE3E94C
 ms.technology: xamarin-android
 author: davidortinau
 ms.author: daortin
-ms.date: 03/06/2020
+ms.date: 09/11/2020
 ---
 
 # Build Process
@@ -685,6 +685,21 @@ when packaging Release applications.
 
   [manifest-merger]: https://developer.android.com/studio/build/manifest-merge
 
+- **AndroidManifestPlaceholders** &ndash; A semicolon-separated list of
+  key-value replacement pairs for *AndroidManifest.xml*, where each pair
+  has the format `key=value`.
+
+  For example, a property value of `assemblyName=$(AssemblyName)`
+  defines an `${assemblyName}` placeholder that can then appear in
+  *AndroidManifest.xml*:
+
+  ```xml
+  <application android:label="${assemblyName}"
+  ```
+
+  This provides a way to insert variables from the build process into
+  the *AndroidManifest.xml* file.
+
 - **AndroidMultiDexClassListExtraArgs** &ndash; A string property
   which allows developers to pass additional arguments to the
   `com.android.multidex.MainDexListBuilder` when generating the
@@ -1146,18 +1161,17 @@ resources.
 
   Added in Xamarin.Android 9.1.
 
-- **AndroidExplicitCrunch** &ndash; If you are building an app with a
-  very large number of local drawables, an initial build (or rebuild)
-  can take minutes to complete. To speed up the build process, try
-  including this property and setting it to `True`. When this
-  property is set, the build process pre-crunches the .png files.
+- **AndroidExplicitCrunch** &ndash; No longer supported in
+  Xamarin.Android 11.0.
 
-  Note: This option is not compatible with the `$(AndroidUseAapt2)`
-  option. If `$(AndroidUseAapt2)` is enabled, this functionality
-  will be disabled. If you wish to continue to use this feature
-  please set `$(AndroidUseAapt2)` to `False`.
+- **AndroidR8IgnoreWarnings** &ndash; Automatically specifies
+  the `-ignorewarnings` proguard rule for `r8`. This allows `r8`
+  to continue with dex compilation even if certain warnings are
+  encountered. Defaults to `True`, but can be set to `False` to
+  enforce more strict behavior. See the [ProGuard manual](https://www.guardsquare.com/products/proguard/manual/usage)
+  for details.
 
-  **Experimental**. Added in Xamarin.Android 7.0.
+  Added in Xamarin.Android 10.3.
 
 - **AndroidResgenExtraArgs** &ndash; Specifies additional
   command-line options to pass to the **aapt** command when
