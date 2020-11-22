@@ -4,8 +4,8 @@ description: "This document links to various guides that describe how to get sta
 ms.prod: xamarin
 ms.assetid: 13FCAE14-E73D-C1A4-1D22-A433AD827C07
 ms.custom: xamu-video
-author: conceptdev
-ms.author: crdun
+author: davidortinau
+ms.author: daortin
 ms.date: 04/10/2017
 ---
 
@@ -47,7 +47,7 @@ customer demand for mobile access, and reduce cross-platform
 complexity. This document outlines key guidelines to realizing these
 advantages for utility and productivity applications.
 
-### [Introducing Visual Studio for Mac](https://docs.microsoft.com/visualstudio/mac/)
+### [Introducing Visual Studio for Mac](/visualstudio/mac/)
 
 Learn more about Visual Studio for Mac, the Integrated Development Environment (IDE) for macOS.
 

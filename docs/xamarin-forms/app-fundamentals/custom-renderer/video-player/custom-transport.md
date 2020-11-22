@@ -7,11 +7,12 @@ ms.technology: xamarin-forms
 author: davidbritch
 ms.author: dabritch
 ms.date: 02/12/2018
+no-loc: [Xamarin.Forms, Xamarin.Essentials]
 ---
 
 # Custom video transport controls
 
-[![Download Sample](~/media/shared/download.png) Download the sample](https://docs.microsoft.com/samples/xamarin/xamarin-forms-samples/customrenderers-videoplayerdemos)
+[![Download Sample](~/media/shared/download.png) Download the sample](/samples/xamarin/xamarin-forms-samples/customrenderers-videoplayerdemos)
 
 The transport controls of a video player include the buttons that perform the functions **Play**, **Pause**, and **Stop**. These buttons are generally identified with familiar icons rather than text, and the **Play** and **Pause** functions are generally combined into one button.
 
@@ -608,7 +609,7 @@ The **Custom Transport** page sets the **AreTransportControlsEnabled** property 
 </ContentPage>
 ```
 
-Data triggers are described in detail in the article [Data Triggers](~/xamarin-forms/app-fundamentals/triggers.md#data).
+Data triggers are described in detail in the article [Data Triggers](~/xamarin-forms/app-fundamentals/triggers.md#data-triggers).
 
 The code-behind file has the handlers for the button `Clicked` events:
 
@@ -652,7 +653,6 @@ But on Android and UWP, the **Play** button looks very different when the video 
 
 In a production application, you'll probably want to use your own bitmap images for the buttons to achieve visual uniformity.
 
-
 ## Related Links
 
-- [Video Player Demos (sample)](https://docs.microsoft.com/samples/xamarin/xamarin-forms-samples/customrenderers-videoplayerdemos)
+- [Video Player Demos (sample)](/samples/xamarin/xamarin-forms-samples/customrenderers-videoplayerdemos)

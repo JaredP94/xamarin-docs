@@ -7,11 +7,12 @@ ms.technology: xamarin-forms
 author: davidbritch
 ms.author: dabritch
 ms.date: 02/08/2017
+no-loc: [Xamarin.Forms, Xamarin.Essentials]
 ---
 
 # Spell Checking Using the Bing Spell Check API
 
-[![Download Sample](~/media/shared/download.png) Download the sample](https://docs.microsoft.com/samples/xamarin/xamarin-forms-samples/webservices-todocognitiveservices)
+[![Download Sample](~/media/shared/download.png) Download the sample](/samples/xamarin/xamarin-forms-samples/webservices-todocognitiveservices)
 
 _Bing Spell Check performs contextual spell checking for text, providing inline suggestions for misspelled words. This article explains how to use the Bing Spell Check REST API to correct spelling errors in a Xamarin.Forms application._
 
@@ -21,6 +22,9 @@ The Bing Spell Check REST API has two operating modes, and a mode must be specif
 
 - `Spell` corrects short text (up to 9 words) without any casing changes.
 - `Proof` corrects long text, provides casing corrections and basic punctuation, and suppresses aggressive corrections.
+
+> [!NOTE]
+> If you don't have an [Azure subscription](/azure/guides/developer/azure-developer-guide#understanding-accounts-subscriptions-and-billing), create a [free account](https://aka.ms/azfree-docs-mobileapps) before you begin.
 
 An API key must be obtained to use the Bing Spell Check API. This can be obtained at [Try Cognitive Services](https://azure.microsoft.com/try/cognitive-services/)
 
@@ -146,9 +150,9 @@ foreach (var flaggedToken in spellCheckResult.FlaggedTokens)
 
 This code iterates through the `FlaggedTokens` collection and replaces any misspelled or grammatically incorrect words in the source text with the first suggestion. The following screenshots show before and after the spell check:
 
-![](spell-check-images/before-spell-check.png "Before Spell Check")
+![Before Spell Check](spell-check-images/before-spell-check.png)
 
-![](spell-check-images/after-spell-check.png "After Spell Check")
+![After Spell Check](spell-check-images/after-spell-check.png)
 
 > [!NOTE]
 > The example above uses `Replace` for simplicity, but across a large amount of text it
@@ -163,5 +167,5 @@ This article explained how to use the Bing Spell Check REST API to correct spell
 
 - [Bing Spell Check Documentation](/azure/cognitive-services/bing-spell-check/)
 - [Consume a RESTful Web Service](~/xamarin-forms/data-cloud/web-services/rest.md)
-- [Todo Cognitive Services (sample)](https://docs.microsoft.com/samples/xamarin/xamarin-forms-samples/webservices-todocognitiveservices)
+- [Todo Cognitive Services (sample)](/samples/xamarin/xamarin-forms-samples/webservices-todocognitiveservices)
 - [Bing Spell Check API v7 reference](/rest/api/cognitiveservices/bing-spell-check-api-v7-reference/)

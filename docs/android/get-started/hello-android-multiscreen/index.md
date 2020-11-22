@@ -5,8 +5,8 @@ ms.topic: quickstart
 ms.prod: xamarin
 ms.assetid: D82EC193-2CB7-44C3-8688-0CEBDF60C3D6
 ms.technology: xamarin-android
-author: conceptdev
-ms.author: crdun
+author: davidortinau
+ms.author: daortin
 ms.date: 12/02/2016
 ---
 
@@ -27,9 +27,8 @@ In the second part of this document, you will review what you've built
 and discusses architecture, navigation, and other new Android concepts
 that are encountered along the way.
 
-
 ## Related Links
 
 - [Android Getting Started](https://developer.android.com/training/index.html)
-- [Debugging in Visual Studio](https://docs.microsoft.com/visualstudio/debugger/)
+- [Debugging in Visual Studio](/visualstudio/debugger/)
 - [Visual Studio for Mac Recipes - Debugging](https://github.com/xamarin/recipes/tree/master/Recipes/cross-platform/ide/debugging)

@@ -4,8 +4,8 @@ ms.prod: xamarin
 ms.topic: tutorial
 ms.assetid: 444A894D-5197-4726-934F-79BA80A71CB0
 ms.technology: xamarin-android
-author: conceptdev
-ms.author: crdun
+author: davidortinau
+ms.author: daortin
 ms.date: 04/26/2018
 ---
 
@@ -29,9 +29,9 @@ The following modifications will build upon the work that was done in the [Fragm
 
 ## 1. Create an alternate layout
 
-When Main Activity is created on an Android device, Android will decide which layout to load based on the orientation of the device. By default, Android will provide the **Resources/layout/activity_main.axml** layout file. For devices that load in landscape mode Android will provide the **Resources/layout-land/activity_main.axml** layout file. The guide on [Android Resources](/xamarin/android/app-fundamentals/resources-in-android) contains more details on how Android decides what resource files to load for an application.
+When Main Activity is created on an Android device, Android will decide which layout to load based on the orientation of the device. By default, Android will provide the **Resources/layout/activity_main.axml** layout file. For devices that load in landscape mode Android will provide the **Resources/layout-land/activity_main.axml** layout file. The guide on [Android Resources](../../../app-fundamentals/resources-in-android/index.md) contains more details on how Android decides what resource files to load for an application.
 
-Create an alternate layout that targets **Landscape** orientation by following the steps described in the [Alternate Layouts](/xamarin/android/user-interface/android-designer/alternative-layout-views) guide. This should add a new layout resource file to the project, **Resources/layout/activity_main.axml**:
+Create an alternate layout that targets **Landscape** orientation by following the steps described in the [Alternate Layouts](../../../user-interface/android-designer/alternative-layout-views.md) guide. This should add a new layout resource file to the project, **Resources/layout/activity_main.axml**:
 
 # [Visual Studio](#tab/windows)
 
@@ -150,7 +150,6 @@ public class TitlesFragment : ListFragment
         {
             selectedPlayId = savedInstanceState.GetInt("current_play_id", 0);
         }
-
 
         var quoteContainer = Activity.FindViewById(Resource.Id.playquote_container);
         showingTwoFragments = quoteContainer != null &&

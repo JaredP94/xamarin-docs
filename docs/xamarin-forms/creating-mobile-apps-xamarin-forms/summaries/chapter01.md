@@ -7,6 +7,7 @@ ms.assetid: F3F864FF-EE70-49D0-90D1-388889037625
 author: davidbritch
 ms.author: dabritch
 ms.date: 07/19/2018
+no-loc: [Xamarin.Forms, Xamarin.Essentials]
 ---
 
 # Summary of Chapter 1. How does Xamarin.Forms fit in?
@@ -14,7 +15,7 @@ ms.date: 07/19/2018
 [![Download Sample](~/media/shared/download.png) Download the sample](https://github.com/xamarin/xamarin-forms-book-samples/tree/master/Chapter01)
 
 > [!NOTE]
-> Notes on this page indicate areas where Xamarin.Forms has diverged from the material presented in the book.
+> This book was published in the spring of 2016, and has not been updated since then. There is much in the book that remains valuable, but some of the material is outdated, and some topics are no longer entirely correct or complete.
 
 One of the most unpleasant jobs in programming is porting a code base from one platform to another, particularly if that platform involves a different programming language. There is a temptation when porting the code to refactor it as well, but if both platforms must be maintained in parallel, then the differences between the two code bases will make future maintenance more difficult.
 
@@ -82,7 +83,7 @@ The Xamarin and Microsoft web sites contain information on how to do this:
 
 - [Getting Started with iOS](~/ios/get-started/index.md)
 - [Getting Started with Android](~/android/get-started/index.md)
-- [Windows Dev Center](http://dev.windows.com)
+- [Windows Dev Center](https://dev.windows.com)
 
 Once you can create and run projects for these individual platforms, you should have no problem creating and running a Xamarin.Forms application.
 

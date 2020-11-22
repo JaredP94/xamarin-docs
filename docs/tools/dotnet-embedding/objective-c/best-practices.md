@@ -3,8 +3,8 @@ title: ".NET Embedding best practices for Objective-C"
 description: "This document describes various best practices for using .NET Embedding with Objective-C. It discusses exposing a subset of the managed code, exposing a chunkier API, naming, and more."
 ms.prod: xamarin
 ms.assetid: 63C7F5D2-8933-4D4A-8348-E9CBDA45C472
-author: lobrien
-ms.author: laobri
+author: davidortinau
+ms.author: daortin
 ms.date: 11/14/2017
 ---
 
@@ -134,6 +134,6 @@ The generator follow the same `return nil` pattern for generated `init*` methods
 
 Objective-C does not allow operators to be overloaded as C# does, so these are converted to class selectors.
 
-["Friendly"](https://docs.microsoft.com/dotnet/standard/design-guidelines/operator-overloads) named methods are generated in preference to the operator overloads when found, and can produce an easier to consume API.
+["Friendly"](/dotnet/standard/design-guidelines/operator-overloads) named methods are generated in preference to the operator overloads when found, and can produce an easier to consume API.
 
 Classes that override the operators `==` and\or `!=` should override the standard Equals (Object) method as well.

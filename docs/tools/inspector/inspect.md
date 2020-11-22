@@ -3,8 +3,8 @@ title: "Inspecting Live Applications"
 description: "This document describes how to use the Xamarin Inspector to inspect applications. It also discusses limitations of the Xamarin Inspector tool." 
 ms.prod: xamarin
 ms.assetid: 91B3206E-B2A5-4660-A6E5-B924B8FE69A7
-author: lobrien
-ms.author: laobri
+author: davidortinau
+ms.author: daortin
 ms.date: 06/19/2018
 ---
 
@@ -17,11 +17,11 @@ Live app inspection is available for enterprise customers.
 1. Click the **Inspect** button in the IDE toolbar (in Visual Studio, the
 **Inspect current app...** menu item is also available from the **Tools** or **Debug** menu).
 
-[![](inspect-images/mac-heres-the-button.png "Click the Inspect button in the IDE toolbar")](inspect-images/mac-heres-the-button.png#lightbox)
+[![Click the Inspect button in the IDE toolbar](inspect-images/mac-heres-the-button.png)](inspect-images/mac-heres-the-button.png#lightbox)
 
 A new Xamarin Inspector client window will open, with a fresh REPL prompt.
 
-[![](inspect-images/inspector-0.7.0-map-inspect-small.png "A new Xamarin Inspector client window will open, with a fresh REPL prompt")](inspect-images/inspector-0.7.0-map-inspect.png#lightbox)
+[![A new Xamarin Inspector client window will open, with a fresh REPL prompt](inspect-images/inspector-0.7.0-map-inspect-small.png)](inspect-images/inspector-0.7.0-map-inspect.png#lightbox)
 
 Once this window appears, you have an interactive C# prompt that you can use to
 execute and evaluate C# statements and expressions. What makes this unique is
@@ -35,10 +35,12 @@ can inspect the state of the application live.
 For example, on iOS, we might want to locate our UIApplication delegate class,
 which is our main driver (where we store a lot of the application state):
 
-    var del = (MyApp.AppDelegate) UIApplication.SharedApplication.Delegate
-    del.Database.GetAllCustomers ()
-    ...
-    del.Database.AddCustomer (...)
+```csharp
+var del = (MyApp.AppDelegate) UIApplication.SharedApplication.Delegate
+del.Database.GetAllCustomers ()
+...
+del.Database.AddCustomer (...)
+```
 
 (Note that each submission occurs in a multiline editor. `Shift + Enter` will
 create a new line, and `Cmd + Enter` (`Ctrl + Enter` on Windows) will submit the
@@ -69,4 +71,3 @@ values visually.
   [file bugs](~/tools/inspector/install.md#reporting-bugs) to let us know!
 - If inspecting a UI element causes it to change in anyway, please
   [let us know](~/tools/inspector/install.md#reporting-bugs), as this may indicate a bug.
-

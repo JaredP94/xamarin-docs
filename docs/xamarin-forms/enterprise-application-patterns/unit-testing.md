@@ -7,9 +7,13 @@ ms.technology: xamarin-forms
 author: davidbritch
 ms.author: dabritch
 ms.date: 08/07/2017
+no-loc: [Xamarin.Forms, Xamarin.Essentials]
 ---
 
 # Unit Testing Enterprise Apps
+
+> [!NOTE]
+> This eBook was published in the spring of 2017, and has not been updated since then. There is much in the book that remains valuable, but some of the material is outdated.
 
 Mobile apps have unique problems that desktop and web-based applications don't have to worry about. Mobile users will differ by the devices that they use, by network connectivity, by the availability of services, and a range of other factors. Therefore, mobile apps should be tested as they will be used in the real world to improve their quality, reliability, and performance. There are many types of testing that should be performed on an app, including unit testing, integration testing, and user interface testing, with unit testing being the most common form of testing.
 
@@ -22,9 +26,9 @@ Unit testing has the greatest effect on code quality when it's an integral part 
 
 Unit tests typically use the arrange-act-assert pattern:
 
--   The *arrange* section of the unit test method initializes objects and sets the value of the data that is passed to the method under test.
--   The *act* section invokes the method under test with the required arguments.
--   The *assert* section verifies that the action of the method under test behaves as expected.
+- The *arrange* section of the unit test method initializes objects and sets the value of the data that is passed to the method under test.
+- The *act* section invokes the method under test with the required arguments.
+- The *assert* section verifies that the action of the method under test behaves as expected.
 
 Following this pattern ensures that unit tests are readable and consistent.
 
@@ -47,7 +51,7 @@ public class OrderDetailViewModel : ViewModelBase
 
 The `OrderDetailViewModel` class has a dependency on the `IOrderService` type which the container resolves when it instantiates a `OrderDetailViewModel` object. However, rather than create an `OrderService` object to unit test the `OrderDetailViewModel` class, instead, replace the `OrderService` object with a mock for the purpose of the tests. Figure 10-1 illustrates this relationship.
 
-![](unit-testing-images/unittesting.png "Classes that implement the IOrderService interface")
+![Classes that implement the IOrderService interface](unit-testing-images/unittesting.png)
 
 **Figure 10-1:** Classes that implement the IOrderService interface
 
@@ -62,8 +66,8 @@ Testing models and view models from MVVM applications is identical to testing an
 
 The eShopOnContainers mobile app uses [xUnit](https://xunit.github.io/) to perform unit testing, which supports two different types of unit tests:
 
--   Facts are tests that are always true, which test invariant conditions.
--   Theories are tests that are only true for a particular set of data.
+- Facts are tests that are always true, which test invariant conditions.
+- Theories are tests that are only true for a particular set of data.
 
 The unit tests included with the eShopOnContainers mobile app are fact tests, and so each unit test method is decorated with the `[Fact]` attribute.
 
@@ -220,7 +224,6 @@ A unit test takes a small unit of the app, typically a method, isolates it from 
 The behavior of an object under test can be isolated by replacing dependent objects with mock objects that simulate the behavior of the dependent objects. This enables unit tests to be executed without requiring unwieldy resources such as web services, or databases.
 
 Testing models and view models from MVVM applications is identical to testing any other classes, and the same tools and techniques can be used.
-
 
 ## Related Links
 

@@ -4,15 +4,14 @@ description: "The Android operating system uses content providers to facilitate 
 ms.prod: xamarin
 ms.assetid: 6E1810AA-EB70-9AD0-1B32-D9418908CC97
 ms.technology: xamarin-android
-author: conceptdev
-ms.author: crdun
+author: davidortinau
+ms.author: daortin
 ms.date: 03/09/2018
 ---
 
 # Intro to ContentProviders
 
 _The Android operating system uses content providers to facilitate access to shared data such as media files, contacts and calendar information. This article introduces the ContentProvider class, and provides two examples of how to use it._
-
 
 ## Content Providers Overview
 
@@ -60,12 +59,10 @@ special uses like custom search and copy/paste).
 The topics in this section provide some simple examples of consuming
 and writing `ContentProvider` code.
 
-
-
 ## Related Links
 
-- [ContactsAdapter Demo (sample)](https://docs.microsoft.com/samples/xamarin/monodroid-samples/platformfeatures-contactsadapterdemo)
-- [SimpleContentProvider (sample)](https://docs.microsoft.com/samples/xamarin/monodroid-samples/platformfeatures-simplecontentprovider)
+- [ContactsAdapter Demo (sample)](/samples/xamarin/monodroid-samples/platformfeatures-contactsadapterdemo)
+- [SimpleContentProvider (sample)](/samples/xamarin/monodroid-samples/platformfeatures-simplecontentprovider)
 - [Content Providers Developers Guide](https://developer.android.com/guide/topics/providers/content-providers.html)
 - [ContentProvider Class Reference](xref:Android.Content.ContentProvider)
 - [ContentResolver Class Reference](xref:Android.Content.ContentResolver)

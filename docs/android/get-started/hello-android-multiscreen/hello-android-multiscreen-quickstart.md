@@ -6,8 +6,8 @@ ms.topic: quickstart
 ms.prod: xamarin
 ms.assetid: ED99584A-BA3B-429A-AEE5-CF3CB0116762
 ms.technology: xamarin-android
-author: conceptdev
-ms.author: crdun
+author: davidortinau
+ms.author: daortin
 ms.date: 10/05/2018
 ---
 
@@ -16,9 +16,9 @@ ms.date: 10/05/2018
 _This two-part guide expands the Phoneword application to handle a second screen. Along the way, basic Android Application Building Blocks are introduced with a deeper dive into Android architecture._
 
 In the walkthrough portion of this guide, you'll add a second screen to the
-[Phoneword](https://docs.microsoft.com/samples/xamarin/monodroid-samples/phoneword) application to keep track of
+[Phoneword](/samples/xamarin/monodroid-samples/phoneword) application to keep track of
 the history of numbers translated using the app. The
-[final application](https://docs.microsoft.com/samples/xamarin/monodroid-samples/phonewordmultiscreen) will have
+[final application](/samples/xamarin/monodroid-samples/phonewordmultiscreen) will have
 a second screen that displays the numbers that were "translated", as illustrated by the
 screenshot on the right:
 
@@ -35,7 +35,7 @@ Because this guide picks up where [Hello, Android](~/android/get-started/hello-a
 leaves off, it requires completion of the
 [Hello, Android Quickstart](~/android/get-started/hello-android/hello-android-quickstart.md).
 If you would like to jump directly into the walkthrough below, you can download the completed version of
-[Phoneword](https://docs.microsoft.com/samples/xamarin/monodroid-samples/phoneword)
+[Phoneword](/samples/xamarin/monodroid-samples/phoneword)
 (from the Hello, Android Quickstart) and use it to start the walkthrough.
 
 ## Walkthrough
@@ -133,7 +133,7 @@ namespace Phoneword
 In this class, you're creating a `ListActivity` and populating it
 programmatically, so you don't need to create a new layout file
 for this Activity. This is discussed in more detail in the
-[Hello, Android Multiscreen Deep Dive](~/android/get-started/hello-android/hello-android-deepdive.md).
+[Hello, Android Multiscreen Deep Dive](~/android/get-started/hello-android-multiscreen/hello-android-multiscreen-deepdive.md).
 
 ### Adding a list
 
@@ -189,7 +189,7 @@ string translatedNumber = string.Empty;
 translateButton.Click += (sender, e) =>
 {
     // Translate user's alphanumeric phone number to numeric
-    translatedNumber = PhonewordTranslator.ToNumber(phoneNumberText.Text);
+    translatedNumber = Core.PhonewordTranslator.ToNumber(phoneNumberText.Text);
     if (string.IsNullOrWhiteSpace(translatedNumber))
     {
         translatedPhoneWord.Text = "";
@@ -257,7 +257,6 @@ The **Translation History** button text should update to reflect the new
 string value:
 
 [![Button reflects new string value](hello-android-multiscreen-quickstart-images/xs/05-new-string-value-sml.png)](hello-android-multiscreen-quickstart-images/xs/05-new-string-value.png#lightbox)
-
 
 With the **Translation History** button selected on the design surface,
 open the **Behavior** tab in the **Properties Pad** and
@@ -354,7 +353,7 @@ should resemble the following code:
 translateButton.Click += (sender, e) =>
 {
     // Translate user's alphanumeric phone number to numeric
-    translatedNumber = PhonewordTranslator.ToNumber(phoneNumberText.Text);
+    translatedNumber = Core.PhonewordTranslator.ToNumber(phoneNumberText.Text);
     if (string.IsNullOrWhiteSpace(translatedNumber))
     {
         translatedPhoneWord.Text = "";
@@ -385,5 +384,5 @@ learned &ndash; next up is the
 ## Related links
 
 - [Xamarin App Icons & Launch Screens (ZIP)](https://github.com/xamarin/monodroid-samples/blob/master/Phoneword/Resources/XamarinAndroidIcons.zip?raw=true)
-- [Phoneword (sample)](https://docs.microsoft.com/samples/xamarin/monodroid-samples/phoneword)
-- [PhonewordMultiscreen (sample)](https://docs.microsoft.com/samples/xamarin/monodroid-samples/phonewordmultiscreen)
+- [Phoneword (sample)](/samples/xamarin/monodroid-samples/phoneword)
+- [PhonewordMultiscreen (sample)](/samples/xamarin/monodroid-samples/phonewordmultiscreen)

@@ -7,11 +7,15 @@ ms.assetid: D1D348F2-6A44-4781-ADCE-A0B7BB9AEF89
 author: davidbritch
 ms.author: dabritch
 ms.date: 11/07/2017
+no-loc: [Xamarin.Forms, Xamarin.Essentials]
 ---
 
 # Summary of Chapter 25. Page varieties
 
 [![Download Sample](~/media/shared/download.png) Download the sample](https://github.com/xamarin/xamarin-forms-book-samples/tree/master/Chapter25)
+
+> [!NOTE]
+> This book was published in the spring of 2016, and has not been updated since then. There is much in the book that remains valuable, but some of the material is outdated, and some topics are no longer entirely correct or complete.
 
 So far you've seen two classes that derive from `Page`: `ContentPage` and `NavigationPage`. This chapter presents two others:
 
@@ -109,8 +113,6 @@ The [**StudentNotes**](https://github.com/xamarin/xamarin-forms-book-samples/tre
 The [**MultiTabbedColor**](https://github.com/xamarin/xamarin-forms-book-samples/tree/master/Chapter25/MultiTabbedColors) sample uses the [`NamedColor`](https://github.com/xamarin/xamarin-forms-book-samples/blob/master/Libraries/Xamarin.FormsBook.Toolkit/Xamarin.FormsBook.Toolkit/NamedColor.cs) class in the [**Xamarin.FormsBook.Toolkit**](https://github.com/xamarin/xamarin-forms-book-samples/tree/master/Libraries/Xamarin.FormsBook.Toolkit) library. The [MultiTabbedColorsPage.xaml](https://github.com/xamarin/xamarin-forms-book-samples/blob/master/Chapter25/MultiTabbedColors/MultiTabbedColors/MultiTabbedColors/MultiTabbedColorsPage.xaml) file sets the `DataTemplate` property of `TabbedPage` to a visual tree beginning with `ContentPage` that contains bindings to properties of `NamedColor` (including a binding to the `Title` property).
 
 However, this is problematic on iOS. Only a few of the items can be displayed, and there is no good way to give them icons.
-
-
 
 ## Related links
 

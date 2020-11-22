@@ -5,8 +5,8 @@ ms.topic: quickstart
 ms.prod: xamarin
 ms.assetid: C6474F70-3617-46AD-93E8-BE66878EEC17
 ms.technology: xamarin-android
-author: conceptdev
-ms.author: crdun
+author: davidortinau
+ms.author: daortin
 ms.date: 12/02/2016
 ---
 
@@ -28,5 +28,5 @@ develop a fundamental understanding of how Android applications work.
 ## Related Links
 
 - [Android Getting Started](https://developer.android.com/training/index.html)
-- [Debugging in Visual Studio](https://docs.microsoft.com/visualstudio/debugger/)
+- [Debugging in Visual Studio](/visualstudio/debugger/)
 - [Visual Studio for Mac Recipes - Debugging](https://github.com/xamarin/recipes/tree/master/Recipes/cross-platform/ide/debugging)

@@ -7,6 +7,7 @@ ms.technology: xamarin-forms
 author: davidbritch
 ms.author: dabritch
 ms.date: 05/28/2019
+no-loc: [Xamarin.Forms, Xamarin.Essentials]
 ---
 
 # Xamarin.Forms Shell
@@ -38,6 +39,10 @@ Shell applications can utilize a URI-based navigation scheme that uses routes to
 ## [Search](search.md)
 
 Shell applications can use integrated search functionality that's provided by a search box that can be added to the top of each page.
+
+## [Lifecycle](lifecycle.md)
+
+Shell applications respect the Xamarin.Forms lifecycle, and an `Appearing` event is raised when a page is about to appear on the screen, and a `Disappearing` event is raised when a page is about to disappear from the screen.
 
 ## [Custom renderers](customrenderers.md)
 

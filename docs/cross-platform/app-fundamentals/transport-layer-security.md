@@ -3,8 +3,8 @@ title: "Transport Layer Security (TLS) 1.2"
 description: "This document describes how to enabling TLS 1.2 for Xamarin.iOS, Xamarin.Android, and Xamarin.Mac projects. It demonstrates how to do so in both Visual Studio 2019 and Visual Studio for Mac."
 ms.prod: xamarin
 ms.assetid: 399F71C6-16A4-4ABC-B30D-AF17D066A5FA
-author: asb3993
-ms.author: amburns
+author: davidortinau
+ms.author: daortin
 ms.date: 04/20/2018
 ---
 # Transport Layer Security (TLS) 1.2
@@ -13,7 +13,7 @@ Using the latest version of [_Transport Layer Security_ (TLS)](https://en.wikipe
 is important to ensure application network communications are secure.
 
 > [!WARNING]
-> **April, 2018** – Due to increased security requirements, including PCI compliance, major cloud providers and web servers are expected to stop supporting TLS versions older than 1.2.  Xamarin projects created in previous versions of Visual Studio default to use older versions of TLS.
+> **April, 2018** – Due to increased security requirements, including PCI compliance, major cloud providers and web servers are expected to stop supporting TLS versions older than 1.2. Xamarin projects created in previous versions of Visual Studio default to use older versions of TLS.
 >
 > In order to ensure your apps continue to work with these servers and services, **you should update your Xamarin projects to use the settings below, then re-build and re-deploy your apps** to your users.
 
@@ -136,15 +136,15 @@ in this article, then re-build and re-deploy to your customers.
 - [TLS (Wikipedia)](https://en.wikipedia.org/wiki/Transport_Layer_Security)
 - [Mono 4.8 Release Notes - TLS 1.2 Support](https://www.mono-project.com/docs/about-mono/releases/4.8.0/#tls-12-support)
 - [BoringSSL](https://boringssl.googlesource.com/boringssl/)
-- [HttpClient, HttpClientHandler, and WebRequestHandler Explained](https://blogs.msdn.microsoft.com/henrikn/2012/08/07/httpclient-httpclienthandler-and-webrequesthandler-explained/)
-- [System.Net.HttpClient](https://msdn.microsoft.com/library/system.net.http.httpclient(v=vs.118).aspx)
-- [System.Net.HttpClientHandler](https://msdn.microsoft.com/library/system.net.http.httpclienthandler(v=vs.118).aspx)
-- [System.Net.HttpMessageHandler](https://msdn.microsoft.com/library/system.net.http.httpmessagehandler(v=vs.118).aspx)
-- [System.Net.HttpWebRequest](https://msdn.microsoft.com/library/system.net.httpwebrequest(v=vs.110).aspx)
-- [System.Net.WebClient](https://msdn.microsoft.com/library/system.net.webclient(v=vs.110).aspx)
-- [System.Net.WebRequest](https://msdn.microsoft.com/library/system.net.webrequest(v=vs.110).aspx)
+- [HttpClient, HttpClientHandler, and WebRequestHandler Explained](/archive/blogs/henrikn/httpclient-httpclienthandler-and-webrequesthandler-explained)
+- [System.Net.HttpClient](/previous-versions/visualstudio/hh193681(v=vs.118))
+- [System.Net.HttpClientHandler](/previous-versions/visualstudio/hh138157(v=vs.118))
+- [System.Net.HttpMessageHandler](/previous-versions/visualstudio/hh138091(v=vs.118))
+- [System.Net.HttpWebRequest](/dotnet/api/system.net.httpwebrequest)
+- [System.Net.WebClient](/dotnet/api/system.net.webclient)
+- [System.Net.WebRequest](/dotnet/api/system.net.webrequest)
 - [java.net.URLConnection](https://developer.android.com/reference/java/net/URLConnection.html)
 - [Foundation.CFNetwork](xref:CoreFoundation.CFNetwork)
 - [Foundation.NSUrlConnection](xref:Foundation.NSUrlConnection)
-- [System.Net.WebRequest](https://msdn.microsoft.com/library/system.net.webrequest(v=vs.110).aspx)
-- [HTTP Client (sample)](https://docs.microsoft.com/samples/xamarin/ios-samples/httpclient/)
+- [System.Net.WebRequest](/dotnet/api/system.net.webrequest)
+- [HTTP Client (sample)](/samples/xamarin/ios-samples/httpclient/)

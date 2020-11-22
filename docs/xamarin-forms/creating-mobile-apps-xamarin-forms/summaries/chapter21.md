@@ -7,11 +7,15 @@ ms.assetid: 3642F112-C7FA-4A74-9000-F9087BA89AD9
 author: davidbritch
 ms.author: dabritch
 ms.date: 11/07/2017
+no-loc: [Xamarin.Forms, Xamarin.Essentials]
 ---
 
 # Summary of Chapter 21. Transforms
 
 [![Download Sample](~/media/shared/download.png) Download the sample](https://github.com/xamarin/xamarin-forms-book-samples/tree/master/Chapter21)
+
+> [!NOTE]
+> This book was published in the spring of 2016, and has not been updated since then. There is much in the book that remains valuable, but some of the material is outdated, and some topics are no longer entirely correct or complete.
 
 A Xamarin.Forms view appears on the screen in a location and size determined by its parent, which is generally a `Layout` or `Layout<View>` derivative. The *transform* is a Xamarin.Forms feature that can modify that location, size, or even orientation.
 
@@ -121,8 +125,6 @@ The `AnchorX` property affects `RotationY` but not `RotationX`. The `AnchorY` pr
 The 3D coordinate system implied by Xamarin.Forms is left-handed. If you point the forefinger of your left hand in the direction of increasing X coordinates (to the right) and your middle finger in the direction of increasing Y coordinates (down), then your thumb points in the direction of increasing Z coordinates (out of the screen).
 
 Also, for any of the three axis, if you point your left-hand thumb in the direction of increasing values, then the curve of your fingers indicates the direction of rotation for positive rotating angles.
-
-
 
 ## Related links
 

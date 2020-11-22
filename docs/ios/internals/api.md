@@ -4,8 +4,8 @@ description: "This document links to the Xamarin API reference documentation, a 
 ms.prod: xamarin
 ms.assetid: 4C1669A4-C12B-9C49-4A39-9046576D10DC
 ms.technology: xamarin-ios
-author: lobrien
-ms.author: laobri
+author: davidortinau
+ms.author: daortin
 ms.date: 11/25/2015
 ---
 
@@ -14,8 +14,8 @@ ms.date: 11/25/2015
 Xamarin.iOS exposes a C#/CIL binding to the CocoaTouch API and also provides
 access to the ECMA CIL APIs and various other .NET APIs.
 
- **API Reference**: The API reference is available at [docs.microsoft.com/dotnet/api/](https://docs.microsoft.com/dotnet/api/), start at the [Xamarin.iOS reference](https://docs.microsoft.com/dotnet/api/?view=xamarin-ios-sdk-12) for the API bindings for the native iPhone
-APIs or go to [Base Class Libraries node](https://docs.microsoft.com/dotnet/api/?view=xamarinios-10.8) for documentation on the .NET API.
+ **API Reference**: The API reference is available at [docs.microsoft.com/dotnet/api/](/dotnet/api/), start at the [Xamarin.iOS reference](/dotnet/api/?view=xamarin-ios-sdk-12) for the API bindings for the native iPhone
+APIs or go to [Base Class Libraries node](/dotnet/api/?view=xamarinios-10.8) for documentation on the .NET API.
 
  **API Design**: The API design for the CIL/Objective-C binding
 is covered in the [Xamarin.iOS API Design](~/ios/internals/api-design/index.md) document and it describes how we bound the Objective-C and C APIs

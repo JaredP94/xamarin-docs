@@ -4,8 +4,8 @@ description: "This article describes how to configure Visual Studio 2019 for Xam
 ms.prod: xamarin
 ms.assetid: 22D82244-890D-4325-B3CC-C0AC49130BCA
 ms.technology: xamarin-ios
-author: lobrien
-ms.author: laobri
+author: davidortinau
+ms.author: daortin
 ms.date: 04/16/2018
 ---
 
@@ -25,7 +25,7 @@ on the Mac build host. To make sure this is true:
 
 > [!NOTE]
 > Starting with [Visual Studio 2017 version
-> 15.6](https://docs.microsoft.com/visualstudio/releasenotes/vs2017-relnotes#automatic-macos-provisioning),
+> 15.6](/visualstudio/releasenotes/vs2017-relnotes#automatic-macos-provisioning),
 > Visual Studio 2017 automatically detects if the Mac build host is using the
 > same version of Xamarin.iOS as Windows. If there is a version mismatch,
 > Visual Studio 2017 offers to remotely install the correct version on the Mac

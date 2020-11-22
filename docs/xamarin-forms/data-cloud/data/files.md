@@ -7,11 +7,12 @@ ms.technology: xamarin-forms
 author: davidbritch
 ms.author: dabritch
 ms.date: 06/21/2018
+no-loc: [Xamarin.Forms, Xamarin.Essentials]
 ---
 
 # File Handling in Xamarin.Forms
 
-[![Download Sample](~/media/shared/download.png) Download the sample](https://docs.microsoft.com/samples/xamarin/xamarin-forms-samples/workingwithfiles)
+[![Download Sample](~/media/shared/download.png) Download the sample](/samples/xamarin/xamarin-forms-samples/workingwithfiles)
 
 _File handling with Xamarin.Forms can be achieved using code in a .NET Standard library, or by using embedded resources._
 
@@ -20,8 +21,6 @@ _File handling with Xamarin.Forms can be achieved using code in a .NET Standard 
 Xamarin.Forms code runs on multiple platforms - each of which has its own filesystem. Previously, this meant that reading and writing files was most easily performed using the native file APIs on each platform. Alternatively, embedded resources are a simpler solution to distribute data files with an app. However, with .NET Standard 2.0 it's possible to share file access code in .NET Standard libraries.
 
 For information on handling image files, refer to the [Working with Images](~/xamarin-forms/user-interface/images.md) page.
-
-<a name="Loading_and_Saving_Files" />
 
 ## Saving and Loading Files
 
@@ -55,8 +54,6 @@ These operations are demonstrated in the sample app, which includes a page that 
 
 [![Saving and loading text](files-images/saveandload-sml.png "Saving and Loading Files in App")](files-images/saveandload.png#lightbox "Saving and Loading Files in App")
 
-<a name="Loading_Files_Embedded_as_Resources" />
-
 ## Loading Files Embedded as Resources
 
 To embed a file into a **.NET Standard** assembly, create or add a file and ensure that **Build Action: EmbeddedResource**.
@@ -67,30 +64,31 @@ To embed a file into a **.NET Standard** assembly, create or add a file and ensu
 
 # [Visual Studio for Mac](#tab/macos)
 
-[![Text file embedded in PCL, configuring embedded resource build action](files-images/xs-embeddedresource-sml.png "Setting EmbeddedResource BuildAction")](files-images/xs-embeddedresource.png#lightbox "Setting EmbeddedResource BuildAction")
+[![Text file embedded in .NET standard library, configuring embedded resource build action](files-images/xs-embeddedresource-sml.png "Setting EmbeddedResource BuildAction")](files-images/xs-embeddedresource.png#lightbox "Setting EmbeddedResource BuildAction")
 
 -----
 
-`GetManifestResourceStream` is used to access the embedded file using its **Resource ID**. By default the resource ID is the filename prefixed with the default namespace for the project it is embedded in - in this case the assembly is **WorkingWithFiles** and the filename is **PCLTextResource.txt**, so the resource ID is `WorkingWithFiles.PCLTextResource.txt`.
+`GetManifestResourceStream` is used to access the embedded file using its **Resource ID**. By default the resource ID is the filename prefixed with the default namespace for the project it is embedded in - in this case the assembly is **WorkingWithFiles** and the filename is **LibTextResource.txt**, so the resource ID is `WorkingWithFiles.LibTextResource.txt`.
 
 ```csharp
 var assembly = IntrospectionExtensions.GetTypeInfo(typeof(LoadResourceText)).Assembly;
-Stream stream = assembly.GetManifestResourceStream("WorkingWithFiles.PCLTextResource.txt");
+Stream stream = assembly.GetManifestResourceStream("WorkingWithFiles.LibTextResource.txt");
 string text = "";
-using (var reader = new System.IO.StreamReader (stream)) {
+using (var reader = new System.IO.StreamReader (stream))
+{  
     text = reader.ReadToEnd ();
 }
 ```
 
-The `text` variable can then be used to display the text or otherwise use it in code. This screenshot of the [sample app](https://docs.microsoft.com/samples/xamarin/xamarin-forms-samples/workingwithfiles) shows the text rendered in a `Label` control.
+The `text` variable can then be used to display the text or otherwise use it in code. This screenshot of the [sample app](/samples/xamarin/xamarin-forms-samples/workingwithfiles) shows the text rendered in a `Label` control.
 
- [![Text file embedded in PCL](files-images/pcltext-sml.png "Embedded Text File in PCL Displayed in App")](files-images/pcltext.png#lightbox "Embedded Text File in PCL Displayed in App")
+ [![Text file embedded in .NET standard library](files-images/pcltext-sml.png "Embedded Text File in .NET Standard Library Displayed in App")](files-images/pcltext.png#lightbox "Embedded Text File in .NET Standard Library Displayed in App")
 
 Loading and deserializing an XML is equally simple. The following code shows an XML file being loaded and deserialized from a resource, then bound to a `ListView` for display. The XML file contains an array of `Monkey` objects (the class is defined in the sample code).
 
 ```csharp
 var assembly = IntrospectionExtensions.GetTypeInfo(typeof(LoadResourceText)).Assembly;
-Stream stream = assembly.GetManifestResourceStream("WorkingWithFiles.PCLXmlResource.xml");
+Stream stream = assembly.GetManifestResourceStream("WorkingWithFiles.LibXmlResource.xml");
 List<Monkey> monkeys;
 using (var reader = new System.IO.StreamReader (stream)) {
     var serializer = new XmlSerializer(typeof(List<Monkey>));
@@ -100,9 +98,7 @@ var listView = new ListView ();
 listView.ItemsSource = monkeys;
 ```
 
- [![Xml file embedded in PCL, displayed in ListView](files-images/pclxml-sml.png "Embedded XML File in PCL Displayed in ListView")](files-images/pclxml.png#lightbox "Embedded XML File in PCL Displayed in ListView")
-
-<a name="Embedding_in_Shared_Projects" />
+ [![Xml file embedded in .NET standard library, displayed in ListView](files-images/pclxml-sml.png "Embedded XML File in .NET standard library Displayed in ListView")](files-images/pclxml.png#lightbox "Embedded XML File in .NET standard library Displayed in ListView")
 
 ## Embedding in Shared Projects
 
@@ -110,9 +106,8 @@ Shared Projects can also contain files as embedded resources, however because th
 
 There are two solutions to this issue with Shared Projects:
 
--  **Synchronize the Projects** - Edit the project properties for each platform to use the  **same** assembly name and default namespace. This value can then be "hardcoded" as the prefix for embedded resource IDs in the Shared Project.
--  **#if compiler directives** - Use compiler directives to set the correct resource ID prefix and use that value to dynamically construct the correct resource ID.
-
+- **Synchronize the Projects** - Edit the project properties for each platform to use the  **same** assembly name and default namespace. This value can then be "hardcoded" as the prefix for embedded resource IDs in the Shared Project.
+- **#if compiler directives** - Use compiler directives to set the correct resource ID prefix and use that value to dynamically construct the correct resource ID.
 
 Code illustrating the second option is shown below. Compiler directives are used to select the hardcoded resource prefix (which is normally the same as the default namespace for the referencing project). The `resourcePrefix` variable is then used to create a valid resource ID by concatenating it with the embedded resource filename.
 
@@ -131,15 +126,11 @@ Stream stream = assembly.GetManifestResourceStream
     (resourcePrefix + "SharedTextResource.txt");
 ```
 
-<a name="Organizing_Resources" />
-
 ### Organizing Resources
 
-The above examples assume that the file is embedded in the root of the .NET Standard library project, in which case the resource ID is of the form **Namespace.Filename.Extension**, such as `WorkingWithFiles.PCLTextResource.txt` and `WorkingWithFiles.iOS.SharedTextResource.txt`.
+The above examples assume that the file is embedded in the root of the .NET Standard library project, in which case the resource ID is of the form **Namespace.Filename.Extension**, such as `WorkingWithFiles.LibTextResource.txt` and `WorkingWithFiles.iOS.SharedTextResource.txt`.
 
-It is possible to organize embedded resources in folders. When an embedded resource is placed in a folder, the folder name becomes part of the resource ID (separated by periods), so that the resource ID format becomes **Namespace.Folder.Filename.Extension**. Placing the files used in the sample app into a folder **MyFolder** would make the corresponding resource IDs `WorkingWithFiles.MyFolder.PCLTextResource.txt` and `WorkingWithFiles.iOS.MyFolder.SharedTextResource.txt`.
-
-<a name="Debugging_Embedded_Resources" />
+It is possible to organize embedded resources in folders. When an embedded resource is placed in a folder, the folder name becomes part of the resource ID (separated by periods), so that the resource ID format becomes **Namespace.Folder.Filename.Extension**. Placing the files used in the sample app into a folder **MyFolder** would make the corresponding resource IDs `WorkingWithFiles.MyFolder.LibTextResource.txt` and `WorkingWithFiles.iOS.MyFolder.SharedTextResource.txt`.
 
 ### Debugging Embedded Resources
 
@@ -161,7 +152,6 @@ This article has shown some simple file operations for saving and loading text o
 
 ## Related Links
 
-- [FilesSample](https://docs.microsoft.com/samples/xamarin/xamarin-forms-samples/workingwithfiles)
+- [FilesSample](/samples/xamarin/xamarin-forms-samples/workingwithfiles)
 - [Xamarin.Forms Samples](https://github.com/xamarin/xamarin-forms-samples)
 - [Working with the File System in Xamarin.iOS](~/ios/app-fundamentals/file-system.md)
-

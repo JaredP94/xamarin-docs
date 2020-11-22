@@ -2,8 +2,8 @@
 ms.assetid: 814857C5-D54E-469F-97ED-EE1CAA0156BB
 title: "Desktop app porting guidance"
 description: "A simple explanation of how to decouple existing Windows Forms or WPF apps to create cross-platform apps to run on macOS, iOS, Android, as well as UWP/Windows 10."
-author: asb3993
-ms.author: amburns
+author: davidortinau
+ms.author: daortin
 ms.date: 04/26/2017
 ---
 
@@ -11,11 +11,11 @@ ms.date: 04/26/2017
 
 Most application code can be categorized into one of the following areas:
 
-* User interface code (eg. windows and buttons)
-* 3rd party controls (eg. charts)
-* Business logic (eg. validation rules)
-* Local data storage and access
-* Web services and remote data access
+- User interface code (eg. windows and buttons)
+- 3rd party controls (eg. charts)
+- Business logic (eg. validation rules)
+- Local data storage and access
+- Web services and remote data access
 
 For Windows Forms and WPF applications written with C# (or Visual Basic.NET)
 a surprising amount of the business logic, local data access, and web services
@@ -23,7 +23,7 @@ code can be shared across platforms.
 
 ## .NET Portability Analyzer
 
-Visual Studio 2017 and later support the [.NET Portability Analyzer](https://docs.microsoft.com/dotnet/articles/standard/portability-analyzer) ([download for Windows](https://marketplace.visualstudio.com/items?itemName=ConnieYau.NETPortabilityAnalyzer)) which can examine your existing applications and tell you how much code can be ported "as is" to other platforms. You can learn more about it from this [Channel 9 video](https://channel9.msdn.com/Blogs/Seth-Juarez/A-Brief-Look-at-the-NET-Portability-Analyzer).
+Visual Studio 2017 and later support the [.NET Portability Analyzer](/dotnet/articles/standard/portability-analyzer) ([download for Windows](https://marketplace.visualstudio.com/items?itemName=ConnieYau.NETPortabilityAnalyzer)) which can examine your existing applications and tell you how much code can be ported "as is" to other platforms. You can learn more about it from this [Channel 9 video](https://channel9.msdn.com/Blogs/Seth-Juarez/A-Brief-Look-at-the-NET-Portability-Analyzer).
 
 There is also a command-line tool can be downloaded from [Portability Analyzer on GitHub](https://github.com/Microsoft/dotnet-apiport) and used to provide the same reports.
 
@@ -33,9 +33,9 @@ Hopefully the analyzer shows a large portion of your code is portable, but there
 
 Different chunks of code will probably fall into one of these buckets, explained in more detail below:
 
-* Re-useable portable code
-* Code that requires changes
-* Code that isn't portable and requires a re-write
+- Re-useable portable code
+- Code that requires changes
+- Code that isn't portable and requires a re-write
 
 ### Re-useable portable code
 

@@ -3,8 +3,8 @@ title: "Creating Bindings with Objective Sharpie"
 description: "This section provides an introduction to Objective Sharpie, Xamarin's command line tool used to automate the process of creating a binding to an Objective-C Library"
 ms.prod: xamarin
 ms.assetid: 9C0A932C-7601-4357-B3F7-62ABAC835019
-author: asb3993
-ms.author: amburns
+author: davidortinau
+ms.author: daortin
 ms.date: 10/11/2017
 ---
 
@@ -26,7 +26,7 @@ Objective Sharpie is a command line tool to help bootstrap the first pass of a b
 It works by parsing the header files of a native library to map the public API
 into the [binding definition](~/cross-platform/macios/binding/objective-c-libraries.md#The_API_definition_file) (a process that previously was manually done).
 
-Objective Sharpie uses Clang parse header files, so the binding is as exact and thorough as possible. This can greatly reduce the time and effort it takes to produce a quality binding.
+Objective Sharpie uses Clang to parse header files, so the binding is as exact and thorough as possible. This can greatly reduce the time and effort it takes to produce a quality binding.
 
 > [!IMPORTANT]
 > Objective Sharpie is a tool for experienced Xamarin developers with
@@ -49,4 +49,3 @@ However, Objective Sharpie is a very advanced tool that requires advanced knowle
 - [Binding Details](~/cross-platform/macios/binding/overview.md)
 - [Binding Types Reference Guide](~/cross-platform/macios/binding/binding-types-reference.md)
 - [Xamarin for Objective-C Developers](~/ios/get-started/objective-c-developers/index.md)
-

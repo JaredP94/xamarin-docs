@@ -1,17 +1,18 @@
 ---
 title: "Keyboard Accessibility"
-description: "Rather than using the default tab sequence, it's sometimes necessary to tune the accessibility of your UI by specifying the tab sequence with a combination of the TabIndex and IsTapStop properties."
+description: "Rather than using the default tab sequence, it's sometimes necessary to tune the accessibility of your UI by specifying the tab sequence with a combination of the TabIndex and IsTabStop properties."
 ms.prod: xamarin
 ms.assetid: 8be8f498-558a-4894-a01f-91a0d3ef927e
 ms.technology: xamarin-forms
 author: davidbritch
 ms.author: dabritch
 ms.date: 05/09/2019
+no-loc: [Xamarin.Forms, Xamarin.Essentials]
 ---
 
 # Keyboard Accessibility in Xamarin.Forms
 
-[![Download Sample](~/media/shared/download.png) Download the sample](https://docs.microsoft.com/samples/xamarin/xamarin-forms-samples/userinterface-accessibility)
+[![Download Sample](~/media/shared/download.png) Download the sample](/samples/xamarin/xamarin-forms-samples/userinterface-accessibility)
 
 Users who use screen readers, or have mobility issues, can have difficulty using applications that don't provide appropriate keyboard access. Xamarin.Forms applications can have an expected tab order specified to improve their usability and accessibility. Specifying a tab order for controls enables keyboard navigation, prepares application pages to receive input in a particular order, and permits screen readers to read focusable elements to the user.
 
@@ -48,7 +49,7 @@ By default, the tab order of controls is the same order in which they are listed
 
 The following screenshot shows the default tab order for this code example:
 
-![](keyboard-images/default-tab-order.png "Default Row-based Tab Order")
+![Default Row-based Tab Order](keyboard-images/default-tab-order.png)
 
 The tab order here is row-based, and is the order the controls are listed in the XAML. Therefore, pressing the Tab key navigates through forename [`Entry`](xref:Xamarin.Forms.Entry) instances, followed by surname `Entry` instances. However, a more intuitive experience would be to use a column-first tab navigation, so that pressing the Tab key navigates through forename-surname pairs. This can be achieved by specifying the tab order of the input controls.
 
@@ -105,7 +106,7 @@ The following XAML example shows the `TabIndex` property set on input controls t
 
 The following screenshot shows the tab order for this code example:
 
-![](keyboard-images/correct-tab-order.png "Column-based Tab Order")
+![Column-based Tab Order](keyboard-images/correct-tab-order.png)
 
 The tab order here is column-based. Therefore, pressing the Tab key navigates through forename-surname [`Entry`](xref:Xamarin.Forms.Entry) pairs.
 
@@ -116,11 +117,11 @@ The tab order here is column-based. Therefore, pressing the Tab key navigates th
 
 In addition to setting the tab order of controls, it may be necessary to exclude controls from the tab order. One way of achieving this is by setting the [`IsEnabled`](xref:Xamarin.Forms.VisualElement) property of controls to `false`, because disabled controls are excluded from the tab order.
 
-However, it may be necessary to exclude controls from the tab order even when they aren't disabled. This can be achieved with the `VisualElement.IsTapStop` property, which indicates whether a [`VisualElement`](xref:Xamarin.Forms.VisualElement) is included in tab navigation. Its default value is `true`, and when its value is `false` the control is ignored by the tab-navigation infrastructure, irrespective if a `TabIndex` is set.
+However, it may be necessary to exclude controls from the tab order even when they aren't disabled. This can be achieved with the `VisualElement.IsTabStop` property, which indicates whether a [`VisualElement`](xref:Xamarin.Forms.VisualElement) is included in tab navigation. Its default value is `true`, and when its value is `false` the control is ignored by the tab-navigation infrastructure, irrespective if a `TabIndex` is set.
 
 ## Supported controls
 
-The `TabIndex` and `IsTapStop` properties are supported on the following controls, which accept keyboard input on one or more platforms:
+The `TabIndex` and `IsTabStop` properties are supported on the following controls, which accept keyboard input on one or more platforms:
 
 - [`Button`](xref:Xamarin.Forms.Button)
 - [`DatePicker`](xref:Xamarin.Forms.DatePicker)
@@ -141,4 +142,4 @@ The `TabIndex` and `IsTapStop` properties are supported on the following control
 
 ## Related Links
 
-- [Accessibility (sample)](https://docs.microsoft.com/samples/xamarin/xamarin-forms-samples/userinterface-accessibility)
+- [Accessibility (sample)](/samples/xamarin/xamarin-forms-samples/userinterface-accessibility)

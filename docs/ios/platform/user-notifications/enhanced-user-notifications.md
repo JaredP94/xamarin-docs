@@ -4,8 +4,8 @@ description: "This article describes the User Notifications framework introduced
 ms.prod: xamarin
 ms.assetid: 4E1FF652-28F0-4566-B383-9D12664401A4
 ms.technology: xamarin-ios
-author: lobrien
-ms.author: laobri
+author: davidortinau
+ms.author: daortin
 ms.date: 05/02/2017
 ---
 
@@ -73,7 +73,7 @@ Some examples of Remote Notifications include:
 There are two types of Remote Notifications available to a iOS app:
 
 - **User Facing** - These are displayed to the user on the device.
-- **Silent Updates** - These provide a mechanism to update the contents of an iOS app in the background. When a Silent Update is received, the app can reach out to the remove servers pull down the latest content.
+- **Silent Updates** - These provide a mechanism to update the contents of an iOS app in the background. When a Silent Update is received, the app can reach out to the remote servers to pull down the latest content.
 
 For more information, please see Apple's [Local and Remote Notification Programming Guide](https://developer.apple.com/documentation/usernotifications) documentation.
 
@@ -161,11 +161,11 @@ To provide the required entitlement, do the following:
 1. Double-click the `Entitlements.plist` file in the **Solution Pad** to open it for editing.
 2. Switch to the **Source** view: 
 
-    [![](enhanced-user-notifications-images/setup01.png "The Source view")](enhanced-user-notifications-images/setup01.png#lightbox)
+    [![The Source view](enhanced-user-notifications-images/setup01.png)](enhanced-user-notifications-images/setup01.png#lightbox)
 3. Click the **+** button to add a new key.
 4. Enter `aps-environment` for the **Property**, leave the **Type** as `String` and enter either `development` or `production` for the **Value**: 
 
-    [![](enhanced-user-notifications-images/setup02.png "The aps-environment Property")](enhanced-user-notifications-images/setup02.png#lightbox)
+    [![The aps-environment Property](enhanced-user-notifications-images/setup02.png)](enhanced-user-notifications-images/setup02.png#lightbox)
 5. Save the changes to the file.
 
 # [Visual Studio](#tab/windows)
@@ -174,7 +174,7 @@ To provide the required entitlement, do the following:
 2. Click the **+** button to add a new key.
 3. Enter `aps-environment` for the **Property**, leave the **Type** as `String` and enter either `development` or `production` for the **Value**: 
 
-    [![](enhanced-user-notifications-images/setup02w.png "The aps-environment Property")](enhanced-user-notifications-images/setup02.png#lightbox)
+    [![The aps-environment Property](enhanced-user-notifications-images/setup02w.png)](enhanced-user-notifications-images/setup02.png#lightbox)
 4. Save the changes to the file.
 
 -----
@@ -183,7 +183,7 @@ To provide the required entitlement, do the following:
 
 If the app will be sending and receiving Remote Notifications, it will still need to do _Token Registration_ using the existing `UIApplication` API. This registration requires the device to have a live network connection access APNs, which will generate the necessary token that will be sent to the app. The app needs to then forward this token to the developer's server side app to register for remote notifications:
 
-[![](enhanced-user-notifications-images/token01.png "Token Registration overview")](enhanced-user-notifications-images/token01.png#lightbox)
+[![Token Registration overview](enhanced-user-notifications-images/token01.png)](enhanced-user-notifications-images/token01.png#lightbox)
 
 Use the following code to initialize the required registration:
 
@@ -193,7 +193,7 @@ UIApplication.SharedApplication.RegisterForRemoteNotifications ();
 
 The token that gets sent to the developer's server side app will need to be included as part of the Notification Payload that get's sent from the server to APNs when sending a Remote Notification:
 
-[![](enhanced-user-notifications-images/token02.png "The token included as part of the Notification Payload")](enhanced-user-notifications-images/token02.png#lightbox)
+[![The token included as part of the Notification Payload](enhanced-user-notifications-images/token02.png)](enhanced-user-notifications-images/token02.png#lightbox)
 
 The token acts as the key that ties together the notification and the app used to open or respond to the notification.
 
@@ -354,7 +354,6 @@ UNUserNotificationCenter.Current.RemoveDeliveredNotifications (requests);
 ### Updating an Existing Notification
 
 To update an existing Notification, simply create a new notification with the desired parameters modified (such as a new trigger time) and add it to the system with the same Request Identifier as the Notification that needs to be modified. Example:
-
 
 ```csharp
 using UserNotifications;
@@ -518,7 +517,7 @@ The `UserText` property holds the value of any user text input. The `Notificatio
 
 When working with Remote Notifications, _Service Extensions_ provide a way to enable end-to-end encryption inside of the Notification Payload. Service Extensions are a non-User Interface extension (available in iOS 10) that run in the background with the main purpose of augmenting or replacing the visible content of a Notification before it is presented to the user. 
 
-[![](enhanced-user-notifications-images/extension01.png "Service Extension overview")](enhanced-user-notifications-images/extension01.png#lightbox)
+[![Service Extension overview](enhanced-user-notifications-images/extension01.png)](enhanced-user-notifications-images/extension01.png#lightbox)
 
 Service Extensions are meant to run quickly and are only given a short amount of time to execute by the system. In the event that the Service Extension fails to complete its task in the allotted amount of time, a fallback method will be called. If the fallback fails, the original Notification Content will be displayed to the user.
 
@@ -537,13 +536,13 @@ To implement a Service Extension in a Xamarin.iOS app, do the following:
 2. Right-click on the Solution Name in the **Solution Pad** and select **Add** > **Add New Project**.
 3. Select **iOS** > **Extensions** > **Notification Service Extensions** and click the **Next** button: 
 
-    [![](enhanced-user-notifications-images/extension02.png "Select Notification Service Extensions")](enhanced-user-notifications-images/extension02.png#lightbox)
+    [![Select Notification Service Extensions](enhanced-user-notifications-images/extension02.png)](enhanced-user-notifications-images/extension02.png#lightbox)
 4. Enter a **Name** for the extension and click the **Next** button: 
 
-    [![](enhanced-user-notifications-images/extension03.png "Enter a Name for the extension")](enhanced-user-notifications-images/extension03.png#lightbox)
+    [![Enter a Name for the extension](enhanced-user-notifications-images/extension03.png)](enhanced-user-notifications-images/extension03.png#lightbox)
 5. Adjust the **Project Name** and/or **Solution Name** if required and click the **Create** button: 
 
-    [![](enhanced-user-notifications-images/extension04.png "Adjust the Project Name and/or Solution Name")](enhanced-user-notifications-images/extension04.png#lightbox) 
+    [![Adjust the Project Name and/or Solution Name](enhanced-user-notifications-images/extension04.png)](enhanced-user-notifications-images/extension04.png#lightbox) 
 
 # [Visual Studio](#tab/windows)
 
@@ -551,7 +550,7 @@ To implement a Service Extension in a Xamarin.iOS app, do the following:
 2. Right-click on the Solution Name in the **Solution Explorer** and select **Add > New Project...**.
 3. Select **Visual C# > iOS Extensions > Notification Service Extension**:
 
-    [![](enhanced-user-notifications-images/extension01.w157-sml.png "Select Notification Service Extensions")](enhanced-user-notifications-images/extension01.w157.png#lightbox)
+    [![Select Notification Service Extensions](enhanced-user-notifications-images/extension01.w157-sml.png)](enhanced-user-notifications-images/extension01.w157.png#lightbox)
 4. Enter a **Name** for the extension and click the **OK** button.
 
 -----
@@ -663,11 +662,9 @@ This code decrypts the encrypted content from the `encrypted-content` key, creat
 
 This article has covered all of the ways that Users Notification have been enhanced by iOS 10. It presented the new User Notification framework and how to use it in a Xamarin.iOS app or App Extension.
 
-
-
 ## Related Links
 
-- [iOS 10 Samples](https://docs.microsoft.com/samples/browse/?products=xamarin&term=Xamarin.iOS+iOS10)
+- [iOS 10 Samples](/samples/browse/?products=xamarin&term=Xamarin.iOS%2biOS10)
 - [UserNotifications Framework Reference](https://developer.apple.com/reference/usernotifications)
 - [UserNotificationsUI](https://developer.apple.com/reference/usernotificationsui)
 - [Local and Remote Notification Programming Guide](https://developer.apple.com/documentation/usernotifications)

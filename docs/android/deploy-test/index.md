@@ -4,17 +4,16 @@ description: "This section includes guides that explain how to test an applicati
 ms.prod: xamarin
 ms.assetid: 568C0B85-EFF3-AF6F-5605-95055193D367
 ms.technology: xamarin-android
-author: conceptdev
-ms.author: crdun
+author: davidortinau
+ms.author: daortin
 ms.date: 04/25/2018
 ---
 
-# Deployment and Testing
+# Deployment and Testing of Xamarin.Android Apps
 
 This section includes guides that explain how to test an application,
 optimize its performance, prepare it for release, sign it with a
 certificate, and publish it to an app store.
-
 
 ## [Application Package Sizes](app-package-size.md)
 
@@ -22,6 +21,11 @@ This article examines the constituent parts of a Xamarin.Android
 application package and the associated strategies that can be used for
 efficient package deployment during debug and release stages of
 development.
+
+## [Apply Changes](apply-changes.md)
+
+This guide covers the Apply Changes feature which lets you push
+resource changes to your running app without restarting your app.
 
 ## [Building Apps](building-apps/index.md)
 
@@ -78,11 +82,10 @@ amount of memory consumed by an application.
 This guide explains how to use profiler tools to examine the
 performance and memory usage of an Android app.
 
-
 ## [Preparing an Application for Release](~/android/deploy-test/release-prep/index.md)
 
 After an application has been coded and tested, it is necessary to
-prepare a package for distribution. The first task in preparing 
+prepare a package for distribution. The first task in preparing
 this package is to build the application for release, which mainly entails
 setting some application attributes.
 

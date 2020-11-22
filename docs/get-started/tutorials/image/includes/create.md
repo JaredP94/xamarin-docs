@@ -17,13 +17,13 @@ To complete this tutorial you should have Visual Studio 2019 (latest release), w
                  xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
                  x:Class="ImageTutorial.MainPage">
         <StackLayout Margin="20,35,20,20">
-            <Image Source="http://upload.wikimedia.org/wikipedia/commons/thumb/f/fc/Papio_anubis_%28Serengeti%2C_2009%29.jpg/200px-Papio_anubis_%28Serengeti%2C_2009%29.jpg"
+            <Image Source="https://upload.wikimedia.org/wikipedia/commons/thumb/f/fc/Papio_anubis_%28Serengeti%2C_2009%29.jpg/200px-Papio_anubis_%28Serengeti%2C_2009%29.jpg"
                    HeightRequest="300" />
         </StackLayout>
     </ContentPage>
     ```
 
-    This code declaratively defines the user interface for the page, which consists of an [`Image`](xref:Xamarin.Forms.Image) in a [`StackLayout`](xref:Xamarin.Forms.StackLayout). The [`Image.Source`](xref:Xamarin.Forms.Image.Source) property specifies the image to display, via a URI. The [`Image.Source`](xref:Xamarin.Forms.Image.Source) property is of type [`ImageSource`](xref:Xamarin.Forms.ImageSource), which enables images to be sourced from files, URIs, or resources. For more information, see [Displaying images](~/xamarin-forms/user-interface/images.md#displaying-images) in the [Images in Xamarin.Forms](~/xamarin-forms/user-interface/images.md) guide.
+    This code declaratively defines the user interface for the page, which consists of an [`Image`](xref:Xamarin.Forms.Image) in a [`StackLayout`](xref:Xamarin.Forms.StackLayout). The [`Image.Source`](xref:Xamarin.Forms.Image.Source) property specifies the image to display, via a URI. The [`Image.Source`](xref:Xamarin.Forms.Image.Source) property is of type [`ImageSource`](xref:Xamarin.Forms.ImageSource), which enables images to be sourced from files, URIs, or resources. For more information, see [Displaying images](~/xamarin-forms/user-interface/images.md#display-images) in the [Images in Xamarin.Forms](~/xamarin-forms/user-interface/images.md) guide.
 
     The [`HeightRequest`](xref:Xamarin.Forms.VisualElement) property specifies the height of the `Image` in device-independent units.
 
@@ -56,13 +56,13 @@ To complete this tutorial you should have Visual Studio for Mac (latest release)
                  xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
                  x:Class="ImageTutorial.MainPage">
         <StackLayout Margin="20,35,20,20">
-            <Image Source="http://upload.wikimedia.org/wikipedia/commons/thumb/f/fc/Papio_anubis_%28Serengeti%2C_2009%29.jpg/200px-Papio_anubis_%28Serengeti%2C_2009%29.jpg"
+            <Image Source="https://upload.wikimedia.org/wikipedia/commons/thumb/f/fc/Papio_anubis_%28Serengeti%2C_2009%29.jpg/200px-Papio_anubis_%28Serengeti%2C_2009%29.jpg"
                    HeightRequest="300" />
         </StackLayout>
     </ContentPage>
     ```
 
-    This code declaratively defines the user interface for the page, which consists of an [`Image`](xref:Xamarin.Forms.Image) in a [`StackLayout`](xref:Xamarin.Forms.StackLayout). The [`Image.Source`](xref:Xamarin.Forms.Image.Source) property specifies the image to display, via a URI. The [`Image.Source`](xref:Xamarin.Forms.Image.Source) property is of type [`ImageSource`](xref:Xamarin.Forms.ImageSource), which enables images to be sourced from files, URIs, or resources. For more information, see [Displaying images](~/xamarin-forms/user-interface/images.md#displaying-images) in the [Images in Xamarin.Forms](~/xamarin-forms/user-interface/images.md) guide.
+    This code declaratively defines the user interface for the page, which consists of an [`Image`](xref:Xamarin.Forms.Image) in a [`StackLayout`](xref:Xamarin.Forms.StackLayout). The [`Image.Source`](xref:Xamarin.Forms.Image.Source) property specifies the image to display, via a URI. The [`Image.Source`](xref:Xamarin.Forms.Image.Source) property is of type [`ImageSource`](xref:Xamarin.Forms.ImageSource), which enables images to be sourced from files, URIs, or resources. For more information, see [Displaying images](~/xamarin-forms/user-interface/images.md#display-images) in the [Images in Xamarin.Forms](~/xamarin-forms/user-interface/images.md) guide.
 
     The [`HeightRequest`](xref:Xamarin.Forms.VisualElement) property specifies the height of the `Image` in device-independent units.
 

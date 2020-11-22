@@ -3,8 +3,8 @@ title: "Objective-C Support"
 description: "This document provides a description of the support for Objective-C in .NET Embedding. It discusses Automatic Reference Counting, NSString, Protocols, NSObject protocol, exceptions, and more."
 ms.prod: xamarin
 ms.assetid: 3367A4A4-EC88-4B75-96D0-51B1FCBCE614
-author: lobrien
-ms.author: laobri
+author: davidortinau
+ms.author: daortin
 ms.date: 11/14/2017
 ---
 
@@ -52,8 +52,8 @@ Managed extensions methods are converted into categories. For example, the follo
 
 ```csharp
 public static class SomeExtensions {
-	public static int CountNonNull (this Collection collection) { ... }
-	public static int CountNull (this Collection collection) { ... }
+    public static int CountNonNull (this Collection collection) { ... }
+    public static int CountNull (this Collection collection) { ... }
 }
 ```
 
@@ -76,8 +76,8 @@ Managed indexed properties are converted into object subscripting. For example:
 
 ```csharp
 public bool this[int index] {
-	get { return c[index]; }
-	set { c[index] = value; }
+    get { return c[index]; }
+    set { c[index] = value; }
 }
 ```
 
@@ -92,12 +92,12 @@ which can be used via the Objective-C subscripting syntax:
 
 ```objc
 if ([intCollection [0] isEqual:@42])
-	intCollection[0] = @13;
+    intCollection[0] = @13;
 ```
 
 Depending on the type of your indexer, indexed or keyed subscripting will be generated where appropriate.
 
-This [article](http://nshipster.com/object-subscripting/) is a great introduction to subscripting.
+This [article](https://nshipster.com/object-subscripting/) is a great introduction to subscripting.
 
 ## Main differences with .NET
 
@@ -113,19 +113,19 @@ C# API:
 
 ```csharp
 public class Unique {
-	public Unique () : this (1)
-	{
-	}
+    public Unique () : this (1)
+    {
+    }
 
-	public Unique (int id)
-	{
-	}
+    public Unique (int id)
+    {
+    }
 }
 
 public class SuperUnique : Unique {
-	public SuperUnique () : base (911)
-	{
-	}
+    public SuperUnique () : base (911)
+    {
+    }
 }
 ```
 
@@ -149,7 +149,7 @@ Objective-C does not support operator overloading as C# does, so operators are c
 ```csharp
 public static AllOperators operator + (AllOperators c1, AllOperators c2)
 {
-	return new AllOperators (c1.Value + c2.Value);
+    return new AllOperators (c1.Value + c2.Value);
 }
 ```
 
@@ -159,19 +159,19 @@ to
 + (instancetype)add:(Overloads_AllOperators *)anObjectC1 c2:(Overloads_AllOperators *)anObjectC2;
 ```
 
-However, some .NET languages do not support operator overloading, so it is common to also include a ["friendly"](https://docs.microsoft.com/dotnet/standard/design-guidelines/operator-overloads) named method in addition to the operator overload.
+However, some .NET languages do not support operator overloading, so it is common to also include a ["friendly"](/dotnet/standard/design-guidelines/operator-overloads) named method in addition to the operator overload.
 
 If both the operator version and the "friendly" version are found, only the friendly version will be generated, as they will generate to the same Objective-C name.
 
 ```csharp
 public static AllOperatorsWithFriendly operator + (AllOperatorsWithFriendly c1, AllOperatorsWithFriendly c2)
 {
-	return new AllOperatorsWithFriendly (c1.Value + c2.Value);
+    return new AllOperatorsWithFriendly (c1.Value + c2.Value);
 }
 
 public static AllOperatorsWithFriendly Add (AllOperatorsWithFriendly c1, AllOperatorsWithFriendly c2)
 {
-	return new AllOperatorsWithFriendly (c1.Value + c2.Value);
+    return new AllOperatorsWithFriendly (c1.Value + c2.Value);
 }
 ```
 
@@ -214,10 +214,12 @@ TimeInterval = DateTimeObjectTicks - NSDateReferenceDateTicks / TicksPerSecond
 In this formula: 
 
 - `NSDateReferenceDateTicks` is calculated based on the `NSDate` reference date of 00:00:00 UTC on 1 January 2001: 
+
     ```csharp
     new DateTime (year:2001, month:1, day:1, hour:0, minute:0, second:0, kind:DateTimeKind.Utc).Ticks;
     ```
-- [`TicksPerSecond`](https://docs.microsoft.com/dotnet/api/system.timespan.tickspersecond) is defined on [`TimeSpan`](https://docs.microsoft.com/dotnet/api/system.timespan)
+
+- [`TicksPerSecond`](/dotnet/api/system.timespan.tickspersecond) is defined on [`TimeSpan`](/dotnet/api/system.timespan)
 
 To create the `NSDate` object, the `TimeInterval` is used with the `NSDate` [dateWithTimeIntervalSinceReferenceDate:](https://developer.apple.com/reference/foundation/nsdate/1591577-datewithtimeintervalsincereferen?language=objc) selector.
 
@@ -232,14 +234,16 @@ DateTimeTicks = NSDateTimeIntervalSinceReferenceDate * TicksPerSecond + NSDateRe
 In this formula: 
 
 - `NSDateReferenceDateTicks` is calculated based on the `NSDate` reference date of 00:00:00 UTC on 1 January 2001: 
+
     ```csharp
     new DateTime (year:2001, month:1, day:1, hour:0, minute:0, second:0, kind:DateTimeKind.Utc).Ticks;
     ```
-- [`TicksPerSecond`](https://docs.microsoft.com/dotnet/api/system.timespan.tickspersecond) is defined on [`TimeSpan`](https://docs.microsoft.com/dotnet/api/system.timespan)
 
-After calculating `DateTimeTicks`, the `DateTime` [constructor](https://docs.microsoft.com/dotnet/api/system.datetime.-ctor?#System_DateTime__ctor_System_Int64_System_DateTimeKind_) is invoked, setting its `kind` to `DateTimeKind.Utc`.
+- [`TicksPerSecond`](/dotnet/api/system.timespan.tickspersecond) is defined on [`TimeSpan`](/dotnet/api/system.timespan)
+
+After calculating `DateTimeTicks`, the `DateTime` [constructor](/dotnet/api/system.datetime.-ctor#System_DateTime__ctor_System_Int64_System_DateTimeKind_) is invoked, setting its `kind` to `DateTimeKind.Utc`.
 
 > [!NOTE]
 > `NSDate` can be `nil`, but a `DateTime` is a struct in .NET, which by definition can't be `null`. If you give a `nil` `NSDate`, it will be translated to the default `DateTime` value, which maps to `DateTime.MinValue`.
 
-`NSDate` supports a higher maximum and a lower minimum value than `DateTime`. When converting from `NSDate` to `DateTime`, these higher and lower values are changed to the `DateTime` [MaxValue](https://docs.microsoft.com/dotnet/api/system.datetime.maxvalue) or [MinValue](https://docs.microsoft.com/dotnet/api/system.datetime.minvalue), respectively.
+`NSDate` supports a higher maximum and a lower minimum value than `DateTime`. When converting from `NSDate` to `DateTime`, these higher and lower values are changed to the `DateTime` [MaxValue](/dotnet/api/system.datetime.maxvalue) or [MinValue](/dotnet/api/system.datetime.minvalue), respectively.

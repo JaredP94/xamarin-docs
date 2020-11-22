@@ -3,8 +3,8 @@ title: "Foreground Services"
 ms.prod: xamarin
 ms.assetid: C10FD999-7A91-4708-B642-0C1B0901BD24
 ms.technology: xamarin-android
-author: conceptdev
-ms.author: crdun
+author: davidortinau
+ms.author: daortin
 ms.date: 03/19/2018
 ---
 
@@ -100,4 +100,4 @@ If the service is halted with a call to `StopSelf` or `StopService`, the status 
 - [Android.App.Service](xref:Android.App.Service)
 - [Android.App.Service.StartForeground](xref:Android.App.Service.StartForeground*)
 - [Local Notifications](~/android/app-fundamentals/notifications/local-notifications.md)
-- [ForegroundServiceDemo (sample)](https://docs.microsoft.com/samples/xamarin/monodroid-samples/applicationfundamentals-servicesamples-foregroundservicedemo)
+- [ForegroundServiceDemo (sample)](/samples/xamarin/monodroid-samples/applicationfundamentals-servicesamples-foregroundservicedemo)

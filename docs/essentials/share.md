@@ -4,8 +4,9 @@ description: "The Share class in Xamarin.Essentials enables an application to sh
 ms.assetid: B7B01D55-0129-4C87-B515-89F8F4E94665
 author: jamesmontemagno
 ms.author: jamont
-ms.date: 04/02/2019
+ms.date: 01/06/2020
 ms.custom: video
+no-loc: [Xamarin.Forms, Xamarin.Essentials]
 ---
 
 # Xamarin.Essentials: Share
@@ -54,35 +55,9 @@ User interface to share to external application that appears when request is mad
 
 ![Share](images/share.png)
 
-## Platform Differences
+## File
 
-# [Android](#tab/android)
-
-* `Subject` property is used for desired subject of a message.
-
-# [iOS](#tab/ios)
-
-* `Subject` not used.
-* `Title` not used.
-
-# [UWP](#tab/uwp)
-
-* `Title` will default to Application Name if not set.
-* `Subject` not used.
-
------
-
-## Files
-
-![Preview feature](~/media/shared/preview.png)
-
-Sharing files is available as an experimental preview in Xamarin.Essentials version 1.1.0. This features enables an app to share files to other applications on the device. To enable this feature set the following property in your app's startup code:
-
-```csharp
-ExperimentalFeatures.Enable(ExperimentalFeatures.ShareFileRequest);
-```
-
-After the feature enabled any file can be shared. Xamarin.Essentials will automatically detect the file type (MIME) and request a share. Each platform may only support specific file extensions.
+This features enables an app to share files to other applications on the device. Xamarin.Essentials will automatically detect the file type (MIME) and request a share. Each platform may only support specific file extensions.
 
 Here is a sample of writing text to disk and sharing it to other apps:
 
@@ -98,9 +73,127 @@ await Share.RequestAsync(new ShareFileRequest
 });
 ```
 
+## Multiple Files
+
+![Pre-release API](~/media/shared/preview.png)
+
+The usage of share multiple files differs from the single file only in the ability of sending several files at once:
+
+```csharp
+var file1 = Path.Combine(FileSystem.CacheDirectory, "Attachment1.txt");
+File.WriteAllText(file, "Content 1");
+var file2 = Path.Combine(FileSystem.CacheDirectory, "Attachment2.txt");
+File.WriteAllText(file, "Content 2");
+
+await Share.RequestAsync(new ShareMultipleFilesRequest
+{
+    Title = ShareFilesTitle,
+    Files = new ShareFile[] { new ShareFile(file1), new ShareFile(file2) }
+});
+```
+
+## Presentation Location
+
+When requesting a share on iPadOS you have the ability to present in a pop over control. This specifies where the pop over will appear and point an arrow directly to. This location is often the control that launched the action. You can specify the location using the `PresentationSourceBounds` property:
+
+```csharp
+await Share.RequestAsync(new ShareFileRequest
+{
+    Title = Title,
+    File = new ShareFile(file),
+    PresentationSourceBounds = DeviceInfo.Platform== DevicePlatform.iOS && DeviceInfo.Idiom == DeviceIdiom.Tablet
+                            ? new System.Drawing.Rectangle(0, 20, 0, 0)
+                            : System.Drawing.Rectangle.Empty
+});
+```
+
+If you are using Xamarin.Forms you are able to pass in a `View` and calculate the bounds:
+
+
+```
+public static class ViewHelpers
+{
+    public static Rectangle GetAbsoluteBounds(this Xamarin.Forms.View element)
+    {
+        Element looper = element;
+
+        var absoluteX = element.X + element.Margin.Top;
+        var absoluteY = element.Y + element.Margin.Left;
+
+        // Add logic to handle titles, headers, or other non-view bars
+
+        while (looper.Parent != null)
+        {
+            looper = looper.Parent;
+            if (looper is Xamarin.Forms.View v)
+            {
+                absoluteX += v.X + v.Margin.Top;
+                absoluteY += v.Y + v.Margin.Left;
+            }
+        }
+
+        return new Rectangle(absoluteX, absoluteY, element.Width, element.Height);
+    }
+
+    public static System.Drawing.Rectangle ToSystemRectangle(this Rectangle rect) =>
+        new System.Drawing.Rectangle((int)rect.X, (int)rect.Y, (int)rect.Width, (int)rect.Height);
+}
+```
+
+This can then be used when calling `RequstAsync`:
+
+```csharp
+public Command<Xamarin.Forms.View> ShareCommand { get; } = new Command<Xamarin.Forms.View>(Share);
+async void Share(Xamarin.Forms.View element)
+{
+    try
+    {
+        Analytics.TrackEvent("ShareWithFriends");
+        var bounds = element.GetAbsoluteBounds();
+
+        await Share.RequestAsync(new ShareTextRequest
+        {
+            PresentationSourceBounds = bounds.ToSystemRectangle(),
+            Title = "Title",
+            Text = "Text"
+        });
+    }
+    catch (Exception)
+    {
+        // Handle exception that share failed
+    }
+}
+```
+
+You can pass in the calling element when the `Command` is triggered:
+
+```xml
+<Button Text="Share"
+        Command="{Binding ShareWithFriendsCommand}"
+        CommandParameter="{Binding Source={RelativeSource Self}}"/>
+```
+
+## Platform Differences
+
+# [Android](#tab/android)
+
+- `Subject` property is used for desired subject of a message.
+
+# [iOS](#tab/ios)
+
+- `Subject` not used.
+- `Title` not used.
+
+# [UWP](#tab/uwp)
+
+- `Title` will default to Application Name if not set.
+- `Subject` not used.
+
+-----
+
 ## API
 
-- [Share source code](https://github.com/xamarin/Essentials/tree/master/Xamarin.Essentials/Share)
+- [Share source code](https://github.com/xamarin/Essentials/tree/main/Xamarin.Essentials/Share)
 - [Share API documentation](xref:Xamarin.Essentials.Share)
 
 ## Related Video

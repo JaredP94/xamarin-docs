@@ -4,8 +4,8 @@ description: "This document describes Xamarin.iOS at a low level, discussing how
 ms.prod: xamarin
 ms.assetid: F40F2275-17DA-4B4D-9678-618FF25C6803
 ms.technology: xamarin-ios
-author: lobrien
-ms.author: laobri
+author: davidortinau
+ms.author: daortin
 ms.date: 03/21/2017
 ---
 
@@ -20,13 +20,13 @@ native or managed system.
 
 The diagram below shows a basic overview of this architecture:
 
-[![](architecture-images/ios-arch-small.png "This diagram shows a basic overview of the Ahead of Time (AOT) compilation architecture")](architecture-images/ios-arch.png#lightbox)
+[![This diagram shows a basic overview of the Ahead of Time (AOT) compilation architecture](architecture-images/ios-arch-small.png)](architecture-images/ios-arch.png#lightbox)
 
 ## Native and Managed code: An Explanation
 
 When developing for Xamarin the terms *native and managed* code are often used. [Managed
-code](https://blogs.msdn.microsoft.com/brada/2004/01/09/what-is-managed-code/) is code that has its execution managed by the [.NET Framework Common
-Language Runtime](https://msdn.microsoft.com/library/8bs2ecf4(v=vs.110).aspx), or in Xamarin’s case: the Mono Runtime. This is what we call
+code](/archive/blogs/brada/what-is-managed-code) is code that has its execution managed by the [.NET Framework Common
+Language Runtime](/dotnet/standard/clr), or in Xamarin’s case: the Mono Runtime. This is what we call
 an intermediate language.
 
 Native code is code that will run natively
@@ -42,7 +42,7 @@ When you compile any Xamarin platform application, the Mono C# (or F#)
 compiler will run and will compile your C# and F# code into Microsoft
 Intermediate Language (MSIL). If you are running a Xamarin.Android, a
 Xamarin.Mac application, or even a Xamarin.iOS application on the simulator, the
-[.NET Common Language Runtime (CLR)](https://msdn.microsoft.com/library/8bs2ecf4(v=vs.110).aspx) compiles the MSIL using a Just in Time (JIT)
+[.NET Common Language Runtime (CLR)](/dotnet/standard/clr) compiles the MSIL using a Just in Time (JIT)
 compiler. At runtime this is compiled into a native code, which can run on the
 correct architecture for your application.
 
@@ -55,7 +55,7 @@ code. This produces a native iOS binary, optionally optimized with LLVM for devi
 can be deployed on Apple’s ARM-based processor. A rough diagram of how this fits
 together is illustrated below:
 
-[![](architecture-images/aot.png "A rough diagram of how this fits together")](architecture-images/aot-large.png#lightbox)
+[![A rough diagram of how this fits together](architecture-images/aot.png)](architecture-images/aot-large.png#lightbox)
 
 Using AOT has a number of limitations, which are detailed in the [Limitations](~/ios/internals/limitations.md)
 guide. It also provides a number of improvements over JIT through a reduction in the startup time, and various performance optimizations
@@ -119,7 +119,7 @@ of how this is done:
     -(void)myFunc;
 @end
 
-@implementation	MyViewController {}
+@implementation MyViewController {}
 
     -(void) myFunc
     {
@@ -139,7 +139,6 @@ generated Objective-C class.
 
 There are two types of registrars used in Xamarin.iOS – dynamic and static:
 
-
 - **Dynamic registrars** – The dynamic registrar does the registration of all types in
 your assembly at runtime. It does this by using functions provided by
 [Objective-C’s runtime API](https://developer.apple.com/library/mac/documentation/Cocoa/Reference/ObjCRuntimeRef/). The dynamic registrar therefore has a slower startup,
@@ -154,7 +153,7 @@ time. This is used by default for device builds. The static registrar can also
 be used with the iOS simulator by passing `--registrar:static` as an `mtouch`
 attribute in your project’s build options, as shown below:
 
-    [![](architecture-images/image1.png "Setting Additional mtouch arguments")](architecture-images/image1.png#lightbox)
+    [![Setting Additional mtouch arguments](architecture-images/image1.png)](architecture-images/image1.png#lightbox)
 
 For more information on the specifics of the iOS Type Registration system used
 by Xamarin.iOS, refer to the [Type Registrar](~/ios/internals/registrar.md) guide.
@@ -174,7 +173,6 @@ linked into your final executable so your app knows how to get off the ground.
 At this point our app has started up, Mono is running, we are in managed code
 and we know how to call native code and be called back. The next thing we need
 to do is to actually start adding controls and make the app interactive.
-
 
 ## Generator
 
@@ -230,13 +228,12 @@ Once the Xamarin.iOS.dll has been created, mtouch will bundle all the components
 At a high level, it achieves this by executing the following
 tasks:
 
--   Create an app bundle structure.
--   Copy in your managed assemblies.
--   If linking is enabled, run the managed linker to optimize your assemblies by
+- Create an app bundle structure.
+- Copy in your managed assemblies.
+- If linking is enabled, run the managed linker to optimize your assemblies by
 ripping unused parts out.
--   AOT compilation.
--   Create a native executable, which outputs a series of static libraries (one for each assembly) that are linked into the native executable, so that the native executable consists of the launcher code, the registrar code (if static), and all the outputs from the AOT compiler
-
+- AOT compilation.
+- Create a native executable, which outputs a series of static libraries (one for each assembly) that are linked into the native executable, so that the native executable consists of the launcher code, the registrar code (if static), and all the outputs from the AOT compiler
 
 For more detailed information on the linker and how it is
 used, refer to the [Linker](~/ios/deploy-test/linker.md) guide.

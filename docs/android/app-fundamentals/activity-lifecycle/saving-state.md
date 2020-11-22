@@ -4,8 +4,8 @@ description: "We have covered the theory behind saving state in the Activity Lif
 ms.prod: xamarin
 ms.assetid: A6090101-67C6-4BDD-9416-F2FB74805A87
 ms.technology: xamarin-android
-author: conceptdev
-ms.author: crdun
+author: davidortinau
+ms.author: daortin
 ms.date: 03/01/2018
 ---
 
@@ -16,7 +16,7 @@ _We have covered the theory behind saving state in the Activity Lifecycle guide;
 ## Activity State Walkthrough
 
 Let's open the **ActivityLifecycle_Start** project (in the
-[ActivityLifecycle](https://docs.microsoft.com/samples/xamarin/monodroid-samples/activitylifecycle)
+[ActivityLifecycle](/samples/xamarin/monodroid-samples/activitylifecycle)
 sample), build it, and run it. This is a very simple project that has
 two activities to demonstrate the activity lifecycle and how the
 various lifecycle methods are called. When you start the application,
@@ -68,6 +68,7 @@ When we click the **Back** button, *Activity B* is destroyed and
 [ActivityLifecycle.SecondActivity] Activity B - OnStop
 [ActivityLifecycle.SecondActivity] Activity B - OnDestroy
 ```
+
 ### Adding a Click Counter
 
 Next, we're going to change the application so that we have a button 
@@ -213,6 +214,6 @@ Lifecycle to preserve state data.
 
 ## Related Links
 
-- [ActivityLifecycle (sample)](https://docs.microsoft.com/samples/xamarin/monodroid-samples/activitylifecycle)
+- [ActivityLifecycle (sample)](/samples/xamarin/monodroid-samples/activitylifecycle)
 - [Activity Lifecycle](~/android/app-fundamentals/activity-lifecycle/index.md)
 - [Android Activity](xref:Android.App.Activity)

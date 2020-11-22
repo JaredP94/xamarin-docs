@@ -2,8 +2,8 @@
 ms.assetid: 7C132A7C-4973-4B2D-98DC-3661C08EA33F
 title: "WPF vs. Xamarin.Forms App Lifecycle"
 description: "This document compares the similarities and differences between the application lifecycle for Xamarin.Forms and WPF applications. It also looks at the visual tree, graphics, resources, and styles."
-author: asb3993
-ms.author: amburns
+author: davidortinau
+ms.author: daortin
 ms.date: 04/26/2017
 ---
 
@@ -83,7 +83,6 @@ Xamarin.Forms is primarily oriented around mobile scenarios. As such, applicatio
 |Activated/Got focus|Window.OnActivated|Page.OnResume|
 |Closed|Window.OnClosing + Window.OnClosed|n/a|
 
-
 Both support hiding/showing child controls as well, in WPF it's a tri-state property `IsVisible` (visible, hidden, and collapsed). In Xamarin.Forms, it's just visible or hidden through the `IsVisible` property.
 
 ### Layout
@@ -142,7 +141,7 @@ There is no exposed API to walk the logical tree in Xamarin.Forms - but you can 
 
 ## Graphics
 
-Xamarin.Forms does not include a graphics system for primitives beyond a simple rectangle (`BoxView`). You can include 3rd party libraries such as [SkiaSharp](~/graphics-games/skiasharp/index.md) to get cross-platform 2D drawing, or [UrhoSharp](~/graphics-games/urhosharp/index.md) for 3D.
+Xamarin.Forms includes a graphics system for drawing primitives, that's called Shapes. For more information about Shapes, see [Xamarin.Forms Shapes](~/xamarin-forms/user-interface/shapes/index.md). In addition, you can include 3rd party libraries such as [SkiaSharp](~/xamarin-forms/user-interface/graphics/index.md) to get cross-platform 2D drawing.
 
 ## Resources
 

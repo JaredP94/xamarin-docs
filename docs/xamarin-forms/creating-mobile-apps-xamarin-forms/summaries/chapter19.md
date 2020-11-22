@@ -7,14 +7,15 @@ ms.assetid: 0AEC3A5C-586E-4D0F-9895-67E99A053A79
 author: davidbritch
 ms.author: dabritch
 ms.date: 07/18/2018
+no-loc: [Xamarin.Forms, Xamarin.Essentials]
 ---
 
 # Summary of Chapter 19. Collection views
 
 [![Download Sample](~/media/shared/download.png) Download the sample](https://github.com/xamarin/xamarin-forms-book-samples/tree/master/Chapter19)
 
-> [!NOTE] 
-> Notes on this page indicate areas where Xamarin.Forms has diverged from the material presented in the book.
+> [!NOTE]
+> This book was published in the spring of 2016, and has not been updated since then. There is much in the book that remains valuable, but some of the material is outdated, and some topics are no longer entirely correct or complete.
 
 Xamarin.Forms defines three views that maintain collections and display their elements:
 
@@ -40,7 +41,7 @@ You can also use `SelectedIndex` to initialize the selected item, but it must be
 
 The `SelectedIndex` property is backed by a bindable property but `Items` is not, so using data binding with a `Picker` is difficult. One solution is to use the `Picker` in combination with an [`ObjectToIndexConverter`](https://github.com/xamarin/xamarin-forms-book-samples/blob/master/Libraries/Xamarin.FormsBook.Toolkit/Xamarin.FormsBook.Toolkit/ObjectToIndexConverter.cs) such as the one in the [**Xamarin.FormsBook.Toolkit**](https://github.com/xamarin/xamarin-forms-book-samples/tree/master/Libraries/Xamarin.FormsBook.Toolkit) library. The [**PickerBinding**](https://github.com/xamarin/xamarin-forms-book-samples/tree/master/Chapter19/PickerBinding) demonstrates how this works.
 
-> [!NOTE] 
+> [!NOTE]
 > The Xamarin.Forms `Picker` now includes `ItemsSource` and `SelectedItem` properties that support data binding. See [Picker](~/xamarin-forms/user-interface/picker/index.md).
 
 ## Rendering data with ListView
@@ -128,7 +129,7 @@ Generally an application obtains user interaction with a `ListView` by attaching
 
 ### A collection of ViewModels
 
-To explore this, the [**SchoolOfFineArts**](https://github.com/xamarin/xamarin-forms-book-samples/tree/master/Libraries/SchoolOfFineArt) library creates several classes based on an [XML data file](http://xamarin.github.io/xamarin-forms-book-samples/SchoolOfFineArt/students.xml) and images of fictitious students at this fictitious school.
+To explore this, the [**SchoolOfFineArts**](https://github.com/xamarin/xamarin-forms-book-samples/tree/master/Libraries/SchoolOfFineArt) library creates several classes based on an [XML data file](https://xamarin.github.io/xamarin-forms-book-samples/SchoolOfFineArt/students.xml) and images of fictitious students at this fictitious school.
 
 The [`Student`](https://github.com/xamarin/xamarin-forms-book-samples/blob/master/Libraries/SchoolOfFineArt/SchoolOfFineArt/Student.cs) class derives from [`ViewModelBase`](https://github.com/xamarin/xamarin-forms-book-samples/blob/master/Libraries/SchoolOfFineArt/SchoolOfFineArt/ViewModelBase.cs). The [`StudentBody`](https://github.com/xamarin/xamarin-forms-book-samples/blob/master/Libraries/SchoolOfFineArt/SchoolOfFineArt/StudentBody.cs) class is a collection of `Student` objects and also derives from `ViewModelBase`. The [`SchoolViewModel`](https://github.com/xamarin/xamarin-forms-book-samples/blob/master/Libraries/SchoolOfFineArt/SchoolOfFineArt/SchoolViewModel.cs) downloads the XML file and assembles all the objects.
 
@@ -223,8 +224,6 @@ The [**ConditionalSection**](https://github.com/xamarin/xamarin-forms-book-sampl
 ### A TableView menu
 
 Another use of a `TableView` is a menu. The [**MenuCommands**](https://github.com/xamarin/xamarin-forms-book-samples/tree/master/Chapter19/MenuCommands) sample demonstrates a menu that lets you move a little `BoxView` around the screen.
-
-
 
 ## Related links
 

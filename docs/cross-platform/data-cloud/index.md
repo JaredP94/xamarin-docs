@@ -3,20 +3,20 @@ title: "Microsoft Azure and Xamarin"
 description: "This document links to documentation about Connected Services in Visual Studio for Mac, Azure Mobile Apps, Active Directory Authentication, and WebAPI."
 ms.prod: xamarin
 ms.assetid: 7b9aa8d9-c181-4c33-8ab0-2f56e4dbfc04
-author: asb3993
-ms.author: amburns
+author: davidortinau
+ms.author: daortin
 ms.date: 10/09/2017
 ---
 
 # Microsoft Azure and Xamarin
 
-[![](images/evolve-mikej-azure-sml.png "Azure App Services features are easy to add to Xamarin apps, including cloud data storage and cross-platform push notifications")](https://evolve.xamarin.com/session/56ec886fde91c6253c277bc6)
+[![Azure App Services features are easy to add to Xamarin apps, including cloud data storage and cross-platform push notifications](images/evolve-mikej-azure-sml.png)](https://evolve.xamarin.com/session/56ec886fde91c6253c277bc6)
 
 [Evolve 2016: Developing Connected Apps Using Azure and Xamarin](https://evolve.xamarin.com/session/56ec886fde91c6253c277bc6)
 
 ## Connected Services in Visual Studio for Mac
 
-The new [Connected Services](connected-services.md) feature of Visual Studio for Mac
+The new [Connected Services](/visualstudio/mac/connected-services) feature of Visual Studio for Mac
   helps developers to quickly and easily add Azure functionality to
   mobile applications from within the IDE. Currently available for testing in the Alpha channel.
 
@@ -35,9 +35,7 @@ Configure your apps on the [Azure App Services portal](https://portal.azure.com/
 ## Active Directory Authentication
 
 [Azure Active Directory](~/cross-platform/data-cloud/active-directory/index.md)
-  can be used to login users in Xamarin apps via the
-  [Xamarin.Auth Component](https://www.nuget.org/packages/Xamarin.Auth/).
-  The apps can then access additional services like Office 365.
+  can be used to login users to Xamarin apps. The apps can then access additional services like Office 365.
 
 ## WebAPI
 
@@ -46,7 +44,6 @@ Microsoft's Web API exposes a REST-like interface
   You can easily spin-up an [Azure Website](https://trywebsites.azurewebsites.net/)
   and build a WebAPI-based app to connect to Xamarin
   apps.
-
 
 ### [Introduction To Web Services](~/cross-platform/data-cloud/web-services/index.md)
 
@@ -70,7 +67,6 @@ incorporated into Xamarin apps:
 
 - [eShop](https://github.com/dotnet-architecture/eShopOnContainers) – sample for the [Architecture series](https://www.microsoft.com/net/learn/architecture) of ebooks.
 - [MyDriving](https://azure.microsoft.com/campaigns/mydriving/) – Azure + IoT sample from Build 2016.
-
 
 ## Related Links
 

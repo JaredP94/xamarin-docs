@@ -7,12 +7,13 @@ ms.technology: xamarin-forms
 author: davidbritch
 ms.author: dabritch
 ms.date: 05/28/2019
+no-loc: [Xamarin.Forms, Xamarin.Essentials]
 ms.custom: video
 ---
 
 # Dynamic Styles in Xamarin.Forms
 
-[![Download Sample](~/media/shared/download.png) Download the sample](https://docs.microsoft.com/samples/xamarin/xamarin-forms-samples/userinterface-styles-dynamicstyles)
+[![Download Sample](~/media/shared/download.png) Download the sample](/samples/xamarin/xamarin-forms-samples/userinterface-styles-dynamicstyles)
 
 _Styles do not respond to property changes, and remain unchanged for the duration of an application. For example, after assigning a Style to a visual element, if one of the Setter instances is modified, removed, or a new Setter instance added, the changes won't be applied to the visual element. However, applications can respond to style changes dynamically at runtime by using dynamic resources._
 
@@ -79,8 +80,8 @@ public partial class DynamicStylesPage : ContentPage
 
 When the `OnButtonClicked` event handler is executed, `searchBarStyle` will switch between `blueSearchBarStyle` and `greenSearchBarStyle`. This results in the appearance shown in the following screenshots:
 
-[![](dynamic-images/dynamic-style-blue.png "Blue Dynamic Style Example")](dynamic-images/dynamic-style-blue-large.png#lightbox "Blue Dynamic Style Example")
-[![](dynamic-images/dynamic-style-green.png "Green Dynamic Style Example")](dynamic-images/dynamic-style-green-large.png#lightbox "Green Dynamic Style Example")
+[![Blue Dynamic Style Example](dynamic-images/dynamic-style-blue.png)](dynamic-images/dynamic-style-blue-large.png#lightbox)
+[![Green Dynamic Style Example](dynamic-images/dynamic-style-green.png)](dynamic-images/dynamic-style-green-large.png#lightbox)
 
 The following code example demonstrates the equivalent page in C#:
 
@@ -158,8 +159,8 @@ The [`SearchBar`](xref:Xamarin.Forms.SearchBar) instances use the `StaticResourc
 
 In the code-behind file, the constructor creates a [`ResourceDictionary`](xref:Xamarin.Forms.ResourceDictionary) entry with the key `searchBarStyle`, as per the previous example that demonstrated dynamic styles. When the `OnButtonClicked` event handler is executed, `searchBarStyle` will switch between `blueSearchBarStyle` and `greenSearchBarStyle`. This results in the appearance shown in the following screenshots:
 
-[![](dynamic-images/dynamic-style-inheritance-blue.png "Blue Dynamic Style Inheritance Example")](dynamic-images/dynamic-style-inheritance-blue-large.png#lightbox "Blue Dynamic Style Inheritance Example")
-[![](dynamic-images/dynamic-style-inheritance-green.png "Green Dynamic Style Inheritance Example")](dynamic-images/dynamic-style-inheritance-green-large.png#lightbox "Green Dynamic Style Inheritance Example")
+[![Blue Dynamic Style Inheritance Example](dynamic-images/dynamic-style-inheritance-blue.png)](dynamic-images/dynamic-style-inheritance-blue-large.png#lightbox)
+[![Green Dynamic Style Inheritance Example](dynamic-images/dynamic-style-inheritance-green.png)](dynamic-images/dynamic-style-inheritance-green-large.png#lightbox)
 
 The following code example demonstrates the equivalent page in C#:
 
@@ -206,8 +207,8 @@ The `tealSearchBarStyle` is assigned directly to the [`Style`](xref:Xamarin.Form
 ## Related links
 
 - [XAML Markup Extensions](~/xamarin-forms/xaml/xaml-basics/xaml-markup-extensions.md)
-- [Dynamic Styles (sample)](https://docs.microsoft.com/samples/xamarin/xamarin-forms-samples/userinterface-styles-dynamicstyles)
-- [Working with Styles (sample)](https://docs.microsoft.com/samples/xamarin/xamarin-forms-samples/workingwithstyles)
+- [Dynamic Styles (sample)](/samples/xamarin/xamarin-forms-samples/userinterface-styles-dynamicstyles)
+- [Working with Styles (sample)](/samples/xamarin/xamarin-forms-samples/workingwithstyles)
 - [ResourceDictionary](xref:Xamarin.Forms.ResourceDictionary)
 - [Style](xref:Xamarin.Forms.Style)
 - [Setter](xref:Xamarin.Forms.Setter)

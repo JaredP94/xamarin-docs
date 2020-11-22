@@ -5,8 +5,8 @@ ms.prod: xamarin
 ms.assetid: F1124734-DF44-F1F3-0832-46F52A788CDC
 ms.technology: xamarin-ios
 ms.date: 11/25/2015
-author: lobrien
-ms.author: laobri
+author: davidortinau
+ms.author: daortin
 ---
 
 # Creating a Xamarin.iOS application using the Elements API
@@ -15,14 +15,14 @@ _This article builds upon the information presented in the Introduction to MonoT
 
 In this walkthrough, we’ll use the MT.D Elements API to create a
 master-detail style of application that displays a task list. When the user
-selects the <span class="ui">+</span> button in the navigation bar, a new row
+selects the **+** button in the navigation bar, a new row
 will be added to the table for the task. Selecting the row will navigate to the
 detail screen that allows us to update the task description and the due date, as
 illustrated below:
 
- [![](elements-api-walkthrough-images/01-task-list-app.png "Selecting the row will navigate to the detail screen that allows us to update the task description and the due date")](elements-api-walkthrough-images/01-task-list-app.png#lightbox)
+[![Selecting the row will navigate to the detail screen that allows us to update the task description and the due date](elements-api-walkthrough-images/01-task-list-app.png)](elements-api-walkthrough-images/01-task-list-app.png#lightbox)
 
- ## Setting up MT.D
+## Setting up MT.D
 
 MT.D is distributed with Xamarin.iOS. To use it, right-click on the
 **References** node of a Xamarin.iOS project in Visual Studio 2017 or
@@ -42,11 +42,11 @@ To start the screen creation process, MonoTouch.Dialog creates a `DialogViewCont
 
 To create a multi-screen application with MonoTouch.Dialog, we need to:
 
-1.  Create a `UINavigationController.`
-1.  Create a `DialogViewController.`
-1.  Add the `DialogViewController` as the root of the  `UINavigationController.` 
-1.  Add a `RootElement` to the  `DialogViewController.`
-1.  Add `Sections` and  `Elements` to the  `RootElement.` 
+1. Create a `UINavigationController.`
+1. Create a `DialogViewController.`
+1. Add the `DialogViewController` as the root of the  `UINavigationController.` 
+1. Add a `RootElement` to the  `DialogViewController.`
+1. Add `Sections` and  `Elements` to the  `RootElement.` 
 
 ### Using A UINavigationController
 
@@ -79,7 +79,7 @@ with the string “To Do List,” which serves as the title in the navigation
 controller’s navigation bar. At this point, running the application would
 present the screen shown below:
 
- [![](elements-api-walkthrough-images/02-to-do-list-screen-.png "Running the application will present the screen shown here")](elements-api-walkthrough-images/02-to-do-list-screen-.png#lightbox)
+ [![Running the application will present the screen shown here](elements-api-walkthrough-images/02-to-do-list-screen-.png)](elements-api-walkthrough-images/02-to-do-list-screen-.png#lightbox)
 
 Let’s see how to use MonoTouch.Dialog’s hierarchical structure of `Sections` and `Elements` to add more screens.
 
@@ -96,14 +96,14 @@ we’ll see next.
 ### Using DialogViewController
 
 The `DialogViewController`, being a `UITableViewController` subclass, has a `UITableView` as
-its view. In this example, we want to add items to the table each time the <span class="ui">+</span> button is tapped. Since the `DialogViewController` was added to a `UINavigationController`, we can use the `NavigationItem`’s `RightBarButton` property to add the <span class="ui">+</span> button, as shown below:
+its view. In this example, we want to add items to the table each time the **+** button is tapped. Since the `DialogViewController` was added to a `UINavigationController`, we can use the `NavigationItem`’s `RightBarButton` property to add the **+** button, as shown below:
 
 ```csharp
 _addButton = new UIBarButtonItem (UIBarButtonSystemItem.Add);
 _rootVC.NavigationItem.RightBarButtonItem = _addButton;
 ```
 
-When we created the `RootElement` earlier, we passed it a single `Section` instance so that we could add elements as the <span class="ui">+</span> button is tapped by the user. We can use the following code
+When we created the `RootElement` earlier, we passed it a single `Section` instance so that we could add elements as the **+** button is tapped by the user. We can use the following code
 to accomplish this in the event handler for the button:
 
 ```csharp
@@ -156,13 +156,13 @@ The task detail screen itself is composed of two sections; each of these
 sections contains a single element. The first element is created from an `EntryElement` to provide an editable row for the task’s `Description` property. When the element is selected, a keyboard for
 text editing is presented as shown below:
 
- [![](elements-api-walkthrough-images/03-create-task.png "When the element is selected, a keyboard for text editing is presented as shown")](elements-api-walkthrough-images/03-create-task.png#lightbox)
+ [![When the element is selected, a keyboard for text editing is presented as shown](elements-api-walkthrough-images/03-create-task.png)](elements-api-walkthrough-images/03-create-task.png#lightbox)
 
 The second section contains a `DateElement` that lets us manage
 the task’s `DueDate` property. Selecting the date automatically
 loads a date picker as shown:
 
- [![](elements-api-walkthrough-images/04-date-picker.png "Selecting the date automatically loads a date picker as")](elements-api-walkthrough-images/04-date-picker.png#lightbox)
+ [![Selecting the date automatically loads a date picker as](elements-api-walkthrough-images/04-date-picker.png)](elements-api-walkthrough-images/04-date-picker.png#lightbox)
 
 In both the `EntryElement` and `DateElement` cases (or
 for any data-entry element in MonoTouch.Dialog), any changes to the values are
@@ -179,7 +179,7 @@ screens. In addition, it showed how to use MT.D in conjunction with a `UINavigat
 
 ## Related links
 
-- [MTDWalkthrough (sample)](https://docs.microsoft.com/samples/xamarin/ios-samples/mtdwalkthrough)
+- [MTDWalkthrough (sample)](/samples/xamarin/ios-samples/mtdwalkthrough)
 - [Introduction to MonoTouch.Dialog](~/ios/user-interface/monotouch.dialog/index.md)
 - [Reflection API Walkthrough](~/ios/user-interface/monotouch.dialog/reflection-api-walkthrough.md)
 - [JSON Element Walkthrough](~/ios/user-interface/monotouch.dialog/json-element-walkthrough.md)

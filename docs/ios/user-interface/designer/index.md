@@ -4,14 +4,17 @@ description: "This document describes how to use the Xamarin Designer for iOS to
 ms.prod: xamarin
 ms.assetid: E35EFB69-EBBA-40E3-ADBE-CB8016F17127
 ms.technology: xamarin-ios
-author: lobrien
-ms.author: laobri
+author: davidortinau
+ms.author: daortin
 ms.date: 05/31/2018
 ---
 
 # Building User Interfaces with the iOS Designer
 
 _The Xamarin Designer for iOS is a visual designer for the iOS Storyboard and Interface Builder formats that is fully integrated with Visual Studio for Mac and Visual Studio. The iOS Designer maintains full compatibility with the Storyboard and .xib formats, so that files can be edited in either Visual Studio for Mac or Visual Studio in addition to Xcode's Interface Builder. Additionally, the Xamarin Designer for iOS supports advanced features such as custom controls that render at design-time in the editor._
+
+> [!WARNING]
+> The recommended way to build iOS user interfaces is now directly on a Mac running Xcode. More information can be [found here](~/ios/user-interface/ios-use-xcode.md).
 
 # [Visual Studio for Mac](#tab/macos)
 
